@@ -191,7 +191,7 @@ const faqs = [
         <dl class="facts">
           <div><dt>Length</dt><dd>6 months</dd></div>
           <div><dt>Registration closes</dt><dd>{COHORT.registrationCloses}</dd></div>
-          <div><dt>Cohort begins</dt><dd>{COHORT.begins}<small>{COHORT.time}</small></dd></div>
+          <div><dt>Cohort begins</dt><dd>{COHORT.begins}, <small>at {COHORT.time}</small></dd></div>
           <div><dt>Investment</dt><dd>{COHORT.investment}</dd></div>
           <div><dt>Seats</dt><dd>{COHORT.seats}</dd></div>
         </dl>
@@ -326,7 +326,7 @@ const faqs = [
   .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin: 0; padding-block: 20px; border-block: 1px solid var(--line); }
   .facts dt { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--pink-deep); }
   .facts dd { margin: 4px 0 0; font-weight: 600; color: var(--ink); }
-  .facts small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+  .facts small { font-weight: 400; color: var(--muted); font-size: inherit; }
   .fine { font-size: 12px; color: var(--muted); }
 
   .testimonies { max-width: 880px; margin: 0 auto; }
