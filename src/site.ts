@@ -5,6 +5,11 @@ export const APPLY_URL = 'https://calendly.com/d/dwcn-cp2-697';
 // Paste it between the quotes. While it is empty, the buy buttons show "Coming soon".
 export const QUIZ_CHECKOUT_URL = '';
 
+// The unlocked quiz, for buyers only. It is not linked anywhere on the website.
+// Paste this link into Flodesk: as the checkout's after-purchase redirect, and as the
+// "Take My Quiz" button in the delivery email. kingdomroe.com/mini-quiz sends people to the sales page.
+export const QUIZ_UNLOCKED_URL = 'https://kingdomroe.com/which-daughter-quiz-irwphk9q/';
+
 // The sales page for the mini quiz, here on the website.
 export const QUIZ_PAGE = '/which-daughter/';
 
