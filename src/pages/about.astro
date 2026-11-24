@@ -6,7 +6,7 @@ const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 
 const stats = [
   ['20+ years', 'In ministry'],
-  ['2019', 'Online prophetic coach'],
+  ['2019', 'Became an online prophetic coach'],
   ['1,000+', 'Women served'],
 ];
 
@@ -15,7 +15,7 @@ const chapters = [
     when: '2017 to 2019',
     title: 'Called as a Prophet, Sent Into the Online Space',
     body: [
-      'I knew the Lord called me at a young age as a Prophet, but I didn’t receive who I was until 2017. Two years later, He led me online as a prophetic coach, something I had never seen anyone else do before. It was the first time I publicly announced myself as a prophet, and things began to shift swiftly.',
+      'I knew from a young age that the Lord had called me as a prophet, but I didn’t receive who I was until 2017. Two years later, He led me online as a prophetic coach, something I had never seen anyone else do before. It was the first time I publicly announced myself as a prophet, and things began to shift swiftly.',
       'I had no idea what an “online prophetic coach” was even supposed to look like. So I did what I had always done in my office: gave counsel and strategy for the future. I launched in headfirst, and I found an audience that was untapped and untouched.',
     ],
   },
@@ -41,15 +41,15 @@ const chapters = [
     title: 'Building From Identity and Purpose',
     body: [
       'Then something in me shifted. I stepped out on faith and launched an offer beyond anything I had priced before: a cohort for women ready not only to walk in their gift, but to lay a foundation and build a coaching business on it.',
-      'My first five clients enrolled. And as they walked through the process and trusted me to take them there, they began making sales and creating income of their own.',
+      'My first five clients enrolled. As they walked through the process and trusted me to guide them, they began making sales and creating income of their own.',
     ],
   },
   {
     when: 'Today',
-    title: 'I 5X’d My Monthly Income by Moving From Purpose and Identity!',
+    title: 'How I Grew My Monthly Income 5X by Building From Purpose and Identity',
     body: [
       'My identity and my purpose are the foundation of my money-making strategy. With my flagship offer and my lead-generation offers, I have sustained five times my monthly income for two full years.',
-      'Not because I worked harder, but because I stopped moving off of gift alone and started moving from purpose and identity. I could see exactly what women needed, and I had a method to bring them to their next level.',
+      'Not because I worked harder, but because I stopped relying on my gift alone and started building from purpose and identity. I could see exactly what women needed, and I had a method to bring them to their next level.',
     ],
   },
 ];
@@ -64,7 +64,7 @@ const chapters = [
         <p class="eyebrow">My story</p>
         <h1>How I Started a Christian Coaching Business Online After Years in Ministry</h1>
         <hr class="rule" />
-        <p class="lede">So did I. I’m Naomi Shaffer, Prophet and Marketplace Strategist, and I help professional Christian women turn what they know into coaching businesses that attract clients and generate income.</p>
+        <p class="lede">I’m Naomi Shaffer, Prophet and Marketplace Strategist. I help professional Christian women turn what they know into coaching businesses that attract clients and generate income.</p>
         <dl class="stats">
           {stats.map(([n, l]) => <div><dt>{n}</dt><dd>{l}</dd></div>)}
         </dl>
@@ -91,9 +91,9 @@ const chapters = [
       </figure>
 
       <div class="chapter">
-        <p>Every spiritual coaching practice must be built on a strong, secure foundation. That foundation is your spiritual identity, which reveals the gifts God has given you to walk in your purpose, which shows you what you have to offer and who you are called to offer it to.</p>
-        <p>You already have the anointing and the expertise. In six months, you’ll build an online flagship offer and a content and sales strategy that attracts the right audience, so you can launch into the online space creating impact and income. With just one offer, you can 2X, 3X, even 5X your income and grow your coaching business online.</p>
-        <p>I grew up a church girl, and I’ve been in ministry since I was 15. When the Lord led me online in 2019, my life was never the same. Bring me what you know and what you carry, and I will help you build on it.</p>
+        <p>Every faith-based coaching business must be built on a strong, secure foundation. That foundation is your spiritual identity. Your identity reveals the gifts God has given you, and your purpose shows you what you have to offer and who you are called to offer it to.</p>
+        <p>You already have the anointing and the expertise. Inside The Called Method™ 6-Month Cohort, you’ll build a flagship offer, along with a content and sales strategy that attracts the right audience, so you can launch into the online space creating both impact and income. One aligned offer can position you to 2X, 3X, even 5X your income.</p>
+        <p>I grew up in the church, and I’ve been in ministry since I was 15. When the Lord led me online in 2019, my life was never the same. Bring me what you know and what you carry, and I will help you build on it.</p>
       </div>
     </div>
   </section>
@@ -106,6 +106,7 @@ const chapters = [
         <h2>Build on a Strong, Secure Foundation</h2>
         <p class="lede">{COHORT.name} begins {COHORT.begins}. Registration closes {COHORT.registrationCloses.replace(', 2027', '')}.</p>
         <div class="cta-pair"><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a><a class="text-link alt-link" href={QUIZ_PAGE}>Not ready to apply? Take my mini quiz <Fragment set:html={arrow} /></a></div>
+        <p class="fine">Results vary based on individual effort and circumstances.</p>
       </div>
     </div>
   </section>
@@ -134,7 +135,8 @@ const chapters = [
   .closing { position: relative; overflow: hidden; background: var(--white); border-radius: var(--radius); border-top: 6px solid var(--pink); box-shadow: 0 10px 40px rgba(40, 15, 10, .06); padding: 72px 32px; text-align: center; display: grid; gap: 20px; justify-items: center; }
   .closing h2 { font-size: clamp(32px, 4vw, 44px); position: relative; }
   .closing .lede { max-width: 600px; position: relative; }
-  .closing .eyebrow, .closing div { position: relative; }
+  .closing .eyebrow, .closing div, .closing .fine { position: relative; }
+  .fine { font-size: 12px; color: var(--muted); }
   .mono { position: absolute; left: 50%; bottom: -60px; transform: translateX(-50%); font-family: var(--display); font-size: 300px; font-weight: 600; color: var(--pink-faint); line-height: 1; pointer-events: none; }
 
   @media (max-width: 900px) {
