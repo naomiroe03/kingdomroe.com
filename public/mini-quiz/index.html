@@ -73,6 +73,12 @@ input:focus{border-color:var(--pink);outline:none}
 .cta{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:26px;display:grid;gap:14px;text-align:center;justify-items:center}
 .cta h3{font-size:clamp(28px,5vw,38px);color:var(--pink)}
 .note{font-size:12px;color:var(--cream-dim)}
+.soft{display:grid;gap:10px;justify-items:center;text-align:center;padding:22px 8px 4px;border-top:1px solid var(--line);color:var(--cream-dim);font-size:15px}
+.soft a{color:var(--pink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.nothanks{appearance:none;background:none;border:0;padding:10px 14px;min-height:44px;color:var(--cream-dim);font:500 14px/1.2 var(--body);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.nothanks:hover{color:var(--cream)}
+.cta .meta{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.cta .list{margin:0;padding-left:20px;display:grid;gap:6px;text-align:left;max-width:520px}
 .adminbar{margin-top:14px;background:var(--panel-2);border:1px solid var(--gold);border-radius:12px;padding:14px 16px;display:grid;gap:10px}
 .adminbar .t{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .adminbar .row{gap:8px}
@@ -96,7 +102,9 @@ footer{text-align:center;font-size:12px;color:var(--cream-dim);padding-top:36px;
 </div>
 
 <script>
-const CHALLENGE_URL = "";   // Flodesk link for The 8-Day Purposeful Content Shift (empty: the quiz ends with Apply)
+// After the results: cohort first, then the strategy session, then the free e-book.
+const STRATEGY_URL = "";   // Calendly link for the Called & Visible Strategy Session. Empty: the button emails Naomi.
+const EBOOK_URL = "https://drive.google.com/file/d/14pAz-hE3RrXPp8YolW8H8Ce1nLbc_pVS/view";   // Seven Keys to Online Authority (PDF)
 const APPLY_URL = "https://calendly.com/d/dwcn-cp2-697";
 const NAOMI_EMAIL = "naomi@kingdomroe.com";
 const SHORT = {CG:"Church Girl", M:"Mystic Daughter", C:"Called Daughter"};
@@ -127,7 +135,7 @@ const R = {
   offer:[["Coaching niche","Faith-Based Entrepreneurship"],["Digital product","Faith-Based Webinars"],["Physical product","Journals and Notebooks"],["Online service","Leadership Coach"],["In-person service","Public Speaking Coach or Teacher"]]}
 };
 
-const S = {view:"cover", email:"", q:0, answers:Array(Q.length).fill(null), result:null, admin:false, owner:false};
+const S = {view:"cover", email:"", q:0, answers:Array(Q.length).fill(null), result:null, offer:0, admin:false, owner:false};
 const ORDER = ["cover","welcome","quiz","results"];
 const STEPS = ["Welcome","Quiz","Results"];
 const $ = s => document.querySelector(s);
@@ -175,7 +183,7 @@ function renderAdmin(){
       <button class="mini" id="adExit">Exit Review Mode</button>
     </div></div>`;
   box.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
-  box.querySelectorAll("[data-res]").forEach(b=>b.onclick=()=>{S.result=b.dataset.res;go("results");});
+  box.querySelectorAll("[data-res]").forEach(b=>b.onclick=()=>{S.result=b.dataset.res;S.offer=0;go("results");});
   document.getElementById("adQ").onchange=e=>{S.q=+e.target.value;go("quiz");};
   document.getElementById("adExit").onclick=()=>{S.admin=false;go("cover");};
 }
@@ -230,19 +238,42 @@ function vResults(){const d=R[S.result];return `<section class="page">
   <div class="block"><h3>Who You're Called to Serve</h3><p>${esc(d.serve)}</p></div>
   <div class="block"><h3>What You Can Offer, Online or In Person</h3><p>You can build your offer online, in person, or both. Here is one place to begin in each area:</p>
     <ul>${d.offer.map(o=>`<li><span class="lbl">${o[0]}:</span> ${esc(o[1])}</li>`).join("")}</ul></div>
-  ${CHALLENGE_URL?`<div class="cta">
-    <p class="eyebrow">Your Next Step</p>
-    <h3>Shift Your Content From Encouragement to Attraction.</h3>
-    <p>Now that you know who you are and who you're called to serve, it's time to show up for her. Stop posting just for encouragement and start attracting the people God has called you to. In eight days, you'll learn how to turn every post into an invitation, so the women who already love what you share know exactly how to work with you.</p>
-    <a class="btn" href="${CHALLENGE_URL}" target="_blank" rel="noopener">Join The 8-Day Purposeful Content Shift™</a>
-  `:`<div class="cta">
-    <p class="eyebrow">Your Next Step</p>
-    <h3>You Know Who You Are. Now Let's Build It.</h3>
-    <p>Now that you know your results, you know your potential. Maybe you already offer a service, and you're ready to bring it to the marketplace. Or maybe you've been working hard to build your coaching business, and your income has stayed at the same level.</p>
-    <p>If you're ready to take your coaching to the next level, I want to show you The Called Method™, the method I used to 5X my monthly income. Let me help you position yourself as an expert, a confident woman of God who does not have to compromise her calling or her anointing to build impact and income.</p>
-    <a class="btn" href="${APPLY_URL}" target="_blank" rel="noopener">Apply to Work With Me</a>
-    <p class="note">Individual experiences and results vary.</p>
-  `}  </div></section>`;}
+  <div id="offer">${vOffer()}</div></section>`;}
+
+function vOffer(){
+  const strategyHref = STRATEGY_URL || ("mailto:"+NAOMI_EMAIL+"?subject="+encodeURIComponent("Called & Visible Strategy Session"));
+  if(S.offer===0) return `<div class="soft">
+    <p>Congratulations, woman of God. Now that you know who you are, I'd love to help you build on it.</p>
+    <p>If you're ready to turn your gifts into a flagship offer that attracts clients and creates income, <a href="${APPLY_URL}" target="_blank" rel="noopener">you can apply to work with me</a> inside The Called Method™ 6-Month Cohort.</p>
+    <button class="nothanks" type="button" data-no>No thanks</button>
+  </div>`;
+  if(S.offer===1) return `<div class="cta">
+    <p class="eyebrow">Not ready for six months? Start here</p>
+    <h3>Called &amp; Visible™ Strategy Session</h3>
+    <p class="meta">1 hour 20 minutes on Zoom · $298</p>
+    <p>What you carry is marketable. Let's find the words for the offer hidden inside of you, and get your ideas down and your content together in one session.</p>
+    <p>Before we meet, you'll take my full Spiritual Daughter Archetype assessment. Then, together, we'll:</p>
+    <ul class="list">
+      <li>Open in prayer and invite God into the conversation</li>
+      <li>Walk through your story, your journey and what you've overcome</li>
+      <li>Narrow your niche down to your three best fits</li>
+      <li>Write your purpose statement: "I help ___ to ___."</li>
+      <li>Map your content direction from the questions your ideal client is already asking</li>
+    </ul>
+    <p>Within 3 business days, you'll receive your <b>Content &amp; Offer Blueprint</b>: your full archetype results, your three best-fit niches and purpose statement, 25 to 30 questions your ideal client is asking with ideas for turning them into content, and the offer ideas that fit your niche.</p>
+    <a class="btn" href="${strategyHref}" target="_blank" rel="noopener">Book My Strategy Session · $298</a>
+    <button class="nothanks" type="button" data-no>No thanks</button>
+    <p class="note">Results vary based on each woman's effort and season.</p>
+  </div>`;
+  return `<div class="cta">
+    <p class="eyebrow">A gift for you</p>
+    <h3>Seven Keys to Online Authority</h3>
+    <p class="meta">Free e-book</p>
+    <p>Before you go, take this with you. My free e-book will help you get your content together and start showing up online with the authority you already carry.</p>
+    <a class="btn" href="${EBOOK_URL}" target="_blank" rel="noopener">Get My Free E-Book</a>
+  </div>`;
+}
+
 
 function render(){
   setSteps();
@@ -256,8 +287,14 @@ function render(){
   if(S.view==="quiz"){
     app.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{S.answers[S.q]=+b.dataset.a;app.querySelectorAll("[data-a]").forEach(x=>x.setAttribute("aria-pressed",x===b));$("#next").disabled=false;setSteps();});
     $("#back").onclick=()=>{if(S.q===0)go("welcome");else{S.q--;render();}};
-    $("#next").onclick=()=>{if(S.answers[S.q]===null&&!S.admin)return;if(S.q<Q.length-1){S.q++;render();}else{S.result=score();go("results");}};
+    $("#next").onclick=()=>{if(S.answers[S.q]===null&&!S.admin)return;if(S.q<Q.length-1){S.q++;render();}else{S.result=score();S.offer=0;go("results");}};
   }
+  if(S.view==="results") bindOffer();
+}
+function bindOffer(){
+  const box=document.getElementById("offer"); if(!box) return;
+  const no=box.querySelector("[data-no]");
+  if(no) no.onclick=()=>{S.offer=Math.min((S.offer||0)+1,2);box.innerHTML=vOffer();bindOffer();box.scrollIntoView({behavior:"smooth",block:"start"});};
 }
 render();
 </script>
