@@ -1,0 +1,202 @@
+---
+import Base from '../layouts/Base.astro';
+import { QUIZ_CHECKOUT_URL } from '../site';
+
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+const discover = [
+  ['Your Spiritual Daughter Archetype', 'How you are spiritually wired, how you function and how you show up in the marketplace.'],
+  ['Who You’re Called to Serve', 'Not everybody. The specific people God has assigned to you, so you can stop speaking to everyone and start reaching the right ones.'],
+  ['What to Offer Them', 'Five services and products that fit your identity and your gifts, from a coaching niche to products and services you could start with.'],
+];
+
+const daughters = [
+  ['The Church Girl', 'Social Seller · Pastor’s Wife', 'The dependable one. The encourager. The woman everyone calls for prayer and a word of hope.'],
+  ['The Mystic Daughter', 'Christian Entrepreneur · Administrator', 'A quiet force. Spiritually perceptive, deeply creative and in tune with what others overlook.'],
+  ['The Called Daughter', 'Coach · Ministry Leader', 'Set apart. Bold, strategic and built for impact.'],
+];
+
+const testimonials = [
+  ['Each day got better and better and the Which Daughter Are You test was dead spot on as to who I am.', 'A.'],
+  ['Before I joined this coaching my identity was shaky and I didn’t think I had anything to offer… By day 3, which deals with spiritual identity, a light bulb went off. I knew that day was vital for me.', 'S.'],
+  ['I started to feel like I was coming alive. I started to feel like I belonged. At the end of it all, I found my purpose, my passion. I found significance, I found direction, I received breakthrough from fear, from doubt, from uncertainties, from devaluing myself and my gift.', 'K.'],
+];
+
+const how = ['7 questions', 'Just a few minutes', 'Your results appear instantly', 'Save your results page, so you can come back to it as you build'];
+---
+<Base
+  title="Which Daughter Are You? Mini Quiz | Kingdom Roe Coaching & Consulting"
+  description="Discover your Spiritual Daughter Archetype, who you're called to serve and five services and products that fit your gifts. A $7 mini quiz from Naomi Shaffer."
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="stack">
+        <p class="eyebrow">The Which Daughter Are You? Mini Quiz</p>
+        <h1>Before You Build the Business, Discover the Daughter God Made You to Be.</h1>
+        <hr class="rule" />
+        <p class="lede">Discover your spiritual identity, the people God has called you to serve, and the services and products you were made to offer.</p>
+        <div class="buy">
+          {QUIZ_CHECKOUT_URL
+            ? <a class="btn" href={QUIZ_CHECKOUT_URL}>Take the Quiz for $7 <Fragment set:html={arrow} /></a>
+            : <span class="btn off" aria-disabled="true">Coming Soon · $7</span>}
+        </div>
+      </div>
+      <div class="product">
+        <img src="/images/which-daughter-quiz.jpg" alt="The Which Daughter Are You? mini quiz shown on two phones" width="1200" height="1200" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band white">
+    <div class="wrap narrow">
+      <p class="eyebrow">You carry more than you can name</p>
+      <h2>You’re Not Missing the Anointing</h2>
+      <p>You have spiritual gifts. You have expertise. You have years of serving people in your church, your career and your community. People already come to you for prayer, wisdom and answers.</p>
+      <p>But when you think about stepping into the marketplace, the questions start. Who am I really called to serve? What should I offer? Where do I even begin?</p>
+      <p class="callout">You’re not missing the anointing. You’re missing the language for what you already carry.</p>
+
+      <p class="eyebrow gap">Why your identity comes first</p>
+      <h2>Your Identity Is the Foundation You Step Out On</h2>
+      <p>Until you know who you are, you’ll keep building from someone else’s blueprint and speaking as someone you’re not.</p>
+      <p>Once you know who you are, you begin to see your purpose. And once you see your purpose, you begin to recognize the people God has called you to and the offer that fits them.</p>
+      <p>That’s why I created the <b>Which Daughter Are You?</b> mini quiz.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">In just a few minutes</p>
+        <h2>You’ll Discover</h2>
+        <hr class="rule" />
+      </div>
+      <ol class="discover">
+        {discover.map(([t, d], i) => (
+          <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band white">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">There are three Daughters</p>
+        <h2>One of Them Is You</h2>
+        <hr class="rule" />
+      </div>
+      <div class="daughters">
+        {daughters.map(([n, tag, d]) => (
+          <article class="daughter"><h3>{n}</h3><p class="tag">{tag}</p><p>{d}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">In their own words</p>
+        <h2>What Women Say About Discovering Who They Are</h2>
+        <hr class="rule" />
+      </div>
+      <div class="quotes">
+        {testimonials.map(([q, n]) => (
+          <figure class="quote"><blockquote>“{q}”</blockquote><figcaption>{n}</figcaption></figure>
+        ))}
+      </div>
+      <p class="fine center">These reflections come from prior coaching experiences. Individual experiences and results vary.</p>
+    </div>
+  </section>
+
+  <section class="band white">
+    <div class="wrap meet">
+      <div class="meet-photo">
+        <img src="/images/naomi-green.jpg" alt="Prophet Naomi Shaffer" width="872" height="1552" />
+      </div>
+      <div class="stack">
+        <p class="eyebrow">Meet Naomi</p>
+        <h2>I’m Naomi Shaffer, Prophet and Marketplace Strategist</h2>
+        <hr class="rule" />
+        <p>I’m the founder of Kingdom Roe Coaching &amp; Consulting.</p>
+        <p>I grew up a church girl and have been in ministry since I was 15. For more than 20 years, I’ve poured into women through prayer, prophetic ministry and leadership. When the Lord led me into the marketplace, I learned that my gifts alone weren’t enough. I had to know who I was and who I was called to serve before I could build anything that lasted.</p>
+        <p>Since then, I’ve helped more than 1,000 women find their identity as daughters and birth the purpose that was already inside of them. This quiz is the first step I walk every woman through, because everything you build stands on who you are.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="offer">
+        <span class="mono" aria-hidden="true">NR</span>
+        <p class="eyebrow">How it works</p>
+        <ul class="how">
+          {how.map((h) => <li>{h}</li>)}
+        </ul>
+        <h2>Your Identity Is Not a Small Thing. It Is the Foundation You Step Out On.</h2>
+        <p class="lede">Discover who God made you to be, who you’re called to serve and what you were made to offer.</p>
+        <p class="price"><span>The Which Daughter Are You? Mini Quiz</span><b>$7</b></p>
+        <div>
+          {QUIZ_CHECKOUT_URL
+            ? <a class="btn" href={QUIZ_CHECKOUT_URL}>Take the Quiz for $7 <Fragment set:html={arrow} /></a>
+            : <span class="btn off" aria-disabled="true">Coming Soon · $7</span>}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: 80px 96px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .stack { display: grid; gap: 18px; min-width: 0; }
+  h1 { font-size: clamp(36px, 4.8vw, 56px); }
+  .buy { margin-top: 10px; }
+  .product img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 24px 60px rgba(40, 15, 10, .18); }
+
+  .narrow { max-width: 760px; display: grid; gap: 18px; }
+  .narrow h2 { font-size: clamp(30px, 3.8vw, 40px); }
+  .gap { margin-top: 40px; }
+  .callout { font-family: var(--display); font-style: italic; font-size: clamp(24px, 3vw, 30px); line-height: 1.35; color: var(--pink-deep); padding: 20px 0; border-block: 1px solid var(--pink-line); }
+
+  .discover { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .discover li { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 12px; align-content: start; }
+  .num { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--pink-soft); color: var(--pink-deep); font-family: var(--display); font-size: 24px; font-weight: 700; }
+  .discover h3, .daughter h3 { font-size: 26px; }
+
+  .daughters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .daughter { border-top: 4px solid var(--pink); background: var(--pink-faint); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 10px; align-content: start; }
+  .tag { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pink-deep); }
+
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+  .quote { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 16px; }
+  .quote blockquote { margin: 0; font-family: var(--display); font-size: 21px; line-height: 1.45; color: var(--ink); }
+  .quote figcaption { font-weight: 600; color: var(--pink-deep); }
+  .fine { margin-top: 28px; font-size: 12px; color: var(--muted); }
+
+  .meet { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+  .meet-photo { position: relative; max-width: 360px; width: 100%; }
+  .meet-photo::before { content: ""; position: absolute; inset: 56px -28px -28px 56px; background: var(--tan); border-radius: 24px; }
+  .meet-photo img { position: relative; width: 100%; height: auto; border-radius: 24px; }
+  .meet h2 { font-size: clamp(30px, 3.6vw, 40px); }
+
+  .offer { position: relative; overflow: hidden; background: var(--white); border-radius: var(--radius); border-top: 6px solid var(--pink); box-shadow: 0 10px 40px rgba(40, 15, 10, .06); padding: 64px 32px; text-align: center; display: grid; gap: 22px; justify-items: center; }
+  .offer > *:not(.mono) { position: relative; }
+  .offer h2 { font-size: clamp(30px, 4vw, 42px); max-width: 760px; }
+  .offer .lede { max-width: 600px; }
+  .how { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .how li { background: var(--pink-faint); border: 1px solid var(--pink-line); color: var(--pink-deep); border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 500; }
+  .price { display: grid; gap: 4px; }
+  .price span { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .price b { font-family: var(--display); font-size: 56px; line-height: 1; color: var(--ink); }
+  .mono { position: absolute; left: 50%; bottom: -60px; transform: translateX(-50%); font-family: var(--display); font-size: 300px; font-weight: 600; color: var(--pink-faint); line-height: 1; pointer-events: none; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .meet { grid-template-columns: 1fr; gap: 48px; }
+    .discover, .daughters, .quotes { grid-template-columns: 1fr; }
+    .meet-photo { width: calc(100% - 28px); max-width: 320px; }
+    .offer { padding: 56px 22px; }
+    .offer .btn { padding: 17px 26px; }
+    .mono { font-size: 220px; }
+  }
+</style>

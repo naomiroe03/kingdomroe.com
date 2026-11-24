@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { APPLY_URL, QUIZ_SALES_URL, COHORT } from '../site';
+import { APPLY_URL, QUIZ_PAGE, COHORT } from '../site';
 
 const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
@@ -251,9 +251,7 @@ const faqs = [
         </div>
         <div class="quiz-cta">
           <p class="italic">In just a few minutes, you’ll stop guessing at your assignment and start building from your identity.</p>
-          {QUIZ_SALES_URL
-            ? <a class="btn" href={QUIZ_SALES_URL} target="_blank" rel="noopener">Take the quiz for $7 <Fragment set:html={arrow} /></a>
-            : <span class="btn off" aria-disabled="true">Take the quiz for $7 · Coming soon</span>}
+          <a class="btn" href={QUIZ_PAGE}>Take the quiz for $7 <Fragment set:html={arrow} /></a>
         </div>
       </div>
     </div>

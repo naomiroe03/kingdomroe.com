@@ -1,9 +1,12 @@
 // Links and details used across the website. Update them here, in one place.
 export const APPLY_URL = 'https://calendly.com/d/dwcn-cp2-697';
 
-// The Flodesk sales page for the $7 Which Daughter Are You? mini quiz.
-// Leave empty until the page is ready; the quiz button shows "Coming soon".
-export const QUIZ_SALES_URL = '';
+// The Flodesk checkout link for the $7 Which Daughter Are You? mini quiz.
+// Paste it between the quotes. While it is empty, the buy buttons show "Coming soon".
+export const QUIZ_CHECKOUT_URL = '';
+
+// The sales page for the mini quiz, here on the website.
+export const QUIZ_PAGE = '/which-daughter/';
 
 export const EMAIL = 'naomi@kingdomroe.com';
 
