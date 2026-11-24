@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+
+interface Props {
+  title: string;
+  heading: string;
+  description: string;
+  updated: string;
+}
+const { title, heading, description, updated } = Astro.props;
+---
+<Base title={title} description={description}>
+  <section class="band">
+    <div class="wrap legal">
+      <p class="eyebrow">Kingdom Roe Coaching &amp; Consulting</p>
+      <h1>{heading}</h1>
+      <hr class="rule" />
+      <p class="updated">Last updated {updated}</p>
+      <div class="body"><slot /></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal { max-width: 780px; }
+  h1 { font-size: clamp(36px, 4.6vw, 50px); margin-top: 14px; }
+  .updated { margin-top: 18px; font-size: 14px; color: var(--muted); }
+  .body { margin-top: 40px; display: grid; gap: 16px; }
+  .body :global(h2) { font-size: clamp(24px, 3vw, 30px); margin-top: 28px; }
+  .body :global(ul) { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+  .body :global(a) { color: var(--pink-deep); }
+  .body :global(strong) { color: var(--ink); font-weight: 600; }
+</style>

@@ -91,3 +91,5 @@ p { margin: 0; }
   .nav.open { display: flex; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+.site-footer .legal-link { color: var(--pink-deep); text-decoration: none; }
+.site-footer .legal-link:hover { text-decoration: underline; }
