@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import { NAV, APPLY_URL, EMAIL } from '../site';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/naomi.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="logo" href="/" aria-label="Kingdom Roe home"><b>KINGDOM ROE</b><span>COACHING &amp; CONSULTING</span></a>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="nav" id="site-nav" aria-label="Main">
+          {NAV.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply now</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="contact">
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          <span>P.O. Box 7413, Columbus, MS 39705</span>
+          <span>Tuesday to Thursday, 9:00 AM to 3:00 PM CST</span>
+          <span>Friday, 10:00 AM to 1:30 PM CST</span>
+          <span>Closed weekends</span>
+        </div>
+        <div class="bottom">
+          <a class="logo" href="/"><b>KINGDOM ROE</b><span>COACHING &amp; CONSULTING</span></a>
+          <span>© {year} Naomi Roe LLC DBA Kingdom Roe Coaching &amp; Consulting</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('menu-toggle');
+      const nav = document.getElementById('site-nav');
+      toggle?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(!!open));
+      });
+      nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      }));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="The Spiritual Daughter Archetype Assessment by Kingdom Roe Coaching & Consulting.">
+<title>Spiritual Daughter Archetype Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: one centered column on a black stage, pink glow behind the photo, pages unlock in order. Single deliberate dark look from the cover art. */
+:root{
+  --ink:#0b0708;          /* black stage, warmed toward brand brown */
+  --panel:#160c0b;        /* raised surfaces */
+  --panel-2:#1f1110;
+  --brown:#280f0a;
+  --pink:#d64492;
+  --pink-deep:#b0326f;
+  --pink-soft:rgba(214,68,146,.16);
+  --glow:rgba(214,68,146,.55);
+  --cream:#f3decd;
+  --cream-dim:#cdb8aa;
+  --gold:#c9a45c;
+  --line:rgba(243,222,205,.14);
+  --display:"Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --body:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 48px}
+.wrap{max-width:720px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+button{font-family:var(--body)}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+
+/* Steps bar */
+.steps{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding-block:20px 8px}
+.step{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);opacity:.45;padding:6px 10px;border-radius:999px;border:1px solid transparent}
+.step svg{width:12px;height:12px;fill:currentColor}
+.step.done{opacity:.85}
+.step.current{opacity:1;color:var(--pink);border-color:var(--pink)}
+.bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin:8px auto 0;max-width:720px}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink-deep),var(--pink));transition:width .35s ease}
+
+/* Cover */
+.cover{text-align:center;padding-block:28px 8px;display:grid;gap:18px;justify-items:center}
+.photo{position:relative;width:100%;max-width:440px}
+.photo::before{content:"";position:absolute;inset:6% 4% 0;background:radial-gradient(closest-side,var(--glow),transparent 75%);filter:blur(18px);z-index:0}
+.photo img{position:relative;z-index:1;display:block;width:100%;border-radius:6px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim)}
+.title{font-size:clamp(38px,8vw,64px);font-weight:700;color:var(--pink);text-shadow:0 0 28px rgba(214,68,146,.35)}
+.ribbon{display:flex;align-items:center;gap:14px;width:100%;max-width:520px}
+.ribbon::before,.ribbon::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--gold))}
+.ribbon::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.ribbon span{background:var(--cream);color:var(--pink-deep);font-weight:700;letter-spacing:.2em;font-size:clamp(13px,2.6vw,17px);padding:8px 22px;border-radius:3px;text-transform:uppercase}
+.tagline{font-family:var(--display);font-style:italic;font-size:clamp(20px,4vw,26px);line-height:1.3;color:var(--cream);max-width:560px}
+.inside{list-style:none;padding:0;margin:0;display:grid;gap:8px;text-align:left;max-width:460px}
+.inside li{padding-left:22px;position:relative;color:var(--cream-dim);font-size:15px}
+.inside li::before{content:"";position:absolute;left:4px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--pink)}
+
+/* Panels and forms */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:16px}
+.form{width:100%;max-width:480px;text-align:left}
+label.f{display:grid;gap:6px;font-size:13px;font-weight:600;letter-spacing:.04em}
+input[type=text],input[type=email]{width:100%;background:var(--ink);color:var(--cream);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font:inherit}
+input:focus{border-color:var(--pink);outline:none}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font-size:13px;font-weight:600;letter-spacing:.04em;margin-bottom:6px}
+.err{color:#ff8fb8;font-size:13px;min-height:1em}
+
+.btn{appearance:none;border:0;border-radius:999px;padding:14px 26px;font-weight:600;font-size:15px;letter-spacing:.02em;cursor:pointer;background:var(--pink);color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,transform .2s}
+.btn:hover{background:var(--pink-deep)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled],.btn.off{opacity:.4;cursor:not-allowed;pointer-events:none}
+.btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--cream-dim);background:transparent}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.row.center{justify-content:center}
+.row.between{justify-content:space-between}
+
+/* Choices */
+.choice{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--ink);color:var(--cream);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font:inherit;font-size:15px;line-height:1.45;cursor:pointer;transition:border-color .2s,background .2s}
+.choice:hover{border-color:var(--cream-dim)}
+.choice[aria-pressed=true]{border-color:var(--pink);background:var(--pink-soft)}
+.choice .k{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--cream-dim)}
+.choice[aria-pressed=true] .k{background:var(--pink);border-color:var(--pink);color:#fff}
+
+/* Reading pages */
+.page{padding-block:24px 0;display:grid;gap:20px}
+.page h2{font-size:clamp(30px,6vw,44px);color:var(--pink)}
+.lede{font-family:var(--display);font-style:italic;font-size:clamp(19px,3.6vw,23px);line-height:1.4}
+.copy{display:grid;gap:14px;color:var(--cream);max-width:65ch}
+.copy p{color:var(--cream)}
+.verse{font-family:var(--display);font-style:italic;font-size:19px;color:var(--cream-dim);border-left:2px solid var(--gold);padding-left:14px}
+.qnum{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim)}
+.qtext{font-family:var(--display);font-size:clamp(24px,4.6vw,32px);font-weight:600;line-height:1.2}
+.small{font-size:13px;color:var(--cream-dim)}
+
+/* Results */
+.result-head{text-align:center;display:grid;gap:10px;justify-items:center;padding-block:12px}
+.result-head .eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim)}
+.result-head h2{font-size:clamp(40px,8vw,60px)}
+.desc{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.scores{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chip{font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--cream-dim);font-variant-numeric:tabular-nums}
+.chip.win{border-color:var(--pink);color:var(--pink)}
+.area{display:grid;gap:10px;padding-block:18px;border-top:1px solid var(--line)}
+.area h3{font-size:26px;color:var(--cream)}
+.area h3 .n{font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--pink);display:block;margin-bottom:4px}
+.area ul,.area ol{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--cream)}
+.area .label{font-weight:600;color:var(--pink)}
+.area em{color:var(--cream-dim)}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:var(--panel-2)}
+td:first-child{font-weight:600;color:var(--pink)}
+.letter{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:22px;font-family:var(--display);font-size:21px;line-height:1.5}
+.letter .sal{font-style:italic;color:var(--pink);display:block;margin-bottom:6px}
+.addr{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--ink);border:1px dashed var(--line);border-radius:10px;padding:12px 14px}
+.addr code{font-family:var(--body);font-weight:600;color:var(--cream);user-select:all}
+textarea{width:100%;min-height:150px;background:var(--ink);color:var(--cream-dim);border:1px solid var(--line);border-radius:8px;padding:12px;font:13px/1.5 var(--body)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--pink);margin-top:2px;flex:none}
+.note{font-size:13px;color:var(--cream-dim)}
+.end{text-align:center;justify-items:center}
+.adminbar{margin-top:14px;background:var(--panel-2);border:1px solid var(--gold);border-radius:12px;padding:14px 16px;display:grid;gap:10px}
+.adminbar .t{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.adminbar .row{gap:8px}
+.mini{appearance:none;border:1px solid var(--line);background:var(--ink);color:var(--cream);border-radius:999px;padding:7px 12px;font:600 12px/1.2 var(--body);cursor:pointer}
+.mini:hover{border-color:var(--pink)}
+.mini.on{border-color:var(--pink);color:var(--pink)}
+.adminbar select{background:var(--ink);color:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 10px;font:600 12px var(--body)}
+footer{text-align:center;font-size:12px;color:var(--cream-dim);padding-top:36px;letter-spacing:.08em}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="steps" id="steps" aria-label="Assessment progress"></nav>
+  <div class="bar" aria-hidden="true"><i id="barfill"></i></div>
+  <div id="admin"></div>
+  <main id="app"></main>
+  <footer>KINGDOM ROE · COACHING &amp; CONSULTING</footer>
+</div>
+
+<script>
+/* Links Naomi will add later */
+const APPLY_URL = "https://calendly.com/d/dwcn-cp2-697";      // Apply to Work With Me (strategy session ending)
+const CALL_URL = "";       // Free 20-minute call (cohort ending)
+const NAOMI_EMAIL = "naomi@kingdomroe.com";
+
+const NAMES = {CG:"The Church Girl", M:"The Mystic Daughter", C:"The Called Daughter"};
+const SHORT = {CG:"Church Girl", M:"Mystic Daughter", C:"Called Daughter"};
+const PROGRAMS = {session:"Called & Visible™ Strategy Session", cohort:"The Called Method™ 6-Month Cohort"};
+
+const Q = [
+ ["A woman from your church messages you: \"Can I pick your brain?\" You:",["Say yes right away and give her an hour for free. You'd feel bad charging her.","Send her something you created, like a guide or journal, that walks her through it.","Help her, and quietly wonder if you should be charging for this kind of time."],["CG","M","C"]],
+ ["You post a video. It gets 40 likes and no messages. Your first thought is:",["\"My content isn't converting. I need a strategy.\"","\"At least it blessed someone.\"","\"Maybe I shouldn't have shared something so personal.\""],["C","CG","M"]],
+ ["When you pray for someone, what usually happens?",["I see pictures, impressions or a vision of what's going on in her life.","I'm moved to help her in practical ways: a meal, a call, a ride.","I hear a clear word for her, or I know what God is saying about her future."],["M","CG","C"],1],
+ ["Someone asks for your price. You:",["Freeze. You're not sure what your work is worth.","State it, then over-explain everything that's included.","Lower it before she even reacts."],["M","C","CG"]],
+ ["Your ideal workday in your business looks like:",["Creating in quiet: designing, writing or making something beautiful","Leading a session, teaching a group or mapping out a strategy","Connecting with people: going live, answering comments, encouraging women"],["M","C","CG"]],
+ ["Your dreams are usually:",["Instructions or warnings about what's coming","Vivid and symbolic. I often wake up needing to write them down.","Rare, and when I do dream, it's usually about the people I love"],["C","M","CG"],1],
+ ["A friend invites you to help host a women's event. You offer to:",["Handle the decor, the flow and the hospitality","Design the flyers, journals or gift items","Teach a session and structure the program"],["CG","M","C"]],
+ ["When you think about going live on camera, you feel:",["Ready, as long as I have something to teach","Excited to connect, but worried I'll ramble","Nervous. I'd rather let my work speak for me."],["C","CG","M"]],
+ ["When you walk into a room, you usually:",["Notice who needs help and quietly start serving","Sense the atmosphere and what people are carrying","Notice who needs a word and what God wants to do"],["CG","M","C"],1],
+ ["You have three business ideas. You:",["Start all three and finish none","Ask your friends which one they like best","Pick the one with the biggest impact, plan it out, then hesitate to launch"],["M","CG","C"]],
+ ["A client cancels at the last minute for the third time. You:",["Let it go. You don't want to seem unkind.","Put a cancellation policy in place right away.","Feel it deeply and wonder if you did something wrong."],["CG","C","M"]],
+ ["In church or ministry, you were usually the one who:",["Led, taught or prophesied from the front","Organized, served and made sure everything ran smoothly","Prayed with people at the altar and ministered healing"],["C","CG","M"],1],
+ ["Which compliment do you hear most often?",["\"You see things in me nobody else sees.\"","\"You made it so clear. Now I know exactly what to do.\"","\"You always know what to say to lift me up.\""],["M","C","CG"]],
+ ["Your biggest frustration in moving from ministry to business is:",["Feeling like charging makes my heart look less genuine","Not knowing if what I create is \"enough\" to sell","Doing so much for free that I'm exhausted"],["CG","M","C"]],
+ ["When someone you love is sick or hurting, you:",["Pray with expectation for her healing","Intercede until God gives you a strategy","Show up with whatever she needs"],["M","C","CG"],1],
+ ["If you had to sell one thing tomorrow, it would be:",["A digital or physical product I designed","A coaching session or strategy call","A Bible study group, a devotional or a community"],["M","C","CG"]],
+ ["How do people usually find you right now?",["Through my leadership: people I've taught, mentored or led","Word of mouth at church or in my community","Through my creative work: something I made or posted"],["C","CG","M"]],
+ ["How does God most often speak to you?",["Through Scripture, sermons and counsel from people I trust","Through a strong inner knowing or a prophetic word","Through dreams, visions and symbols"],["CG","C","M"],1],
+ ["When you're overwhelmed in your business, you:",["Push through alone and take on more","Pull back and wait until you feel clear again","Keep serving everyone else and neglect your own work"],["C","M","CG"]],
+ ["A brand asks you to promote its product to your audience. You:",["Love it. You already share products you believe in.","Ask about the strategy and what it means for your audience long term.","Pray about whether it aligns with your spirit."],["CG","C","M"]],
+ ["Which spiritual practice feels most natural to you?",["Intercession and declaring the Word over situations","Serving, hospitality and praying with friends","Worship, stillness and waiting in His presence"],["C","CG","M"],1],
+ ["Which platform feels most natural to you?",["LinkedIn or YouTube, where I can teach","TikTok or Instagram, where I can connect every day","Etsy or Pinterest, where my work can be found"],["C","CG","M"]],
+ ["When God gives you an idea for your business, it usually comes:",["In a dream, a picture or a quiet knowing","While praying with or for someone","As a clear strategy or plan"],["M","CG","C"]],
+ ["People most often come to you for:",["Insight into what they're feeling but can't name","Direction for their next season","Prayer and encouragement"],["M","C","CG"],1],
+ ["Your biggest fear about being seen online is:",["That my church or family will think I've changed","That people will judge my past","That I'll be misunderstood or rejected again"],["CG","M","C"]],
+ ["One year from now, your business feels successful if you have:",["A community of women who show up every week","A program that transforms clients and replaces my income","A shop or product line that sells while I create"],["CG","C","M"]],
+ ["When you teach or share, your style is:",["Reflective and visual","Storytelling and testimony","Step-by-step and structured"],["M","CG","C"]],
+ ["Why are you ready to move into the marketplace now?",["I've been leading for free long enough. It's time to build.","I'm ready to share what God has been creating in me.","I want to reach more women than my church walls can hold."],["C","M","CG"]]
+];
+
+const SHARED = "discerning of spirits, dreams and visions, and understanding of the Word";
+
+const R = {
+CG:{desc:"Social Seller / Pastor's Wife",
+ identity:"You have always been the dependable one. The encourager. The woman everyone calls when they need prayer, a listening ear or a word of hope. In the marketplace, that same heart becomes your greatest asset: women trust you, follow you and stay with you. Your work now is to turn that trust into an offer.",
+ cats:[["Ministerial and Helps Gifts","helps, serving, hospitality and supporting leaders and ministries"],["Encouragement and Exhortation","lifting, strengthening and restoring hope in others"],["Prayer and Wisdom","prayer, intercession for the people you love, word of wisdom and teaching"]],
+ gifts:"wisdom, dreams, prayer, teaching, prophecy, word of knowledge, plus helps, serving, hospitality, encouragement and intercession",
+ skills:"communication, hospitality, resourcefulness, organizing events and supporting leaders",
+ crisis:["You give your time, wisdom and coaching away for free, because charging feels like it makes your heart look less genuine.","You post encouragement every day, but your content never invites anyone into an offer.","You lower your price before anyone even questions it.","You say yes to every request, and your own business gets whatever is left.","You wait for approval or permission before you move forward."],
+ higher:["You charge with confidence, knowing that being paid honors your assignment.","You have one clear offer, and your content leads women straight to it.","You set boundaries with grace, so you can serve well without burning out.","You build a paid community of women who show up for you every week.","You lead from peace and alignment, not pressure and approval."],
+ strengths:["Women trust you quickly and stay loyal","A natural community builder","A gifted storyteller whose testimony connects","Consistent and faithful, so people know they can count on you","An eye for warmth, beauty and welcoming spaces"],
+ growth:["Pricing your work with confidence and without guilt","Setting boundaries around your time and your free help","Choosing one niche instead of helping everyone","Making clear invitations in your content","Trusting your own voice over the approval of others"],
+ genius:"Making women feel seen and gathering them into community. When you encourage, people stay.",
+ market:[
+  ["Communication & Storytelling","Content creation, marketing, media","Copywriting, video content creation, podcasting","Social media content packages, scriptwriting, story-based marketing","Draft one piece of content sharing your testimony"],
+  ["Healing & Encouragement","Coaching, wellness, mentorship","Spiritual mentor, life coach, wellness consultant","Support sessions, journaling programs, group encouragement calls","Offer a free mini-session or group call"],
+  ["Faith-Based Mentorship","Spiritual coaching, faith-based business","Bible study leader, faith mentor, faith-based life coach","Group mentorship, 1:1 coaching, spiritual retreats","Offer a short mentorship session online"],
+  ["Community Building & Engagement","Online groups, networking, memberships","Membership community manager, group coach, community strategist","Engagement plans, weekly content prompts, group challenges","Launch a small private group and one engagement activity"],
+  ["Networking Connector","Events, community building, mentorship","Networking events, mastermind groups, peer programs","Virtual meetups, collaboration matchmaking, group coaching","Host a small virtual networking session this month"],
+  ["Event Planning & Coordination","Business events, workshops, conferences","Event coordinator, workshop planner, retreat organizer","Event planning packages, logistics support, retreat programming","Plan a mini-workshop or virtual event"],
+  ["Writing & Content Creation","Blogging, copywriting, social media","Blog monetization, social media management, newsletter writing","Content packages, email campaigns, business copywriting","Write one blog post or newsletter draft this week"],
+  ["Social Media Strategy","Online marketing, branding, content creation","Social media manager, strategist, content planner","Social media calendars, posting templates, strategy guides","Plan one week of content for your audience"],
+  ["Content Repurposing","Social media, blogging, video content","Content repurposing services, social media management","Turning blogs and podcasts into posts, videos into snippets, templates","Take one piece of content and repurpose it into three formats"],
+  ["Customer Service & Support","Online and service-based businesses","Virtual customer service agency, client care consultant","Support ticket management, client onboarding, FAQ creation","Create a simple onboarding checklist"],
+  ["Teaching & Mentorship","Education, training, coaching","Online courses, group coaching, workshops, private coaching","Curriculum creation, 1:1 mentorship, masterclasses","Outline your first mini-session for your most viable client"],
+  ["Empathy & Counseling","Coaching, mentorship, wellness","Life coach, spiritual mentor, peer support groups","1:1 sessions, small group coaching, guided reflection programs","Host a free 20-minute consult"]],
+ offers:{
+  "Coaching niches":"spiritual growth and discipleship, relationships and marriage, parenting and family dynamics, identity and self-discovery, communication and boundary coaching, youth and young adult development, wellness and emotional well-being, health and wellness coaching, personal growth and transformation, mission and service, aging and life transitions",
+  "Digital products":"devotional ebooks, Bible study guides, Christian video devotionals, Christian social media content packs, inspirational email newsletters, a Christian content subscription service, prayer challenge programs, Scripture memorization games, children's Bible stories, Christian planners, faith-based affirmation cards, faith-based self-care guides",
+  "Physical products":"Christian clothing, mugs, tote bags, coasters, Boxes of Blessings or Promise Card Tins, gift baskets, greeting cards, Bible covers, magnetic bookmarks, perpetual calendars, Christian jewelry",
+  "Online services":"religious influencer, virtual Bible study groups, religious blogger, religious podcaster, relationship coach, Christian life coach, Christian mentor, faith-based virtual assistant",
+  "In-person services":"wedding planner, event planner, faith-inspired café, florist, religious teacher, religious tutoring services, Christian nanny and babysitting service, child enrichment classes, errand service"},
+ care:"",
+ match:["Social Seller","You naturally create community through encouragement. You make truth feel accessible and inviting, and your presence online is a ministry in itself. Your income grows through community, content and products that carry your message."],
+ serve:["Women who are where you used to be: kind-hearted but uncertain, faithful but insecure.",["New believers and ministry newcomers","Women recovering from burnout in ministry","Christian women working through people-pleasing and self-worth"],"She is faithful, sensitive and loyal. She wants to belong, needs reassurance and responds to warmth and realness. She doesn't need someone perfect. She needs someone present."],
+ purpose:"\"I help [new believers or women recovering from ministry burnout] overcome [people-pleasing and self-doubt] so they can [walk in confidence and healthy boundaries].\"",
+ where:"TikTok, Instagram and YouTube",
+ show:["The Encourager","You speak heart to heart, and your realness is your authority.",[["Testimony storytime","a 60 to 90 second story of what God brought you through, ending with one clear invitation."],["A word in the moment","talk straight to camera to the woman who is tired, overlooked or stuck, and give her one truth to hold on to."]]],
+ letter:["Dearest Church Girl,","Your value is not in how much you give away. It is in how honestly you show up and how faithfully you steward what God placed in your hands. You were never meant to shrink into the background. You were made to carry revival through your voice, your story and your presence, and to be paid well for the work of your assignment."]},
+M:{desc:"Christian Entrepreneur / Administrator",
+ identity:"You are a quiet force. Spiritually perceptive, deeply creative and intuitively in tune with what others often overlook. You sense things before they are said, and you have a rare gift for turning what you sense into something beautiful and well ordered. In the marketplace, you are the creator and the builder behind the scenes, and your work speaks before you do.",
+ cats:[["Revelatory Gifts","dreams, visions, discerning of spirits and spiritual insight"],["Healing and Compassion","praying for healing, mercy and walking with women through inner healing"],["Spiritual Sensitivity and Creative Worship","sensing the atmosphere, worship, stillness and creative expression that carries God's presence"]],
+ gifts:"discernment, encouragement, creativity, dreams, revelation, compassion, plus visions, healing, mercy, spiritual sensitivity and worship",
+ skills:"artistic expression, design, writing, emotional intelligence, administration and organization",
+ crisis:["You have many beautiful ideas started and few finished.","You hide behind your products instead of letting people see the woman who made them.","You question whether what you create is \"enough\" to sell, so you keep perfecting instead of launching.","You undervalue your work and price it too low.","Fear of being judged for your past keeps you from telling your story."],
+ higher:["You finish and launch what God gives you.","You price your work with confidence, because you know what it carries.","Your shop and your products sell, even while you keep creating.","You tell your story of healing, and it draws the women who need you.","You create from a healed, peaceful place, and your work restores others."],
+ strengths:["A natural creator of beautiful, meaningful products","Strong administrative and organizing ability behind the scenes","Deep empathy that makes clients feel safe","Hears God through dreams, symbols and stillness, and turns it into creative work","Holds sacred space, so women open up to her"],
+ growth:["Finishing and launching instead of perfecting","Letting people see you, not just your work","Pricing with confidence","Choosing one product line or service to lead with","Trusting what God says over the fear of what people might think"],
+ genius:"Turning what you sense in the Spirit into something people can hold: a journal, a piece of art, a beautiful system or a guided experience that helps them heal.",
+ market:[
+  ["Creativity & Innovation","Design, product creation, creative services","Graphic design, product development, creative consulting","Design packages, branding kits, creative workshops","Identify one product or service to create and sell in 30 days"],
+  ["Visual Design & Aesthetics","Branding, social media, graphic design","Brand designer, social media designer, visual storytelling consultant","Logo design, social media templates, brand boards","Create one visual asset"],
+  ["Empathy & Counseling","Coaching, mentorship, wellness","Life coach, spiritual mentor, peer support groups","1:1 sessions, small group coaching, guided reflection programs","Host a free 20-minute consult"],
+  ["Organization & Administration","Operations, productivity, business systems","Operations consultant, virtual assistant agency, workflow strategist","Business setup packages, workflow optimization, admin support","Host a masterclass on the one system every business needs"],
+  ["Planning & Project Management","Event planning, business operations","Project manager, virtual event coordinator, operations strategist","Workflow plans, project timelines, event coordination","Create a simple 30-day project plan"],
+  ["Creative Problem Solving & Ideation","Business innovation, strategy, product development","Innovation consultant, product ideation coach, brainstorm facilitator","Idea mapping sessions, product brainstorming, creative workshops","Pick one niche problem and create three simple solutions"],
+  ["Branding & Positioning","Business consulting, creative services","Brand consultant, positioning strategist, visual branding coach","Brand audits, positioning sessions, logo and brand design","Draft a positioning statement for one service"],
+  ["Teaching Through Technology","Online learning, tech tools, EdTech","Online course creator, tech coach, platform educator","Platform setup packages, tutorial videos, live workshops","Create a 5-minute tutorial video"],
+  ["Email & Newsletter Creation","Marketing, content, business growth","Email marketing consultant, newsletter creator, campaign manager","Email sequences, newsletter templates, campaign strategies","Write your first 3-email sequence"],
+  ["Analytics & Metrics Tracking","Business, marketing, data analysis","Metrics consultant, analytics coach, business reporting","KPI setup, analytics reports, tracking templates","Set up a simple tracking sheet"],
+  ["Healing & Encouragement","Coaching, wellness, mentorship","Spiritual mentor, life coach, wellness consultant","Support sessions, journaling programs, group encouragement calls","Offer a free mini-session or group call"],
+  ["Writing & Content Creation","Blogging, copywriting, social media","Blog monetization, social media management, newsletter writing","Content packages, email campaigns, business copywriting","Write one blog post or newsletter draft this week"]],
+ offers:{
+  "Coaching niches":"healing and deliverance, identity and self-discovery, creativity and artistic expression, wellness and emotional well-being, grief and loss, trauma coaching, anxiety coaching, mental health and well-being, spiritual growth and discipleship",
+  "Digital products":"prayer journals, faith-based meditations, faith-based affirmation cards, Scripture art prints, Bible verse coloring pages, Christian inspirational wallpapers, devotional ebooks, Christian planners, faith-based self-care guides, children's Bible stories, online retreats",
+  "Physical products":"prayer journals for women, journals and notebooks, religious candles, prayer bowls, prayer cards, olive wood holding crosses, Christian jewelry, washi tape, Bible study journaling supply kits, journal Bibles",
+  "Online services":"spirituality coach, Christian life coach, Christian mentor, religious blogger, religious podcaster, ghostwriter",
+  "In-person services":"meditation instructor, yoga instructor, florist, photographer, music teacher, child enrichment classes"},
+ care:"Trauma, anxiety and mental health coaching can require specific training or licensing. Before you offer coaching in these areas, make sure you have the training your state or field requires, and refer clients to licensed professionals when their needs go beyond coaching.",
+ match:["Kingdom Entrepreneur","You are entrepreneurial at heart. Your story, your pain and your spiritual insight are the foundation of healing resources for women like you. Your income grows through products, a shop and creative services that express truth, beauty and transformation."],
+ serve:["Women who feel spiritually lost, unseen or fragmented. They feel safe with you, not because you fix them, but because you understand them.",["Women coming out of spiritual darkness","Seekers and creatives who sense there is more","Women walking through inner healing who feel too broken for traditional church spaces"],"She is a deep feeler, curious and creative. She is guarded at first and fiercely loyal once she feels safe. She responds to gentleness, beauty and honesty."],
+ purpose:"\"I help [women healing from spiritual confusion] overcome [fear and shame] so they can [walk in peace and creative freedom].\"",
+ where:"Etsy, Instagram and TikTok",
+ show:["The Creative Reflector","You speak through what you make, and your calm presence is your authority.",[["Process videos","show your hands creating a journal, print or product while you share a Scripture or a short reflection."],["Quiet voiceovers","a gentle voiceover over beautiful visuals, speaking one truth to the woman who is still healing."]]],
+ letter:["Dearest Mystic Daughter,","Your softness is your strength. You don't need a larger platform. You need alignment and a plan to finish what God started in you. From that place, your voice, your art and your presence will become a sanctuary for others, and a business that sustains you."]},
+C:{desc:"Coach / Ministry Leader",
+ identity:"You have always known you were set apart. You are bold, strategic and built for impact. You are already in marketplace ministry: you speak, teach, lead and pour into women on multiple platforms. But much of it has been for free, and you are tired. Your next level is not doing more. It is building structure around what you already carry, and being paid for the leadership God gave you.",
+ cats:[["Prophetic Gifts","prophecy, word of knowledge and discerning seasons and assignments"],["Leadership and Teaching","leading, teaching, mentoring and building with vision"],["Faith and Intercession","supernatural faith, intercession and standing in the Spirit until a strategy comes"]],
+ gifts:"prophecy, supernatural faith, leadership, intercession, word of knowledge, teaching, plus visionary insight, wisdom, mentoring and spiritual warfare",
+ skills:"strategy, visionary planning, coaching, building structure and systems",
+ crisis:["You lead, teach and mentor for free, and you're exhausted.","You try to build everything alone, because receiving help feels unsafe.","You have big vision in too many directions, so nothing gets your full focus.","You plan in detail, then hesitate to launch.","You stay guarded online, so people respect you but don't know how to work with you."],
+ higher:["You lead a structured, paid program that transforms your clients.","You focus on one assignment, one audience and one flagship offer.","You receive mentorship and support, and you lead better because of it.","You launch with confidence and let the right clients choose you.","You operate with both Kingdom authority and strategic wisdom, and your income reflects it."],
+ strengths:["Visionary leadership and bold execution","Gifted in strategy, structure and transformation","Naturally attracts women seeking direction and breakthrough","Her testimony and resilience carry real authority","Already has ministry traction, so she is not starting from zero"],
+ growth:["Charging for the leadership she has been giving away","Choosing one direction and finishing it","Launching before everything feels perfect","Letting people see her heart, not just her strength","Receiving help and building a team"],
+ genius:"Turning confusion into clear steps. You take women who feel stuck and lead them into strategy, structure and action.",
+ market:[
+  ["Visionary Leadership","Branding, strategy, coaching","Brand strategy coach, leadership consultant, creative agency lead","1:1 coaching, group strategy sessions, done-for-you frameworks","Map your first three services and draft messaging for one"],
+  ["Teaching & Mentorship","Education, training, coaching","Online courses, group coaching, workshops, private coaching","Curriculum creation, 1:1 mentorship, masterclasses","Outline your first mini-session for your most viable client"],
+  ["Strategic Thinking","Business consulting, marketing strategy","Strategy consultant, business roadmap coach, marketing planner","Strategy sessions, business audits, marketing plans","Outline a roadmap for one client or for yourself"],
+  ["Coaching & Accountability","Life coaching, business coaching, mentorship","Accountability coach, business growth coach, life coach","Weekly coaching calls, accountability check-ins, group coaching","Invite one or two clients to a pilot coaching call"],
+  ["Public Speaking & Workshops","Business events, faith-based coaching","Workshop leader, speaker, panel host","Virtual workshops, seminars, speaking engagements","Plan a 30-minute session that teaches your expertise"],
+  ["Persuasion / Influence","Sales, marketing, public speaking","Sales coach, copywriter, speaker and workshop leader","Sales scripts, pitch coaching, speaking engagements","Write a persuasive pitch for your offer"],
+  ["Analytical & Problem-Solving","Strategy, finance, business analysis","Business analyst, systems consultant, financial coach","Market research, business audits, financial planning","Pick a common audience problem and create a solution guide"],
+  ["Financial Wisdom","Finance, business coaching, entrepreneurship","Financial coach, budget planner for entrepreneurs, investment mentor","Budget sessions, business financial planning, profit mapping","Draft a financial plan template for clients"],
+  ["Fundraising / Sales Support","Nonprofit, marketplace, coaching","Sales strategist, fundraising consultant, offer coach","Offer audits, fundraising plans, sales support","Create a mini offer for your ideal audience"],
+  ["Digital Marketing","Social media, email marketing, content strategy","Social media consultant, email marketing coach, marketing strategist","Marketing audits, campaign setup, content planning","Build a one-week content plan"],
+  ["Faith-Based Mentorship","Spiritual coaching, faith-based business","Bible study leader, faith mentor, faith-based life coach","Group mentorship, 1:1 coaching, spiritual retreats","Offer a short mentorship session online"],
+  ["Organization & Administration","Operations, productivity, business systems","Operations consultant, virtual assistant agency, workflow strategist","Business setup packages, workflow optimization, admin support","Host a masterclass on the one system every business needs"],
+  ["Planning & Project Management","Event planning, business operations","Project manager, virtual event coordinator, operations strategist","Workflow plans, project timelines, event coordination","Create a simple 30-day project plan"]],
+ offers:{
+  "Coaching niches":"leadership and ministry, ministry and church leadership, faith-based entrepreneurship, career and purpose, financial stewardship and prosperity, mission and service, personal growth and transformation, academic and educational guidance",
+  "Digital products":"sermon outlines, faith-based webinars, Bible study guides, online retreats, prayer challenge programs, a Christian content subscription service, inspirational email newsletters",
+  "Physical products":"journals and notebooks, journal Bibles, Bible covers, prayer cards, perpetual calendars",
+  "Online services":"Christian business coach, leadership coach, entrepreneurship coach, executive coach, money and finance coach, Christian business strategy sessions, Christian entrepreneur mastermind groups, Christian motivational speaker, online ministry training, Christian podcast guest booking service, Christian mentor",
+  "In-person services":"public speaking coach or teacher, educational workshops and seminars, religious teacher, religious tutoring services, marriage counselor, event planner, travel agency operator for religious groups"},
+ care:"",
+ match:["Marketplace Minister","You are built for a high call. Whether in the pulpit, the boardroom or the Zoom room, you lead with fire and insight. Your income grows through coaching, mentorship, programs and speaking. You are proof that profit and purpose can work together under God's covering."],
+ serve:["Women who are ambitious yet weary: gifted, but unsure how to balance calling with surrender. They will see your strength and seek your structure.",["Seasoned women and overcomers ready to lead from what they carried","Ministry-minded leaders who need both spiritual covering and strategy","Women who are ready to rise but don't yet know how to build"],"She is driven, capable and independent, and a little guarded. She respects competence and directness. She responds to strategy that carries spiritual depth."],
+ purpose:"\"I help [ministry-minded women leaders] overcome [being scattered and unpaid] so they can [build structured, profitable programs that serve their assignment].\"",
+ where:"LinkedIn, TikTok, Facebook and YouTube",
+ show:["The Teacher-Strategist","You lead with clarity, and your structure is your authority.",[["Teach in 60","one framework in three steps, straight to camera, with text on screen."],["Teaching lives","a weekly live where you teach one topic and answer questions."]]],
+ letter:["Dearest Called Daughter,","You are proof that profit and purpose can work together under God's covering. You don't need to do more. You need structure, support and one clear offer. Let yourself be led, so you can lead well, and let your journey of surrender become the blueprint the women you serve have been waiting for."]}
+};
+
+/* ---------- state ---------- */
+const S = {view:"cover", name:"", email:"", program:"", q:0, answers:Array(Q.length).fill(null), sent:false, result:null, scores:null, finishedAt:null, admin:false, owner:false};
+const STEPS = [["welcome","Welcome"],["quiz","Assessment"],["send","Send Results"],["results","Your Results"]];
+const ORDER = ["cover","welcome","quiz","send","results","next"];
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+const LOCK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 1 0-4 0v2z"/></svg>';
+const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.2 11.6 2.8 8.2l1.4-1.4 2 2 5.6-5.6 1.4 1.4z"/></svg>';
+
+function score(){
+  const t = {CG:0,M:0,C:0};
+  S.answers.forEach((a,i)=>{ if(a!==null) t[Q[i][2][a]]++; });
+  const max = Math.max(t.CG,t.M,t.C);
+  const tied = Object.keys(t).filter(k=>t[k]===max);
+  let win = tied[0];
+  if(tied.length>1){
+    const pick = i => Q[i][2][S.answers[i]];
+    const tb = pick(15);
+    if(tied.includes(tb)) win = tb;
+    else for(let i=0;i<Q.length;i++){ const d=pick(i); if(tied.includes(d)){ win=d; break; } }
+  }
+  return {t, win};
+}
+
+function setSteps(){
+  const idx = ORDER.indexOf(S.view);
+  $("#steps").innerHTML = STEPS.map(([k,label],i)=>{
+    const si = i+1, cls = si<idx ? "done" : si===idx ? "current" : "";
+    const icon = si<idx ? CHECK : si>idx ? LOCK : "";
+    return `<span class="step ${cls}">${icon}${label}</span>`;
+  }).join("");
+  let pct = 0;
+  if(S.view==="welcome") pct = 6;
+  if(S.view==="quiz") pct = 8 + Math.round(64 * (S.answers.filter(a=>a!==null).length / Q.length));
+  if(S.view==="send") pct = 76;
+  if(S.view==="results") pct = 100;
+  if(S.view==="next") pct = 100;
+  $("#barfill").style.width = pct + "%";
+  $("#steps").hidden = S.view==="cover";
+  document.querySelector(".bar").hidden = S.view==="cover";
+}
+
+function go(v){ S.view = v; render(); window.scrollTo({top:0}); }
+
+/* ---------- review mode (Naomi only) ---------- */
+function enterAdmin(){
+  S.admin = true;
+  if(!S.name) S.name = "Naomi";
+  if(!S.email) S.email = NAOMI_EMAIL;
+  if(!S.program) S.program = "session";
+  if(!S.finishedAt) S.finishedAt = new Date().toLocaleString(undefined,{dateStyle:"long",timeStyle:"short"});
+  go(S.view==="cover" ? "welcome" : S.view);
+}
+function previewResult(k){
+  const {t} = score(); S.scores = t; S.result = k;
+  if(!S.finishedAt) S.finishedAt = new Date().toLocaleString(undefined,{dateStyle:"long",timeStyle:"short"});
+  go("results");
+}
+function renderAdmin(){
+  const box = document.getElementById("admin");
+  if(!S.admin){
+    box.innerHTML = S.owner && S.view==="cover" ? `<div class="adminbar"><p class="t">You own this assessment</p><div class="row"><button class="mini" id="adOpen">Open Review Mode</button></div></div>` : "";
+    const b = document.getElementById("adOpen"); if(b) b.onclick = enterAdmin;
+    return;
+  }
+  const v = S.view;
+  box.innerHTML = `<div class="adminbar">
+    <p class="t">Review Mode · Only you see this · Every page is unlocked</p>
+    <div class="row">
+      <button class="mini ${v==="cover"?"on":""}" data-go="cover">Cover</button>
+      <button class="mini ${v==="welcome"?"on":""}" data-go="welcome">Welcome</button>
+      <button class="mini ${v==="quiz"?"on":""}" data-go="quiz">Questions</button>
+      <select id="adQ" aria-label="Jump to question">${Q.map((q,i)=>`<option value="${i}" ${v==="quiz"&&S.q===i?"selected":""}>Question ${i+1}${q[3]?" (spiritual)":""}</option>`).join("")}</select>
+      <button class="mini ${v==="send"?"on":""}" data-go="send">Send Results</button>
+    </div>
+    <div class="row">
+      <span class="small">Preview results:</span>
+      ${["CG","M","C"].map(k=>`<button class="mini ${v==="results"&&S.result===k?"on":""}" data-res="${k}">${SHORT[k]}</button>`).join("")}
+      <button class="mini" id="adExit">Exit Review Mode</button>
+    </div>
+  </div>`;
+  box.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{
+    const g = b.dataset.go;
+    if(g==="send" && !S.result){ const {t,win}=score(); S.scores=t; S.result=win; }
+    go(g);
+  });
+  box.querySelectorAll("[data-res]").forEach(b=>b.onclick=()=>previewResult(b.dataset.res));
+  document.getElementById("adQ").onchange = e=>{ S.q = +e.target.value; go("quiz"); };
+  document.getElementById("adExit").onclick = ()=>{ S.admin=false; go("cover"); };
+}
+(async()=>{
+  try{
+    const u = window.claude && claude.use ? await claude.use("user") : null;
+    if(u && await u.isOwner()){ S.owner = true; renderAdmin(); }
+  }catch(e){}
+})();
+
+/* ---------- views ---------- */
+function vCover(){
+  return `<section class="cover">
+    <div class="photo"><img src="daughters.jpg" alt="Three Christian businesswomen smiling with arms crossed"></div>
+    <p class="kicker">Kingdom Roe Coaching &amp; Consulting</p>
+    <h1 class="title">The Spiritual Daughter Archetype Assessment</h1>
+    <div class="ribbon"><span>Full Assessment</span></div>
+    <p class="tagline">For women transitioning from ministry into the online space as a coach, consultant or service provider.</p>
+    <ul class="inside">
+      <li>Your Spiritual Daughter Archetype and your three spiritual gift categories</li>
+      <li>Your zone of genius, your strengths and your growth areas</li>
+      <li>Your marketplace gifts, with the industries, business ideas and services that fit them</li>
+      <li>Who you're called to serve, what to offer her and how to show up online</li>
+    </ul>
+    <form class="panel form" id="coverForm" novalidate>
+      <label class="f" for="nm">Your name<input type="text" id="nm" autocomplete="name" value="${esc(S.name)}"></label>
+      <label class="f" for="em">Your email<input type="email" id="em" autocomplete="email" value="${esc(S.email)}"></label>
+      <fieldset>
+        <legend>I'm taking this assessment for:</legend>
+        ${Object.entries(PROGRAMS).map(([k,v])=>`<button type="button" class="choice" data-prog="${k}" aria-pressed="${S.program===k}"><span class="k">${k==="session"?"1":"2"}</span><span>${v}</span></button>`).join("")}
+      </fieldset>
+      <p class="err" id="coverErr" role="alert"></p>
+      <div class="row center"><button class="btn" type="submit" id="begin">Begin My Assessment</button></div>
+    </form>
+  </section>`;
+}
+
+function vWelcome(){
+  return `<section class="page">
+    <h2>Blessings, woman of God, and welcome.</h2>
+    <div class="copy">
+      <p class="lede">You have served faithfully in ministry, in your community and in the lives of the women around you. Now God is calling you into the marketplace.</p>
+      <p>Before you build, you need to know who you are, how you are gifted in the Spirit and how you are wired to lead, create and sell.</p>
+      <p>This full assessment goes much deeper than the mini quiz. You'll answer 28 questions. Some are real marketplace situations, and some are about your spiritual life: how God speaks to you, how you pray and how you minister. Together, they reveal your Spiritual Daughter Archetype and the business that fits it.</p>
+      <p>There are three Daughters: The Church Girl, The Mystic Daughter and The Called Daughter. Choose the answer that sounds most like you today, not the one that sounds most impressive or most spiritual. If more than one fits, choose the one that fits most.</p>
+      <p>When you finish, you'll send your results to me, so I can study them before we work together. Then your full results will open.</p>
+      <p class="verse">"The king's daughter is all glorious within." Psalm 45:13</p>
+    </div>
+    <div class="row"><button class="btn" id="start">Start My Assessment</button></div>
+  </section>`;
+}
+
+function vQuiz(){
+  const i = S.q, [text, opts] = Q[i], sel = S.answers[i];
+  return `<section class="page">
+    <p class="qnum">Question ${i+1} of ${Q.length}</p>
+    <h2 class="qtext" style="color:var(--cream)">${esc(text)}</h2>
+    <p class="small">Choose the answer that sounds most like you today.</p>
+    <div style="display:grid;gap:10px">
+      ${opts.map((o,k)=>`<button class="choice" data-a="${k}" aria-pressed="${sel===k}"><span class="k">${"ABC"[k]}</span><span>${esc(o)}</span></button>`).join("")}
+    </div>
+    <div class="row between">
+      <button class="btn ghost" id="back">${i===0?"Back to Welcome":"Back"}</button>
+      <button class="btn" id="next" ${sel===null&&!S.admin?"disabled":""}>${i===Q.length-1?"See My Results":"Next"}</button>
+    </div>
+  </section>`;
+}
+
+function resultsText(){
+  const {t, win} = S.scores ? {t:S.scores, win:S.result} : score();
+  const lines = [
+    "Name: "+S.name, "Email: "+S.email, "Program: "+PROGRAMS[S.program],
+    "Finished: "+S.finishedAt, "Result: "+NAMES[win],
+    "Scores: Church Girl "+t.CG+", Mystic Daughter "+t.M+", Called Daughter "+t.C, "", "Answers:"];
+  Q.forEach((q,i)=>{ const a=S.answers[i]; lines.push(`Q${i+1}${q[3]?" (spiritual)":""}: ${a===null?"no answer":`${"ABC"[a]} (${SHORT[q[2][a]]})`}`); });
+  return lines.join("\n");
+}
+
+function vSend(){
+  const subj = `Assessment Result: ${S.name}, ${NAMES[S.result]}`;
+  const body = resultsText();
+  const href = `mailto:${NAOMI_EMAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+  return `<section class="page">
+    <h2>One Last Step: Send Your Results</h2>
+    <div class="copy"><p>Your results are ready. Before they open, send them to me, so I can study them before we work together.</p></div>
+    <div class="panel">
+      <p><span class="label" style="color:var(--pink);font-weight:600">Option 1.</span> Tap the button below. Your email app will open with your results already written out. Just press Send.</p>
+      <div class="row"><a class="btn" href="${href}">Open My Email to Send</a></div>
+      <p class="note">If your email app doesn't open, use Option 2.</p>
+      <p><span class="label" style="color:var(--pink);font-weight:600">Option 2.</span> Copy your results and email them to:</p>
+      <div class="addr"><code id="addr">${NAOMI_EMAIL}</code><button class="btn ghost" id="copyAddr" type="button">Copy Address</button></div>
+      <textarea id="resultsBox" readonly aria-label="Your results to send">${esc(body)}</textarea>
+      <div class="row"><button class="btn ghost" id="copyRes" type="button">Copy My Results</button><span class="note" id="copyMsg" role="status"></span></div>
+    </div>
+    <label class="check" for="sentBox"><input type="checkbox" id="sentBox" ${S.sent?"checked":""}><span>I've sent my results to Naomi.</span></label>
+    <div class="row"><button class="btn" id="openRes" ${S.sent||S.admin?"":"disabled"}>Open My Results</button></div>
+  </section>`;
+}
+
+function list(items){ return `<ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`; }
+function area(n, title, inner){ return `<section class="area"><h3><span class="n">${String(n).padStart(2,"0")}</span>${title}</h3>${inner}</section>`; }
+
+function vResults(){
+  const d = R[S.result], t = S.scores;
+  const chips = ["CG","M","C"].map(k=>`<span class="chip ${k===S.result?"win":""}">${SHORT[k]} ${t[k]}</span>`).join("");
+  let n = 0, h = "";
+  h += area(++n,"Your Spiritual Identity", `<p>${esc(d.identity)}</p>`);
+  h += area(++n,"Your Spiritual Gift Categories", `<ol>${d.cats.map(c=>`<li><span class="label">${esc(c[0])}:</span> ${esc(c[1])}</li>`).join("")}</ol>
+     <p><span class="label">Your spiritual gifts:</span> ${esc(d.gifts)}</p>
+     <p><em>Gifts all three Daughters share:</em> ${SHARED}.</p>
+     <p><em>Your skills and abilities:</em> ${esc(d.skills)}.</p>`);
+  h += area(++n,"Your Crisis Self in Business", `<p><em>How you show up when you're out of alignment:</em></p>${list(d.crisis)}`);
+  h += area(++n,"Your Higher Self in Business", `<p><em>The woman you are becoming:</em></p>${list(d.higher)}`);
+  h += area(++n,"Your Strengths in the Marketplace", list(d.strengths));
+  h += area(++n,"Your Growth Areas", list(d.growth));
+  h += area(++n,"Your Zone of Genius", `<p>${esc(d.genius)}</p>`);
+  h += area(++n,"Your Marketplace Gifts", `<div class="tablebox"><table><thead><tr><th>Gift</th><th>Industries and niches</th><th>Business ideas</th><th>Services you'd offer</th><th>Your action step</th></tr></thead><tbody>${d.market.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+  h += area(++n,"Your Offer Options", Object.entries(d.offers).map(([k,v])=>`<p><span class="label">${k}:</span> ${esc(v)}</p>${k==="Coaching niches"&&d.care?`<p class="note"><em>A note on care:</em> ${esc(d.care)}</p>`:""}`).join(""));
+  h += area(++n,`Your Marketplace Match: ${esc(d.match[0])}`, `<p>${esc(d.match[1])}</p>`);
+  h += area(++n,"Who You're Called to Serve", `<p>${esc(d.serve[0])}</p>${list(d.serve[1])}<p><span class="label">Her core personality:</span> ${esc(d.serve[2])}</p>`);
+  h += area(++n,"Your Purpose Statement Starter", `<p class="lede">${esc(d.purpose)}</p>`);
+  h += area(++n,"Where to Show Up", `<p>${esc(d.where)}</p>`);
+  h += area(++n,"How You're Meant to Show Up", `<p><span class="label">Your communicator type: ${esc(d.show[0])}.</span> ${esc(d.show[1])}</p><ol>${d.show[2].map(v=>`<li><span class="label">${esc(v[0])}:</span> ${esc(v[1])}</li>`).join("")}</ol>`);
+  h += area(++n,"Your Next Steps", `<div class="letter"><span class="sal">${esc(d.letter[0])}</span>${esc(d.letter[1])}</div>`);
+  return `<section class="page">
+    <div class="copy"><p class="lede">Blessings, ${esc(S.name.split(" ")[0]||"woman of God")}. Here is who God made you to be in the marketplace.</p></div>
+    <div class="result-head">
+      <p class="eyebrow">Your Spiritual Daughter Archetype Is</p>
+      <h2>${NAMES[S.result]}</h2>
+      <p class="desc">${esc(d.desc)}</p>
+      <div class="scores">${chips}</div>
+    </div>
+    ${h}
+    <div class="row center" style="padding-top:8px">
+      <button class="btn ghost" id="dl" hidden>Download My Results</button>
+    </div>
+    <div class="letter" style="text-align:center;display:grid;gap:14px;justify-items:center">
+      <span class="sal" style="font-size:30px;font-style:normal;font-weight:700">You Know Who You Are. Now Let's Build It.</span>
+      <p style="font-family:var(--body);font-size:15px">Apply to work with me. You'll answer a few short questions and choose a time for a 20-minute call with me, so we can talk about your next step.</p>
+      <a class="btn" href="${APPLY_URL}" target="_blank" rel="noopener">Apply to Work With Me</a>
+    </div>
+    <p class="note" id="dlMsg" role="status" style="text-align:center"></p>
+  </section>`;
+}
+
+function vNext(){
+  if(S.program==="session"){
+    return `<section class="page end">
+      <h2>You Know Who You Are. Now Let's Build It.</h2>
+      <div class="copy" style="text-align:left">
+        <p>Your results are with me, and I'll study them before our strategy session. Bring your results with you.</p>
+        <p>Your strategy session will give you your niche, your purpose statement and the questions your ideal client is already asking. When you're ready to build the full offer, launch it and sell it, that work happens inside The Called Method™ 6-Month Cohort.</p>
+        <p>Apply now. You'll answer a few short questions and choose a time for a 20-minute call with me, so we can talk about your next step.</p>
+      </div>
+      <div class="row center">${APPLY_URL?`<a class="btn" href="${APPLY_URL}" target="_blank" rel="noopener">Apply to Work With Me</a>`:`<span class="btn off" aria-disabled="true">Apply to Work With Me</span>`}</div>
+      ${APPLY_URL?"":`<p class="note">The application link is coming soon.</p>`}
+      <div class="row center"><button class="btn ghost" id="backRes">Back to My Results</button></div>
+    </section>`;
+  }
+  return `<section class="page end">
+    <h2>Keep Building, Woman of God.</h2>
+    <div class="copy" style="text-align:left">
+      <p>Your results are with me, and I'll use them to guide you through our six months together.</p>
+      <p>Bring this page with you, and come ready to build on everything God has already placed inside of you.</p>
+    </div>
+    <div class="row center"><button class="btn ghost" id="backRes">Back to My Results</button></div>
+  </section>`;
+}
+
+/* ---------- render + wiring ---------- */
+function render(){
+  setSteps();
+  renderAdmin();
+  const app = $("#app");
+  app.innerHTML = ({cover:vCover, welcome:vWelcome, quiz:vQuiz, send:vSend, results:vResults, next:vNext})[S.view]();
+
+  if(S.view==="cover"){
+    app.querySelectorAll("[data-prog]").forEach(b=>b.onclick=()=>{
+      S.name=$("#nm").value; S.email=$("#em").value; S.program=b.dataset.prog;
+      app.querySelectorAll("[data-prog]").forEach(x=>x.setAttribute("aria-pressed", x===b));
+    });
+    $("#coverForm").onsubmit = e=>{
+      e.preventDefault();
+      S.name=$("#nm").value.trim(); S.email=$("#em").value.trim();
+      if(S.email.toLowerCase()===NAOMI_EMAIL){ enterAdmin(); return; }
+      const err=$("#coverErr");
+      if(!S.name) return err.textContent="Please enter your name.";
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S.email)) return err.textContent="Please enter a valid email address.";
+      if(!S.program) return err.textContent="Please choose which program you're taking this assessment for.";
+      go("welcome");
+    };
+  }
+  if(S.view==="welcome") $("#start").onclick=()=>{ S.q=0; go("quiz"); };
+  if(S.view==="quiz"){
+    app.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{
+      S.answers[S.q]=+b.dataset.a;
+      app.querySelectorAll("[data-a]").forEach(x=>x.setAttribute("aria-pressed", x===b));
+      $("#next").disabled=false; setSteps();
+    });
+    $("#back").onclick=()=>{ if(S.q===0) go("welcome"); else { S.q--; render(); } };
+    $("#next").onclick=()=>{
+      if(S.answers[S.q]===null && !S.admin) return;
+      if(S.q<Q.length-1){ S.q++; render(); }
+      else {
+        const {t,win}=score(); S.scores=t; S.result=win;
+        S.finishedAt=new Date().toLocaleString(undefined,{dateStyle:"long",timeStyle:"short"});
+        go("send");
+      }
+    };
+  }
+  if(S.view==="send"){
+    const copy=(txt,msg)=>{
+      const done=()=>{$("#copyMsg").textContent=msg;};
+      try{ navigator.clipboard.writeText(txt).then(done,()=>{ $("#resultsBox").select(); $("#copyMsg").textContent="Press Ctrl+C or Cmd+C to copy."; }); }
+      catch(e){ $("#resultsBox").select(); $("#copyMsg").textContent="Press Ctrl+C or Cmd+C to copy."; }
+    };
+    $("#copyAddr").onclick=()=>copy(NAOMI_EMAIL,"Address copied.");
+    $("#copyRes").onclick=()=>copy($("#resultsBox").value,"Results copied.");
+    $("#sentBox").onchange=e=>{ S.sent=e.target.checked; $("#openRes").disabled=!S.sent; };
+    $("#openRes").onclick=()=>{ if(S.sent||S.admin) go("results"); };
+  }
+  if(S.view==="results"){
+    setupDownload();
+  }
+  if(S.view==="next") $("#backRes").onclick=()=>go("results");
+}
+
+let downloads = null;
+async function setupDownload(){
+  try{ if(!downloads && window.claude && claude.use) downloads = await claude.use("downloads"); }catch(e){ downloads=null; }
+  const b = document.getElementById("dl"); if(!b) return;
+  if(!downloads){ b.hidden=true; return; }
+  b.hidden=false;
+  b.onclick = async ()=>{
+    const d=R[S.result], msg=document.getElementById("dlMsg");
+    const parts=[`THE SPIRITUAL DAUGHTER ARCHETYPE ASSESSMENT`,`${S.name} · ${S.finishedAt}`,``,`Your Spiritual Daughter Archetype: ${NAMES[S.result]} (${d.desc})`,``,d.identity,``,
+      `SPIRITUAL GIFT CATEGORIES`,...d.cats.map(c=>`- ${c[0]}: ${c[1]}`),`Your spiritual gifts: ${d.gifts}`,``,
+      `CRISIS SELF IN BUSINESS`,...d.crisis.map(x=>"- "+x),``,`HIGHER SELF IN BUSINESS`,...d.higher.map(x=>"- "+x),``,
+      `STRENGTHS`,...d.strengths.map(x=>"- "+x),``,`GROWTH AREAS`,...d.growth.map(x=>"- "+x),``,`ZONE OF GENIUS`,d.genius,``,
+      `MARKETPLACE GIFTS`,...d.market.map(r=>`- ${r[0]}: ${r[1]}. Ideas: ${r[2]}. Services: ${r[3]}. Action step: ${r[4]}.`),``,
+      `OFFER OPTIONS`,...Object.entries(d.offers).map(([k,v])=>`${k}: ${v}`),``,`MARKETPLACE MATCH: ${d.match[0]}`,d.match[1],``,
+      `WHO YOU'RE CALLED TO SERVE`,d.serve[0],...d.serve[1].map(x=>"- "+x),`Her core personality: ${d.serve[2]}`,``,
+      `PURPOSE STATEMENT STARTER`,d.purpose,``,`WHERE TO SHOW UP`,d.where,``,`HOW YOU'RE MEANT TO SHOW UP: ${d.show[0]}`,...d.show[2].map(v=>`- ${v[0]}: ${v[1]}`),``,
+      d.letter[0],d.letter[1]];
+    try{ await downloads.save({filename:`Spiritual Daughter Results - ${S.name||"My Results"}.txt`, data:parts.join("\n")}); msg.textContent="Your results were saved."; }
+    catch(e){ msg.textContent = e && e.code==="declined" ? "" : "Saving isn't available here. You can copy your results from the Send step."; }
+  };
+}
+
+render();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import { APPLY_URL, COHORT } from '../site';
+
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+const stats = [
+  ['20+', 'years in ministry'],
+  ['2019', 'became an online prophetic coach'],
+  ['1,000+', 'women served'],
+];
+
+const chapters = [
+  {
+    when: '2017 to 2019',
+    title: 'Called as a Prophet, Sent Into the Online Space',
+    body: [
+      'I knew the Lord called me at a young age as a prophet, but I didn’t receive who I was until 2017. Two years later, He led me online as a prophetic coach, something I had never seen anyone else do before. It was the first time I publicly announced myself as a prophet, and things began to shift swiftly.',
+      'I had no idea what an “online prophetic coach” was supposed to look like. So I did what I had always done in my office: gave counsel and strategy for the future. I launched in headfirst, and I found an audience that was untapped and untouched.',
+    ],
+  },
+  {
+    when: 'Years one to three',
+    title: 'The Gift Was Real. The Income Was Not.',
+    body: [
+      'For my first two years online, I made nothing. By year three, women began sowing into me. I never asked for offerings. The transformation was simply so real that they wanted to give.',
+      'It unsettled me, because I didn’t know exactly what they were paying for. So I named it. I wrote down what I was doing and the results these women were getting, and I shaped it into my first coaching container: The Leah Complex, five weeks for forty dollars. I wrote the workbooks, built the landing page, and delivered everything myself, having never been tech-savvy a day in my life. The gift was carrying me. It wasn’t yet a business.',
+    ],
+  },
+  {
+    when: 'Year four',
+    title: 'A Price on My Work, but No Foundation',
+    body: [
+      'I invested hundreds of dollars in trainings and thousands in other people’s expertise so I could serve the women I’m called to. I developed my own methodology and came to know the woman God kept sending me. By year four, I had put a price on my work, and I was earning $500 to $1,200 a month at best. Not enough to live on.',
+    ],
+  },
+  {
+    when: 'The turning point',
+    title: 'Building From Identity and Purpose',
+    body: [
+      'Then something in me shifted. I stepped out on faith and launched an offer beyond anything I had priced before: a mentorship for women ready not only to walk in their gift, but to lay a foundation and build a coaching business on it.',
+      'My first five clients enrolled. And as they walked through the process and trusted me to take them there, they began making sales and creating income of their own.',
+    ],
+  },
+  {
+    when: 'Today',
+    title: 'I Grew My Monthly Income 5X by Moving From Purpose and Identity',
+    body: [
+      'My identity and my purpose are the foundation of my money-making strategy. With my flagship offer and my lead-generation offers, I have sustained five times my monthly income. Not because I worked harder, but because I stopped moving off of gift alone and started moving from purpose and identity. I could see exactly what women needed, and I had a method to bring them to their next level.',
+    ],
+  },
+];
+---
+<Base
+  title="About Naomi Shaffer, Prophet and Marketplace Strategist | Kingdom Roe"
+  description="From prophetic coach in 2019 to 5X income growth: Naomi Shaffer's story and The Called Method™ behind Kingdom Roe Coaching & Consulting."
+>
+  <section class="about-hero">
+    <div class="wrap hero-grid">
+      <div class="stack">
+        <p class="eyebrow">My story</p>
+        <h1>How I Started a Christian Coaching Business Online After Years in Ministry</h1>
+        <hr class="rule" />
+        <p class="lede">I’m Naomi Shaffer, Prophet and Marketplace Strategist, and I help professional Christian women turn what they know into coaching businesses that attract clients and generate income.</p>
+        <dl class="stats">
+          {stats.map(([n, l]) => <div><dt>{n}</dt><dd>{l}</dd></div>)}
+        </dl>
+      </div>
+      <div class="portrait">
+        <img src="/images/naomi.jpg" alt="Prophet Naomi Shaffer" width="900" height="1080" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band white">
+    <div class="wrap story">
+      {chapters.map((c) => (
+        <article class="chapter">
+          <p class="eyebrow">{c.when}</p>
+          <h2>{c.title}</h2>
+          {c.body.map((p) => <p>{p}</p>)}
+        </article>
+      ))}
+      <blockquote class="pull">“Your identity and your purpose are the foundation of your money-making.”</blockquote>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap story">
+      <article class="chapter">
+        <p class="eyebrow">The foundation</p>
+        <h2>Every Spiritual Coaching Practice Must Be Built on a Strong, Secure Foundation</h2>
+        <p>That foundation is your spiritual identity, which reveals the gifts God has given you to walk in your purpose. Your purpose shows you what you have to offer and who you are called to offer it to.</p>
+        <p>You already have the anointing and the expertise. In six months, you’ll build an online flagship offer and a content and sales strategy that attracts the right audience, so you can launch into the online space creating impact and income. With one offer, you can 2X, 3X, even 5X your income and grow your coaching business online.</p>
+        <p>I grew up a church girl, and I’ve been in ministry since I was 15. When the Lord led me online in 2019, my life was never the same. Bring me what you know and what you carry, and I will help you build on it.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="band closing-band">
+    <div class="wrap">
+      <div class="closing">
+        <p class="eyebrow">The Called Method™ 6-Month Cohort</p>
+        <h2>Build on a Strong, Secure Foundation</h2>
+        <p class="lede">The next cohort begins {COHORT.begins}, at {COHORT.time}. Registration closes {COHORT.registrationCloses}.</p>
+        <div><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a></div>
+        <p class="fine">Results vary based on individual effort and circumstances.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about-hero { padding-block: 88px 100px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .stack { display: grid; gap: 18px; min-width: 0; }
+  h1 { font-size: clamp(36px, 4.8vw, 54px); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 12px 0 0; padding-top: 22px; border-top: 1px solid var(--pink-line); }
+  .stats dt { font-family: var(--display); font-size: 34px; font-weight: 600; color: var(--pink); line-height: 1; }
+  .stats dd { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+  .portrait { position: relative; max-width: 420px; justify-self: end; width: 100%; }
+  .portrait::before { content: ""; position: absolute; inset: 48px -28px -28px 48px; background: var(--tan); border-radius: var(--radius); }
+  .portrait img { position: relative; width: 100%; height: auto; border-radius: var(--radius); }
+
+  .story { max-width: 780px; display: grid; gap: 64px; }
+  .chapter { display: grid; gap: 16px; }
+  .chapter h2 { font-size: clamp(28px, 3.4vw, 36px); }
+  .pull { margin: 0; text-align: center; font-family: var(--display); font-style: italic; font-size: clamp(26px, 3.4vw, 34px); color: var(--pink-deep); padding-block: 24px; border-block: 1px solid var(--pink-line); }
+
+  .closing-band { padding-top: 0; }
+  .closing { background: var(--white); border-radius: var(--radius); border-top: 6px solid var(--pink); box-shadow: 0 10px 40px rgba(40, 15, 10, .06); padding: 64px 32px; text-align: center; display: grid; gap: 18px; justify-items: center; }
+  .closing h2 { font-size: clamp(30px, 4vw, 42px); }
+  .closing .lede { max-width: 600px; }
+  .fine { font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .portrait { justify-self: start; width: calc(100% - 28px); max-width: 340px; }
+  }
+  @media (max-width: 500px) {
+    .stats { grid-template-columns: 1fr; }
+  }
+</style>

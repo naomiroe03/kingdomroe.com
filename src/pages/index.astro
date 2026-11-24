@@ -1,0 +1,389 @@
+---
+import Base from '../layouts/Base.astro';
+import { APPLY_URL, QUIZ_SALES_URL, COHORT } from '../site';
+
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+const focus = [
+  'Christian identity and purpose',
+  'Ministry leadership and transferable expertise',
+  'Coaching and service-business creation',
+  'Organic content and online visibility',
+  'Client attraction and enrollment',
+];
+
+const whereYouAre = [
+  ['Your marketplace identity feels unclear', 'You know your ministry role, but naming who you are in the marketplace is harder.'],
+  ['You carry many gifts', 'Your skills and experiences are rich, and choosing which one to build a business around feels uncertain.'],
+  ['Your help has no package yet', 'You know how to help people, but shaping that help into a paid service has not come together.'],
+  ['Online feels different from the room', 'You lead with ease in person, yet showing up on camera and communicating your value online feels unfamiliar.'],
+  ['Your content inspires but does not invite', 'You share spiritual and encouraging content, but it is not yet connected to what you offer.'],
+  ['Charging feels uncomfortable', 'Asking to be paid for your knowledge, or inviting people to work with you, does not come naturally.'],
+  ['You need structure around your calling', 'You are ready for strategy, accountability, and practical guidance to build a business that truly functions.'],
+];
+
+const phases = [
+  ['I', 'Identity Centering', 'Come into alignment with who you are. Discover your spiritual identity, your gifts, and your talents, so you speak and serve from what you truly carry.'],
+  ['II', 'Purpose Birthing', 'Clarify the purpose already inside you. Know who you are called to serve and what you are called to offer them.'],
+  ['III', 'Building Your Offer', 'Turn your purpose and expertise into a clear offer that people understand and want to say yes to.'],
+  ['IV', 'Launching Into the Online Marketplace', 'Take your offer to market with a sales campaign that invites the right people in.'],
+];
+
+const testimonies = [
+  {
+    initials: 'TH', label: 'T.H. · Pastor',
+    title: 'Identity, Purpose, and an Offer Built From Both',
+    body: [
+      'Pastor T.H. joined The Called Method™ with a wealth of business knowledge and years of pastoral experience, but no program or offer bringing them together.',
+      'Through The Called Method™, she combined her business expertise and ministry experience into an offer for churches and pastors who want home-based businesses just like hers, in only 90 days. Yet the biggest takeaway for her was that life finally made sense. She uncovered her spiritual identity and birthed the purpose that had been inside her all along.',
+    ],
+    quote: 'I’m different now.',
+  },
+  {
+    initials: 'PH', label: 'P.H. · Pastor',
+    title: 'From a Blank Page to a Full Program in a Few Weeks',
+    body: [
+      'When Pastor P.H. found me on TikTok, she had no photo, no posts, and nothing to offer, just a blank page following along. After joining The Called Method™, she began creating TikTok content that attracted her right audience, and she filled her first coaching program in as little as a few weeks.',
+      'What brought her the most joy was not the results alone. It was a revelation at the center of her calling.',
+    ],
+    quote: 'I realized God loved me. That’s when things started really happening.',
+  },
+  {
+    initials: 'KG', label: 'K.G. · Service Provider',
+    title: 'From 21 Followers to Her Best Month Since Launching',
+    body: [
+      'K.G. joined The Called Method™ with just 21 TikTok followers. Together, we built her offer, and I introduced her to the Amen to Opt-In™ content strategy to attract the right audience to her offer. Her following grew from 21 followers to over 2,200 in a short period of time.',
+      'On one day during the program, her inbox filled with more than 100 direct messages from people interested in her offers. In the weeks that followed, she booked over 30 new clients and 60 program consultations from TikTok alone. She came into alignment with who she was, and the rest is history.',
+    ],
+    quote: 'I finally have the language I needed to express what I offer, and I can show up online with confidence.',
+  },
+  {
+    initials: 'KP', label: 'K.P. · Cohort Client',
+    title: 'Clarity, a Full Offer, and the Confidence to Invite',
+    body: [],
+    quote: 'I got clarity on who I’m called to serve and how to speak to her. By the end, I had a full offer mapped out, and the confidence to go live, post consistently, and actually invite people into what I offer.',
+  },
+];
+
+const daughters = [
+  ['The Church Girl', 'Social Seller · Pastor’s Wife'],
+  ['The Mystic Daughter', 'Christian Entrepreneur · Administrator'],
+  ['The Called Daughter', 'Coach · Ministry Leader'],
+];
+
+const faqs = [
+  ['Who is The Called Method™ Cohort for?', 'Christian coaches, consultants and service providers who have already started, in ministry, coaching or a service-based business, and are ready to take their coaching business to the next level. If you have the calling and the experience but need clarity, an aligned flagship offer, and confidence showing up online, this is for you.'],
+  ['Do I need to already have a ministry or business?', 'Yes. The cohort is designed for women who have already begun. You bring the experience and the work you have started; together we bring it into alignment and into the online marketplace.'],
+  ['When does the cohort begin?', `The next cohort begins ${COHORT.begins}, at ${COHORT.time}. Registration closes ${COHORT.registrationCloses}. The investment is ${COHORT.investment}.`],
+  ['What if I am not ready for six months?', 'Start with the Which Daughter Are You? mini quiz. In just a few minutes, you will discover your spiritual identity, who you are called to serve, and what to offer them.'],
+  ['How do I apply?', 'Select “Apply to work with me” anywhere on this page. You will answer a few short questions and choose a time for a 20-minute call with me.'],
+];
+---
+<Base
+  title="Naomi Shaffer, Marketplace Strategist for Christian Women Coaches | Kingdom Roe"
+  description="Kingdom Roe Coaching & Consulting helps professional Christian women turn what they know into coaching businesses that attract clients and generate income."
+>
+  <!-- Opening statement -->
+  <section class="opening">
+    <div class="wrap center">
+      <h1>You’ve Been Faithful. You’ve Been Gifted. And Online, You’ve Been Invisible.</h1>
+      <hr class="rule" />
+      <p class="opening-sub">It’s not because you lack the gift. It’s because no one ever showed you how to transfer the authority you carry in person into the online space with strategy, identity, and purpose.</p>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">For the called woman</p>
+        <h2>You Carry Authority in Every Room You Walk Into. It’s Time the Online Space Felt It Too.</h2>
+        <hr class="rule" />
+        <p class="lede">I’m Prophet Naomi Shaffer, Marketplace Strategist. I help professional Christian women turn what they know into coaching businesses that attract clients and generate income in the online space with confidence.</p>
+        <div><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a></div>
+      </div>
+      <div class="portrait">
+        <img src="/images/naomi.jpg" alt="Prophet Naomi Shaffer, Marketplace Strategist" width="900" height="1080" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Core belief -->
+  <section class="band white">
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">Our core belief</p>
+        <h2 class="h-md">At Kingdom Roe Coaching &amp; Consulting, We Believe Your Years of Service Were Not Wasted</h2>
+        <hr class="rule" />
+      </div>
+      <div class="stack">
+        <p class="italic">Sis, what we believe is this: what you have learned, developed, and carried can become a solution for someone else through the right strategy and online positioning.</p>
+        <p class="eyebrow">Where we focus</p>
+        <ul class="chips">{focus.map((f) => <li>{f}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where you are -->
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Where you are</p>
+        <h2>Here Is Where You Are Now</h2>
+        <hr class="rule" />
+      </div>
+      <div class="grid-3">
+        {whereYouAre.map(([t, d]) => (
+          <div class="where-item"><h3>{t}</h3><p>{d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Naomi -->
+  <section class="band white">
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">Meet Naomi</p>
+        <h2 class="h-md">Hello, I’m a Called and Licensed Prophet and Pastor With a Proven Method to Bring Impact and Income to the Kingdom Entrepreneur</h2>
+        <hr class="rule" />
+      </div>
+      <div class="stack">
+        <p class="italic big">Woman of God, this is not a motivational coaching session.</p>
+        <p>This is strategic insight from a licensed prophet, standing in office and ready to release heavenly strategy over your business through the method God gave me to grow my own. What He has done for me, I want for you.</p>
+        <div><a class="btn brown" href="/about/">Read my story <Fragment set:html={arrow} /></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Called Method -->
+  <section class="band" id="method">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Signature methodology</p>
+        <h2>The Called Method™</h2>
+        <hr class="rule" />
+        <p class="lede narrow">Four phases to take what God has placed inside of you and bring it into the online marketplace, so you can create impact while making income.</p>
+      </div>
+      <div class="phases">
+        {phases.map(([n, t, d]) => (
+          <div class="phase"><span class="num">{n}</span><h3>{t}</h3><p>{d}</p></div>
+        ))}
+      </div>
+      <p class="phases-tag">Identified. Purposed. Built. Launched. One Called Daughter at a Time.</p>
+    </div>
+  </section>
+
+  <!-- Cohort -->
+  <section class="band cohort" id="cohort">
+    <div class="wrap two-col align-start">
+      <div class="stack">
+        <p class="eyebrow">The Called Method™ 6-Month Cohort</p>
+        <h2 class="h-md">Your Ministry Is Already Changing Lives. Now Let It Build Your Income.</h2>
+        <hr class="rule" />
+        <p class="lede">For Christian coaches and consultants who are ready to take their coaching business to the next level. In as little as six months, you’ll build a flagship offer strong enough to carry your coaching business, the content that draws your audience in, and the sales strategy that turns them into clients who return to buy again and again.</p>
+        <p>I spent my first two years online making nothing. Today, my flagship offer and my lead-generation offers have sustained five times my monthly income. Not because I worked harder, but because I stopped moving off of gift alone and started moving from purpose and identity.</p>
+        <p>The Called Method™ is how I teach you to do the same: 2X, 3X, even 5X your income by building from who God made you and what He’s called you to offer.</p>
+        <a class="text-link" href="/about/">Read more about Naomi <Fragment set:html={arrow} /></a>
+      </div>
+      <div class="cohort-card">
+        <p class="italic big">You’ve already shown up in the room. Now let your online presence carry your voice beyond the four walls.</p>
+        <dl class="facts">
+          <div><dt>Length</dt><dd>6 months</dd></div>
+          <div><dt>Registration closes</dt><dd>{COHORT.registrationCloses}</dd></div>
+          <div><dt>Cohort begins</dt><dd>{COHORT.begins}<small>{COHORT.time}</small></dd></div>
+          <div><dt>Investment</dt><dd>{COHORT.investment}</dd></div>
+          <div><dt>Seats</dt><dd>{COHORT.seats}</dd></div>
+        </dl>
+        <a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a>
+        <p class="fine">Results vary based on individual effort and circumstances.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonies -->
+  <section class="band white" id="testimonies">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Testimonies</p>
+        <h2>Women Who Learned to Move From Purpose, Not Pressure</h2>
+        <hr class="rule" />
+      </div>
+      <div class="testimonies">
+        {testimonies.map((t) => (
+          <article class="testimony">
+            <div class="avatar" aria-hidden="true">{t.initials}</div>
+            <div class="stack">
+              <p class="eyebrow">{t.label}</p>
+              <h3>{t.title}</h3>
+              {t.body.map((p) => <p>{p}</p>)}
+              <blockquote>“{t.quote}”</blockquote>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="band" id="quiz">
+    <div class="wrap">
+      <div class="quiz-card">
+        <div class="quiz-grid">
+          <div class="stack">
+            <p class="eyebrow">Not ready for six months? Start here</p>
+            <h2 class="h-md">Which Daughter Are You?</h2>
+            <hr class="rule" />
+            <p class="italic">Discover your spiritual identity, so you can step into your God-given assignment with confidence.</p>
+            <p>You know you’re called. You know you’re gifted. People already come to you for wisdom, prayer and counsel. But when it’s time to step out and offer a service, you hesitate. It’s not because you don’t have an offer. You have many! You just can’t name what to offer or who to offer it to. Guess no more. My mini quiz will reveal your Spiritual Daughter Archetype, who you are called to serve and the offers that fit you.</p>
+          </div>
+          <div class="stack">
+            <p class="eyebrow">Your results</p>
+            <ul class="checks">
+              <li><b>Your spiritual identity:</b> which of the three Daughters you are, with a profile that reads like it was written about you.</li>
+              <li><b>Who you’re called to serve:</b> the type of person God has assigned to you.</li>
+              <li><b>What to offer them:</b> five products and services that fit your identity and gifts.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="daughters">
+          {daughters.map(([n, d]) => (<div class="daughter"><h3>{n}</h3><p>{d}</p></div>))}
+        </div>
+        <div class="quiz-cta">
+          <p class="italic">In just a few minutes, you’ll stop guessing at your assignment and start building from your identity.</p>
+          {QUIZ_SALES_URL
+            ? <a class="btn" href={QUIZ_SALES_URL} target="_blank" rel="noopener">Take the quiz for $7 <Fragment set:html={arrow} /></a>
+            : <span class="btn off" aria-disabled="true">Take the quiz for $7 · Coming soon</span>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band" id="faq">
+    <div class="wrap narrow-wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Questions</p>
+        <h2>Before You Apply</h2>
+        <hr class="rule" />
+      </div>
+      <div class="faq">
+        {faqs.map(([q, a], i) => (
+          <details open={i === 0}><summary>{q}<span class="plus" aria-hidden="true"></span></summary><p>{a}</p></details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="band closing-band">
+    <div class="wrap">
+      <div class="closing">
+        <span class="mono" aria-hidden="true">NR</span>
+        <p class="eyebrow">Impact and income</p>
+        <h2>You Want to Make Impact and Income. I Understand.</h2>
+        <p class="lede">Bring me what you know, along with your spiritual gifts, and let me help you turn it into a coaching offer that attracts the right clients and aligns with God’s call on your life.</p>
+        <div><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a></div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .opening { padding-block: 96px 64px; }
+  .opening h1 { font-size: clamp(38px, 6vw, 64px); max-width: 860px; margin-inline: auto; }
+  .opening-sub { max-width: 720px; margin: 28px auto 0; font-style: italic; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(0,0,0,.35); font-size: 15px; }
+
+  .hero { padding-block: 24px 110px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+  .hero-copy { display: grid; gap: 20px; }
+  .hero-copy h2 { font-size: clamp(34px, 4.2vw, 46px); }
+  .portrait { position: relative; max-width: 440px; justify-self: end; width: 100%; }
+  .portrait::before { content: ""; position: absolute; inset: 48px -28px -28px 48px; background: var(--tan); border-radius: var(--radius); }
+  .portrait img { position: relative; width: 100%; height: auto; border-radius: var(--radius); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .align-start { align-items: start; }
+  .h-md { font-size: clamp(30px, 3.6vw, 40px); margin-top: 12px; }
+  .stack { display: grid; gap: 18px; min-width: 0; }
+  .big { font-size: 18px; }
+  .chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips li { background: var(--pink-soft); color: var(--pink-deep); font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; }
+  .where-item { border-top: 1px solid var(--line); padding-top: 22px; display: grid; gap: 8px; }
+  .where-item:nth-child(n+4) { border-top-color: var(--pink-line); }
+  .where-item h3 { font-family: var(--sans); font-size: 16px; font-weight: 700; }
+  .where-item p { font-size: 15px; }
+
+  .narrow { max-width: 600px; margin-inline: auto; }
+  .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .phase { border-top: 2px solid var(--pink-line); padding-top: 22px; display: grid; gap: 8px; align-content: start; }
+  .phase .num { font-family: var(--display); font-size: 28px; color: var(--pink); line-height: 1; }
+  .phase h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; }
+  .phase p { font-size: 14px; }
+  .phases-tag { text-align: center; font-family: var(--display); font-size: clamp(24px, 3vw, 30px); font-weight: 600; color: var(--ink); margin-top: 72px; }
+
+  .cohort-card { background: var(--white); border-radius: var(--radius); border-top: 6px solid var(--pink); box-shadow: 0 10px 40px rgba(40, 15, 10, .07); padding: 36px 32px; display: grid; gap: 22px; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin: 0; padding-block: 20px; border-block: 1px solid var(--line); }
+  .facts dt { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--pink-deep); }
+  .facts dd { margin: 4px 0 0; font-weight: 600; color: var(--ink); }
+  .facts small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+  .fine { font-size: 12px; color: var(--muted); }
+
+  .testimonies { max-width: 880px; margin: 0 auto; }
+  .testimony { display: grid; grid-template-columns: 72px 1fr; gap: 32px; padding-block: 44px; border-top: 1px solid var(--line); }
+  .testimony:first-child { border-top-color: var(--pink-line); }
+  .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--pink-faint); border: 1px solid var(--pink-line); display: grid; place-items: center; font-family: var(--display); font-size: 22px; color: var(--pink-deep); }
+  .testimony h3 { font-family: var(--sans); font-size: 22px; font-weight: 700; }
+  blockquote { margin: 0; padding-left: 34px; position: relative; font-style: italic; font-size: 17px; color: var(--ink); }
+  blockquote::before { content: "”"; position: absolute; left: 0; top: -8px; font-family: var(--display); font-size: 44px; color: var(--pink); font-style: normal; }
+
+  .quiz-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--line); padding: 64px; display: grid; gap: 48px; }
+  .quiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+  .checks li { padding-left: 34px; position: relative; }
+  .checks li::before { content: "✓"; position: absolute; left: 4px; color: var(--pink); font-weight: 700; }
+  .checks b { color: var(--ink); }
+  .daughters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .daughter { border-top: 2px solid var(--pink-line); padding-top: 22px; }
+  .daughter h3 { font-family: var(--sans); font-size: 18px; font-weight: 700; }
+  .daughter p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .quiz-cta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-top: 32px; border-top: 1px solid #f3d7e6; }
+  .quiz-cta p { max-width: 520px; }
+
+  .narrow-wrap { max-width: 840px; }
+  .faq details { border-top: 1px solid var(--pink-line); padding-block: 22px; }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 700; font-size: 17px; color: var(--ink); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .plus { flex: none; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--ink); position: relative; }
+  .plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.5px; background: var(--ink); transform: translate(-50%, -50%); }
+  .plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+  details[open] .plus { border-color: var(--pink); }
+  details[open] .plus::before { background: var(--pink); }
+  details[open] .plus::after { display: none; }
+  .faq details p { margin-top: 16px; max-width: 700px; }
+
+  .closing-band { padding-top: 24px; }
+  .closing { position: relative; overflow: hidden; background: var(--white); border-radius: var(--radius); border-top: 6px solid var(--pink); box-shadow: 0 10px 40px rgba(40, 15, 10, .06); padding: 72px 32px; text-align: center; display: grid; gap: 20px; justify-items: center; }
+  .closing h2 { font-size: clamp(30px, 4vw, 42px); position: relative; }
+  .closing .lede { max-width: 620px; position: relative; }
+  .closing .eyebrow, .closing div { position: relative; }
+  .mono { position: absolute; right: 0; bottom: -40px; font-family: var(--display); font-size: 260px; font-weight: 600; color: var(--pink-faint); line-height: 1; pointer-events: none; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .two-col, .quiz-grid { grid-template-columns: 1fr; gap: 40px; }
+    .portrait { justify-self: start; width: calc(100% - 28px); max-width: 360px; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .phases { grid-template-columns: 1fr 1fr; }
+    .quiz-card { padding: 40px 24px; }
+    .daughters { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media (max-width: 600px) {
+    .opening { padding-block: 64px 40px; }
+    .grid-3, .phases { grid-template-columns: 1fr; }
+    .testimony { grid-template-columns: 1fr; gap: 16px; }
+    .mono { font-size: 160px; }
+  }
+</style>
