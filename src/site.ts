@@ -20,7 +20,7 @@ export const COHORT = {
   registrationCloses: 'January 9, 2027',
   begins: 'Tuesday, January 12, 2027',
   time: '5:00 PM Central',
-  investment: '$5,997 or a payment plan',
+  // The cohort price is shared only after she applies. It is never shown on the website.
   seats: 'An intimate cohort of 7',
 };
 
