@@ -27,3 +27,15 @@ export const NAV = [
   { label: 'Quiz', href: '/#quiz' },
   { label: 'FAQ', href: '/#faq' },
 ];
+
+// The 8-Day Purposeful Content Shift™ pop-up. It runs only in season.
+// To turn it on: set `on` to true, and fill in the dates and the Flodesk link.
+// The pop-up never shows unless `on` is true AND `url` has a link.
+export const CHALLENGE = {
+  on: false,
+  name: 'The 8-Day Purposeful Content Shift™',
+  tagline: 'Shift Your Content From Encouragement to Attraction.',
+  dates: '', // for example: 'March 2 to March 9, 2027'
+  price: '$8',
+  url: '', // the Flodesk sales or checkout link
+};

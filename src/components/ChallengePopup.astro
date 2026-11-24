@@ -1,0 +1,53 @@
+---
+import { CHALLENGE } from '../site';
+const show = CHALLENGE.on && CHALLENGE.url;
+---
+{show && (
+  <dialog class="popup" id="challenge-popup" aria-labelledby="popup-title">
+    <button class="popup-close" type="button" aria-label="Close" data-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <p class="eyebrow">{CHALLENGE.dates ? `Now open · ${CHALLENGE.dates}` : 'Now open'}</p>
+    <h2 id="popup-title">{CHALLENGE.name}</h2>
+    <hr class="rule" />
+    <p class="popup-tag">{CHALLENGE.tagline}</p>
+    <p>Stop posting just for encouragement and start attracting the people God has called you to. In eight days, you’ll learn how to turn every post into an invitation, so the women who already love what you share know exactly how to work with you.</p>
+    <div class="popup-actions">
+      <a class="btn" href={CHALLENGE.url}>Join for {CHALLENGE.price}</a>
+      <button class="text-link popup-later" type="button" data-close>Maybe later</button>
+    </div>
+  </dialog>
+)}
+
+{show && (
+  <script is:inline>
+    (function () {
+      var dlg = document.getElementById('challenge-popup');
+      var KEY = 'kr-challenge-popup-seen';
+      var seen = false;
+      try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+      if (!dlg || seen || typeof dlg.showModal !== 'function') return;
+      dlg.querySelectorAll('[data-close]').forEach(function (b) {
+        b.addEventListener('click', function () { dlg.close(); });
+      });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      setTimeout(function () {
+        dlg.showModal();
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      }, 8000);
+    })();
+  </script>
+)}
+
+<style>
+  .popup { width: min(520px, calc(100% - 32px)); border: 0; border-top: 6px solid var(--pink); border-radius: var(--radius); padding: 48px 36px 36px; background: var(--white); color: var(--body); box-shadow: 0 30px 80px rgba(40, 15, 10, .25); }
+  .popup::backdrop { background: rgba(40, 15, 10, .45); }
+  .popup h2 { font-size: clamp(28px, 4vw, 36px); margin-top: 10px; }
+  .popup .rule { margin-top: 16px; }
+  .popup-tag { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--pink-deep); margin: 16px 0 12px; }
+  .popup-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 24px; }
+  .popup-later { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
+  .popup-close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; display: grid; place-items: center; background: none; border: 0; border-radius: 50%; color: var(--muted); cursor: pointer; }
+  .popup-close:hover { background: var(--pink-faint); color: var(--ink); }
+  .popup-close svg { width: 22px; height: 22px; }
+</style>

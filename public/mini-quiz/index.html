@@ -96,7 +96,8 @@ footer{text-align:center;font-size:12px;color:var(--cream-dim);padding-top:36px;
 </div>
 
 <script>
-const CHALLENGE_URL = "";   // Flodesk link for The 8-Day Purposeful Content Shift
+const CHALLENGE_URL = "";   // Flodesk link for The 8-Day Purposeful Content Shift (empty: the quiz ends with Apply)
+const APPLY_URL = "https://calendly.com/d/dwcn-cp2-697";
 const NAOMI_EMAIL = "naomi@kingdomroe.com";
 const SHORT = {CG:"Church Girl", M:"Mystic Daughter", C:"Called Daughter"};
 const NAMES = {CG:"The Church Girl", M:"The Mystic Daughter", C:"The Called Daughter"};
@@ -229,12 +230,19 @@ function vResults(){const d=R[S.result];return `<section class="page">
   <div class="block"><h3>Who You're Called to Serve</h3><p>${esc(d.serve)}</p></div>
   <div class="block"><h3>What You Can Offer, Online or In Person</h3><p>You can build your offer online, in person, or both. Here is one place to begin in each area:</p>
     <ul>${d.offer.map(o=>`<li><span class="lbl">${o[0]}:</span> ${esc(o[1])}</li>`).join("")}</ul></div>
-  <div class="cta">
+  ${CHALLENGE_URL?`<div class="cta">
     <p class="eyebrow">Your Next Step</p>
     <h3>Shift Your Content From Encouragement to Attraction.</h3>
     <p>Now that you know who you are and who you're called to serve, it's time to show up for her. Stop posting just for encouragement and start attracting the people God has called you to. In eight days, you'll learn how to turn every post into an invitation, so the women who already love what you share know exactly how to work with you.</p>
-    ${CHALLENGE_URL?`<a class="btn" href="${CHALLENGE_URL}" target="_blank" rel="noopener">Join The 8-Day Purposeful Content Shift™</a>`:`<span class="btn" style="opacity:.45;cursor:not-allowed" aria-disabled="true">Join The 8-Day Purposeful Content Shift™</span><p class="note">The link is coming soon.</p>`}
-  </div></section>`;}
+    <a class="btn" href="${CHALLENGE_URL}" target="_blank" rel="noopener">Join The 8-Day Purposeful Content Shift™</a>
+  `:`<div class="cta">
+    <p class="eyebrow">Your Next Step</p>
+    <h3>You Know Who You Are. Now Let's Build It.</h3>
+    <p>Now that you know your results, you know your potential. Maybe you already offer a service, and you're ready to bring it to the marketplace. Or maybe you've been working hard to build your coaching business, and your income has stayed at the same level.</p>
+    <p>If you're ready to take your coaching to the next level, I want to show you The Called Method™, the method I used to 5X my monthly income. Let me help you position yourself as an expert, a confident woman of God who does not have to compromise her calling or her anointing to build impact and income.</p>
+    <a class="btn" href="${APPLY_URL}" target="_blank" rel="noopener">Apply to Work With Me</a>
+    <p class="note">Individual experiences and results vary.</p>
+  `}  </div></section>`;}
 
 function render(){
   setSteps();

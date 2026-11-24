@@ -93,3 +93,14 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 .site-footer .legal-link { color: var(--pink-deep); text-decoration: none; }
 .site-footer .legal-link:hover { text-decoration: underline; }
+
+/* Apply first, mini quiz second */
+.cta-pair { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
+.center .cta-pair, .closing .cta-pair { justify-content: center; }
+.alt-link { font-size: 15px; }
+.cta-pair .btn { white-space: nowrap; }
+@media (max-width: 500px) {
+  .cta-pair .btn { padding: 17px 28px; }
+  .closing .cta-pair { flex-direction: column; }
+  .closing .alt-link { text-align: center; }
+}

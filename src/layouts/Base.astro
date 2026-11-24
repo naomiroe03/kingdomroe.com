@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { NAV, APPLY_URL, EMAIL } from '../site';
+import ChallengePopup from '../components/ChallengePopup.astro';
 
 interface Props {
   title: string;
@@ -54,6 +55,8 @@ const year = new Date().getFullYear();
         </div>
       </div>
     </footer>
+
+    <ChallengePopup />
 
     <script>
       const toggle = document.getElementById('menu-toggle');

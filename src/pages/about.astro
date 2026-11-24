@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { APPLY_URL, COHORT } from '../site';
+import { APPLY_URL, COHORT, QUIZ_PAGE } from '../site';
 
 const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
@@ -105,7 +105,7 @@ const chapters = [
         <p class="eyebrow">The Called Method™</p>
         <h2>Build on a Strong, Secure Foundation</h2>
         <p class="lede">{COHORT.name} begins {COHORT.begins}. Registration closes {COHORT.registrationCloses.replace(', 2027', '')}.</p>
-        <div><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a></div>
+        <div class="cta-pair"><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a><a class="text-link alt-link" href={QUIZ_PAGE}>Not ready to apply? Take my mini quiz <Fragment set:html={arrow} /></a></div>
       </div>
     </div>
   </section>
