@@ -13,13 +13,13 @@ const focus = [
 ];
 
 const whereYouAre = [
-  ['Your marketplace identity feels unclear', 'You know your ministry role, but naming who you are in the marketplace is harder.'],
-  ['You carry many gifts', 'Your skills and experiences are rich, and choosing which one to build a business around feels uncertain.'],
-  ['Your help has no package yet', 'You know how to help people, but shaping that help into a paid service has not come together.'],
-  ['Online feels different from the room', 'You lead with ease in person, yet showing up on camera and communicating your value online feels unfamiliar.'],
-  ['Your content inspires but does not invite', 'You share spiritual and encouraging content, but it is not yet connected to what you offer.'],
-  ['Charging feels uncomfortable', 'Asking to be paid for your knowledge, or inviting people to work with you, does not come naturally.'],
-  ['You need structure around your calling', 'You are ready for strategy, accountability, and practical guidance to build a business that truly functions.'],
+  ['Your income has leveled off', 'You are working hard and serving well, but your monthly income has stayed at the same level.'],
+  ['Clients come, but not consistently', 'You have helped people and even had paying clients, but your bookings rise and fall.'],
+  ['Your offer is hard to explain', 'You carry many gifts, and saying clearly what you offer and who it is for feels harder than it should.'],
+  ['Your content inspires but does not invite', 'You share spiritual and encouraging content, but it is not yet leading people to work with you.'],
+  ['Online feels different from the room', 'You lead with ease in person, yet communicating your value on camera and online feels unfamiliar.'],
+  ['Inviting people to buy feels uncomfortable', 'Asking to be paid for your knowledge, or inviting people into your offer, does not come naturally yet.'],
+  ['You are ready for structure', 'You want strategy, accountability and practical guidance to build a business that truly functions.'],
 ];
 
 const phases = [
@@ -35,7 +35,7 @@ const testimonies = [
     title: 'Identity, Purpose, and an Offer Built From Both',
     body: [
       'Pastor T.H. joined The Called Method™ with a wealth of business knowledge and years of pastoral experience, but no program or offer bringing them together.',
-      'Through The Called Method™, she combined her business expertise and ministry experience into an offer for churches and pastors who want home-based businesses just like hers, in only 90 days. Yet the biggest takeaway for her was that life finally made sense. She uncovered her spiritual identity and birthed the purpose that had been inside her all along.',
+      'In only 90 days, she combined her business expertise and ministry experience into an offer for churches and pastors who want home-based businesses like hers. Yet the biggest takeaway for her was that life finally made sense. She uncovered her spiritual identity and birthed the purpose that had been inside her all along.',
     ],
     quote: 'I’m different now.',
   },
@@ -53,7 +53,7 @@ const testimonies = [
     title: 'From 21 Followers to Her Best Month Since Launching',
     body: [
       'K.G. joined The Called Method™ with just 21 TikTok followers. Together, we built her offer, and I introduced her to the Amen to Opt-In™ content strategy to attract the right audience to her offer. Her following grew from 21 followers to over 2,200 in a short period of time.',
-      'On one day during the program, her inbox filled with more than 100 direct messages from people interested in her offers. In the weeks that followed, she booked over 30 new clients and 60 program consultations from TikTok alone. She came into alignment with who she was, and the rest is history.',
+      'In a single day during the program, her inbox filled with more than 100 direct messages from people interested in her offers. In the weeks that followed, she booked over 30 new clients and 60 program consultations from TikTok alone. She came into alignment with who she was, and the rest is history.',
     ],
     quote: 'I finally have the language I needed to express what I offer, and I can show up online with confidence.',
   },
@@ -72,8 +72,8 @@ const daughters = [
 ];
 
 const faqs = [
-  ['Who is The Called Method™ Cohort for?', 'Christian coaches, consultants and service providers who have already started, in ministry, coaching or a service-based business, and are ready to take their coaching business to the next level. If you have the calling and the experience but need clarity, an aligned flagship offer, and confidence showing up online, this is for you.'],
-  ['Do I need to already have a ministry or business?', 'Yes. The cohort is designed for women who have already begun. You bring the experience and the work you have started; together we bring it into alignment and into the online marketplace.'],
+  ['Who is The Called Method™ Cohort for?', 'Christian coaches, consultants and service providers who have already started in ministry, coaching or a service-based business, and who are ready to take their coaching business to the next level. If you have the calling and the experience but need clarity, an aligned flagship offer, and confidence showing up online, this is for you.'],
+  ['Do I need to already have a ministry or business?', 'Yes. The cohort is designed for women who have already begun. You bring the experience and the work you have started, and together we bring it into alignment and into the online marketplace.'],
   ['When does the cohort begin?', `The next cohort begins ${COHORT.begins}, at ${COHORT.time}. Registration closes ${COHORT.registrationCloses}. The investment is ${COHORT.investment}.`],
   ['What if I am not ready for six months?', 'Start with the Which Daughter Are You? mini quiz. In just a few minutes, you will discover your spiritual identity, who you are called to serve, and what to offer them.'],
   ['How do I apply?', 'Select “Apply to work with me” anywhere on this page. You will answer a few short questions and choose a time for a 20-minute call with me.'],
@@ -89,6 +89,7 @@ const faqs = [
       <h1>You’ve Been Faithful. You’ve Been Gifted. And Online, You’ve Been Invisible.</h1>
       <hr class="rule" />
       <p class="opening-sub">It’s not because you lack the gift. It’s because no one ever showed you how to transfer the authority you carry in person into the online space with strategy, identity, and purpose.</p>
+      <div class="cta-pair opening-cta"><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a><a class="text-link alt-link" href={QUIZ_PAGE}>Not ready to apply? Take my mini quiz <Fragment set:html={arrow} /></a></div>
     </div>
   </section>
 
@@ -99,7 +100,7 @@ const faqs = [
         <p class="eyebrow">For the called woman</p>
         <h2>You Carry Authority in Every Room You Walk Into. It’s Time the Online Space Felt It Too.</h2>
         <hr class="rule" />
-        <p class="lede">I’m Prophet Naomi Shaffer, Marketplace Strategist. I help professional Christian women turn what they know into coaching businesses that attract clients and generate income in the online space with confidence.</p>
+        <p class="lede">I’m Naomi Shaffer, Prophet and Marketplace Strategist. I help professional Christian women turn what they know into coaching businesses that attract clients and generate income, and I teach them to show up online with confidence.</p>
         <div class="cta-pair"><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a><a class="text-link alt-link" href={QUIZ_PAGE}>Not ready to apply? Take my mini quiz <Fragment set:html={arrow} /></a></div>
       </div>
       <div class="portrait">
@@ -117,7 +118,7 @@ const faqs = [
         <hr class="rule" />
       </div>
       <div class="stack">
-        <p class="italic">Sis, what we believe is this: what you have learned, developed, and carried can become a solution for someone else through the right strategy and online positioning.</p>
+        <p class="italic">Your years of service were preparation. What you have learned, developed and carried can become the solution someone else is praying for, with the right strategy and positioning.</p>
         <p class="eyebrow">Where we focus</p>
         <ul class="chips">{focus.map((f) => <li>{f}</li>)}</ul>
       </div>
@@ -129,7 +130,7 @@ const faqs = [
     <div class="wrap">
       <div class="section-head center">
         <p class="eyebrow">Where you are</p>
-        <h2>Here Is Where You Are Now</h2>
+        <h2>Does This Sound Like You?</h2>
         <hr class="rule" />
       </div>
       <div class="grid-3">
@@ -145,7 +146,7 @@ const faqs = [
     <div class="wrap two-col">
       <div>
         <p class="eyebrow">Meet Naomi</p>
-        <h2 class="h-md">Hello, I’m a Called and Licensed Prophet and Pastor With a Proven Method to Bring Impact and Income to the Kingdom Entrepreneur</h2>
+        <h2 class="h-md">A Licensed Prophet and Pastor With a Proven Method for Impact and Income</h2>
         <hr class="rule" />
       </div>
       <div class="stack">
@@ -181,9 +182,9 @@ const faqs = [
         <p class="eyebrow">The Called Method™ 6-Month Cohort</p>
         <h2 class="h-md">Your Ministry Is Already Changing Lives. Now Let It Build Your Income.</h2>
         <hr class="rule" />
-        <p class="lede">For Christian coaches and consultants who are ready to take their coaching business to the next level. In as little as six months, you’ll build a flagship offer strong enough to carry your coaching business, the content that draws your audience in, and the sales strategy that turns them into clients who return to buy again and again.</p>
-        <p>I spent my first two years online making nothing. Today, my flagship offer and my lead-generation offers have sustained five times my monthly income. Not because I worked harder, but because I stopped moving off of gift alone and started moving from purpose and identity.</p>
-        <p>The Called Method™ is how I teach you to do the same: 2X, 3X, even 5X your income by building from who God made you and what He’s called you to offer.</p>
+        <p class="lede">For Christian coaches and consultants who are ready to take their coaching business to the next level. Over six months, you’ll build a flagship offer strong enough to carry your coaching business, the content that draws your audience in, and the sales strategy that turns them into clients who return to buy again and again.</p>
+        <p>I spent my first two years online making nothing. Today, my flagship offer and my lead-generation offers have sustained five times my monthly income. Not because I worked harder, but because I stopped relying on my gift alone and started building from purpose and identity.</p>
+        <p>Inside the cohort, I teach you to do the same, so you can position yourself to 2X, 3X, even 5X your income by building from who God made you to be and what He has called you to offer.</p>
         <a class="text-link" href="/about/">Read more about Naomi <Fragment set:html={arrow} /></a>
       </div>
       <div class="cohort-card">
@@ -235,7 +236,7 @@ const faqs = [
             <h2 class="h-md">Which Daughter Are You?</h2>
             <hr class="rule" />
             <p class="italic">Discover your spiritual identity, so you can step into your God-given assignment with confidence.</p>
-            <p>You know you’re called. You know you’re gifted. People already come to you for wisdom, prayer and counsel. But when it’s time to step out and offer a service, you hesitate. It’s not because you don’t have an offer. You have many! You just can’t name what to offer or who to offer it to. Guess no more. My mini quiz will reveal your Spiritual Daughter Archetype, who you are called to serve and the offers that fit you.</p>
+            <p>You know you’re called. You know you’re gifted. People already come to you for wisdom, prayer and counsel. But when it’s time to step out and offer a service, you hesitate. It’s not that you have nothing to offer. You have many gifts, but naming what to offer and who to offer it to feels unclear. My mini quiz reveals your Spiritual Daughter Archetype, who you are called to serve and the offers that fit you.</p>
           </div>
           <div class="stack">
             <p class="eyebrow">Your results</p>
@@ -278,9 +279,9 @@ const faqs = [
     <div class="wrap">
       <div class="closing">
         <span class="mono" aria-hidden="true">NR</span>
-        <p class="eyebrow">Impact and income</p>
-        <h2>You Want to Make Impact and Income. I Understand.</h2>
-        <p class="lede">Bring me what you know, along with your spiritual gifts, and let me help you turn it into a coaching offer that attracts the right clients and aligns with God’s call on your life.</p>
+        <p class="eyebrow">The Called Method™ 6-Month Cohort</p>
+        <h2>You Were Called to Make Impact and Income</h2>
+        <p class="lede">Bring me what you know, along with your spiritual gifts, and let me help you turn it into a coaching offer that attracts the right clients and aligns with God’s call on your life. Registration closes {COHORT.registrationCloses}.</p>
         <div class="cta-pair"><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to work with me <Fragment set:html={arrow} /></a><a class="text-link alt-link" href={QUIZ_PAGE}>Not ready to apply? Take my mini quiz <Fragment set:html={arrow} /></a></div>
       </div>
     </div>
@@ -290,7 +291,8 @@ const faqs = [
 <style>
   .opening { padding-block: 96px 64px; }
   .opening h1 { font-size: clamp(38px, 6vw, 64px); max-width: 860px; margin-inline: auto; }
-  .opening-sub { max-width: 720px; margin: 28px auto 0; font-style: italic; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(0,0,0,.35); font-size: 15px; }
+  .opening-cta { justify-content: center; margin-top: 32px; flex-direction: column; }
+  .opening-sub { max-width: 720px; margin: 28px auto 0; font-style: italic; font-size: 18px; color: var(--muted); }
 
   .hero { padding-block: 24px 110px; }
   .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
