@@ -246,7 +246,7 @@ const days: Day[] = [
       <h1>Welcome to The 8-Day Purposeful Content Shift™</h1>
       <hr class="rule" />
       <p class="lede">Blessings, woman of God. In eight days, you will know who you are, who you are called to serve, and what to say to her, and you will leave with 20 or more pieces of content created.</p>
-      <p>Each day unlocks after you finish the day before. Follow the steps, submit your faith-performing actions (FPA) with your screenshots, then mark the day complete.</p>
+      <p>Your first day opens Wednesday, December 2, at 12:00 PM Central, and each day after opens at 12:00 PM Central on its date, once you finish the day before. Follow the steps, submit your faith-performing actions (FPA) with your screenshots, then mark the day complete.</p>
       <p class="tip">All you need is your phone. Use the same phone or computer each day, because your progress is saved on this device.</p>
       <div class="schedule">
         <h2>Your 8-Day Schedule</h2>
@@ -271,7 +271,7 @@ const days: Day[] = [
   <section class="band white">
     <div class="wrap narrow days">
       {days.map((d, i) => (
-        <article class="day locked" data-day={i + 1} id={`day-${i + 1}`}>
+        <article class="day locked" data-day={i + 1} data-open={`2026-12-0${i + 2}T12:00:00-06:00`} data-opentext={`Opens ${d.date} at 12:00 PM Central.`} id={`day-${i + 1}`}>
           <header class="day-head">
             <span class="num">{i + 1}</span>
             <div>
@@ -281,7 +281,7 @@ const days: Day[] = [
             </div>
             <span class="status" aria-hidden="true"></span>
           </header>
-          <p class="locked-note">Finish Day {i} to unlock this day.</p>
+          <p class="locked-note">Opens {d.date} at 12:00 PM Central.</p>
           <div class="day-body">
             <p class="why">{d.why}</p>
             <h3>Today’s steps</h3>
@@ -355,21 +355,27 @@ const days: Day[] = [
     function save() { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
     var days = Array.prototype.slice.call(document.querySelectorAll('.day'));
     function render() {
-      var unlocked = 1;
-      while (done.indexOf(unlocked) !== -1 && unlocked < 9) unlocked++;
+      // A day opens at 12:00 PM Central on its date, and after the day before it is complete.
+      var now = Date.now();
+      var current = 0;
       days.forEach(function (el) {
         var n = +el.dataset.day;
         var isDone = done.indexOf(n) !== -1;
-        el.classList.toggle('locked', n > unlocked);
+        var timeOk = now >= Date.parse(el.dataset.open);
+        var prevOk = n === 1 || done.indexOf(n - 1) !== -1;
+        var open = timeOk && prevOk;
+        if (open && !isDone && !current) current = n;
+        el.classList.toggle('locked', !open);
         el.classList.toggle('done', isDone);
-        el.querySelector('.status').textContent = isDone ? 'Complete' : (n > unlocked ? 'Locked' : 'Open');
+        el.querySelector('.locked-note').textContent = !timeOk ? el.dataset.opentext : 'Finish Day ' + (n - 1) + ' to unlock this day.';
+        el.querySelector('.status').textContent = isDone ? 'Complete' : (open ? 'Open' : 'Locked');
         var btn = el.querySelector('.complete');
         var chk = el.querySelector('.done-check');
         if (isDone) { chk.checked = true; chk.disabled = true; btn.disabled = true; }
       });
       var count = Math.min(done.length, 8);
       document.getElementById('bar').style.width = (count / 8 * 100) + '%';
-      document.getElementById('progress-text').textContent = count >= 8 ? 'All 8 days complete' : 'Day ' + Math.min(unlocked, 8) + ' of 8 · ' + count + ' complete';
+      document.getElementById('progress-text').textContent = count >= 8 ? 'All 8 days complete' : (current ? 'Day ' + current + ' of 8 · ' : 'Day 1 opens Wednesday, December 2, at 12:00 PM Central · ') + count + ' complete';
       document.getElementById('finish').hidden = count < 8;
     }
     days.forEach(function (el) {
@@ -410,7 +416,7 @@ const days: Day[] = [
       });
     }
     checkTimed();
-    setInterval(checkTimed, 20000);
+    setInterval(function () { checkTimed(); render(); }, 20000);
   })();
 </script>
 
