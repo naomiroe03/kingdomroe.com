@@ -88,7 +88,7 @@ const carousel: HowTo = {
   ],
 };
 
-type Day = { title: string; date: string; kind: 'class' | 'homework' | 'final'; why: string; steps: string[]; prompt?: { name: string; text: string; note?: string }; link?: { label: string; href: string }; howto?: HowTo[]; homework: string[] };
+type Day = { title: string; date: string; kind: 'class' | 'homework' | 'final'; why: string; steps: string[]; prompt?: { name: string; text: string; note?: string }; link?: { label: string; href: string; unlockAt?: string; unlockLabel?: string }; howto?: HowTo[]; homework: string[] };
 
 const days: Day[] = [
   {
@@ -97,11 +97,11 @@ const days: Day[] = [
     why: 'Woman of God, you are exactly where you are supposed to be. You did not stumble in here. God has placed something in you, and over these eight days we are going to bring it out. It all starts with knowing who you are.',
     steps: [
       'Join tonight’s class at 5:00 PM Central. We will meet each other, and I will walk you through what these eight days hold.',
-      'Take the Which Daughter Are You? mini quiz. It is your free bonus.',
+      'In class, we will take the Which Daughter Are You? mini quiz together. It is your free bonus, and it unlocks below at 5:15 PM Central.',
       'Read your results slowly. Write down your Daughter, who you are called to serve, and the offer ideas that stood out to you. Pray over them.',
       'Download two apps on your phone: TikTok and TikTok Studio. Add a clear photo of you to your TikTok profile.',
     ],
-    link: { label: 'Take My Mini Quiz', href: QUIZ_UNLOCKED_URL },
+    link: { label: 'Take My Mini Quiz', href: QUIZ_UNLOCKED_URL, unlockAt: '2026-12-02T17:15:00-06:00', unlockLabel: 'Opens Wednesday, Dec 2 at 5:15 PM Central' },
     homework: ['A screenshot of your quiz results'],
   },
   {
@@ -243,7 +243,13 @@ const days: Day[] = [
             <p class="why">{d.why}</p>
             <h3>Today’s steps</h3>
             <ol class="steps">{d.steps.map((s) => <li>{s}</li>)}</ol>
-            {d.link && <p><a class="btn" href={d.link.href} target="_blank" rel="noopener">{d.link.label}</a></p>}
+            {d.link && !d.link.unlockAt && <p><a class="btn" href={d.link.href} target="_blank" rel="noopener">{d.link.label}</a></p>}
+            {d.link && d.link.unlockAt && (
+              <div class="timed" data-unlock={d.link.unlockAt} data-href={d.link.href}>
+                <span class="btn off timed-btn" aria-disabled="true">{d.link.label}</span>
+                <p class="timed-note">Locked until class. {d.link.unlockLabel}. We take it together in class.</p>
+              </div>
+            )}
             {d.prompt && (
               <div class="prompt">
                 <div class="prompt-head"><h3>{d.prompt.name}</h3><button class="copy" type="button">Copy prompt</button></div>
@@ -328,6 +334,26 @@ const days: Day[] = [
       });
     });
     render();
+
+    // Timed links (the Day 1 quiz): locked until the class time, then they open on their own.
+    function checkTimed() {
+      document.querySelectorAll('.timed').forEach(function (box) {
+        if (box.dataset.open === '1') return;
+        if (Date.now() >= Date.parse(box.dataset.unlock)) {
+          box.dataset.open = '1';
+          var href = box.dataset.href;
+          var btn = box.querySelector('.timed-btn');
+          var a = document.createElement('a');
+          a.className = 'btn';
+          a.href = href; a.target = '_blank'; a.rel = 'noopener';
+          a.textContent = btn.textContent;
+          btn.replaceWith(a);
+          box.querySelector('.timed-note').textContent = 'Your quiz is open. Take it now with us in class.';
+        }
+      });
+    }
+    checkTimed();
+    setInterval(checkTimed, 20000);
   })();
 </script>
 
@@ -372,6 +398,8 @@ const days: Day[] = [
   .copy { appearance: none; border: 1px solid var(--pink); background: var(--pink-faint); color: var(--pink-deep); border-radius: 999px; padding: 10px 18px; min-height: 44px; font: 600 14px var(--sans); cursor: pointer; }
   pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 14px/1.6 var(--sans); color: var(--body); max-height: 320px; overflow: auto; }
   .note { font-size: 14px; color: var(--pink-deep); }
+  .timed { display: grid; gap: 8px; justify-items: start; }
+  .timed-note { font-size: 14px; color: var(--muted); }
   .howto { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; grid-template-columns: 160px 1fr; gap: 20px; align-items: start; }
   .howto h3 { margin-bottom: 10px; }
   .homework { background: var(--white); border-top: 4px solid var(--pink); border-radius: 12px; padding: 20px; display: grid; gap: 14px; justify-items: start; }
