@@ -29,7 +29,7 @@ const proof = [
       <p class="lede">In just 8 days, discover who you are, create 20+ pieces of content that solve real problems for the people God sent you to, and post with the confidence to draw them to you.</p>
       <div class="join">
         <a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a>
-        <p class="when">Only 8 days · Only {CHALLENGE.price}</p>
+        <p class="when">Only 8 days · Only {CHALLENGE.price} · Only a few spots available</p>
         {CHALLENGE.dates && <p class="date">{CHALLENGE.dates} · Live on Zoom at {CHALLENGE.time}</p>}
       </div>
     </div>
@@ -88,6 +88,7 @@ const proof = [
         <p class="lede">It’s only 8 days, and it’s only $8. Eight days from now, you can be posting with purpose and confidence, and attracting the women God sent you to.</p>
         <div><a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a></div>
         <p class="when">{CHALLENGE.dates ? CHALLENGE.dates : 'Doors open soon'} · Only {CHALLENGE.price}</p>
+        <p class="spots">Only a few spots available. Save yours today.</p>
         <p class="led">Led by Naomi Shaffer, Prophet and Marketplace Strategist. 20+ years in ministry. More than 1,000 women served.</p>
       </div>
     </div>
@@ -100,6 +101,7 @@ const proof = [
   .hero h1 { font-size: clamp(38px, 5.8vw, 62px); }
   .hero .lede { max-width: 680px; }
   .join { display: grid; gap: 12px; justify-items: center; margin-top: 12px; }
+  .spots { font-size: 15px; font-weight: 600; color: var(--ink); }
   .date { font-size: 15px; color: var(--muted); }
   .when { font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pink-deep); }
 
