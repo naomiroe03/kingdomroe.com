@@ -44,4 +44,8 @@ export const CHALLENGE = {
   dates: '', // for example: 'March 2 to March 9, 2027'
   price: '$8',
   url: '', // the Flodesk sales or checkout link
+  // The participants' portal: private, not linked on the website. Send it in the Flodesk welcome email.
+  portal: '/8-day-shift-portal-fok2mhs2/',
+  // The Google Form where participants turn in homework and screenshots. Empty: the button says "coming soon".
+  homeworkForm: '',
 };

@@ -9,9 +9,23 @@ const joinHref = CHALLENGE.url || `mailto:${EMAIL}?subject=${encodeURIComponent(
 const joinLabel = CHALLENGE.url ? `Join the Shift for ${CHALLENGE.price}` : 'Save My Seat';
 
 const shifts = [
-  ['Discover who you are', 'Your supernatural identity, and what God has already placed in your hand.'],
-  ['Create content from your grace', 'Posts built around your expertise and your gifts, not trends or guesswork.'],
-  ['Turn every post into an invitation', 'A clear path from your post to your offer, so the right people know how to work with you.'],
+  ['Know who you are and who you serve', 'Discover your Spiritual Daughter Archetype, find your niche and write your purpose statement: “I help…”'],
+  ['Know what to say', 'Use my ChatGPT prompts to uncover the 25 questions your ideal client is already asking, and turn them into 3 simple content pillars.'],
+  ['Show up and post with confidence', 'Set up TikTok and TikTok Studio on your phone, create talking head videos, B-roll videos and carousels, and schedule them to post 3 times a day.'],
+];
+
+const forYou = [
+  'You have been helping women offline with your expertise and experience, but online you end up ministering and motivating instead of inviting people into what you offer.',
+  'You are already coaching online, but you are giving too much away for free, and your content is not leading people to buy.',
+];
+
+const walkAway = [
+  'At least 20 pieces of purposeful content, posted or scheduled',
+  'Your niche and your purpose statement',
+  '25 questions your ideal client is asking, with hooks for each one',
+  'Your 3 content pillars',
+  'Your TikTok and TikTok Studio set up to post on a schedule',
+  'The confidence to show up and invite',
 ];
 
 const proof = [
@@ -32,7 +46,7 @@ const proof = [
       <p class="eyebrow">The 8-Day Purposeful Content Shift™</p>
       <h1>Stop Posting Just to Encourage. Start Attracting the People God Has Called You To.</h1>
       <hr class="rule" />
-      <p class="lede">An 8-day shift for the called woman of God who is ready to show up online with purpose, know who she is, and create content that leads the right people to her offer.</p>
+      <p class="lede">In eight days, you’ll create at least 20 pieces of purposeful content that lead the right people to your offer, using only your phone.</p>
       <div class="join">
         <a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a>
         <p class="when">{CHALLENGE.dates ? CHALLENGE.dates : 'New dates coming soon'} · {CHALLENGE.price}</p>
@@ -48,6 +62,8 @@ const proof = [
       <p>People love your posts. They comment “Amen.” They tell you it was exactly what they needed. But no one has asked, “How do I join?”</p>
       <p>You know God put more in you than encouragement. You have a gift, an offer, an assignment. You just don’t know what to say to lead people from your post to it. So you keep posting, and you keep hoping the right people find you.</p>
       <p class="callout">You don’t need to post more. You need to post with purpose.</p>
+      <h3 class="for-you-title">This Is for You If</h3>
+      <ul class="for-you">{forYou.map((f) => <li>{f}</li>)}</ul>
     </div>
   </section>
 
@@ -63,6 +79,12 @@ const proof = [
           <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>
         ))}
       </ol>
+      <div class="walk">
+        <h3>You’ll Walk Away With</h3>
+        <ul>{walkAway.map((w) => <li>{w}</li>)}</ul>
+        <p class="bonus"><b>Bonus:</b> the Which Daughter Are You? mini quiz, free when you join.</p>
+        <p class="need">All you need is your phone.</p>
+      </div>
       <p class="led center">Led by Naomi Shaffer, Prophet and Marketplace Strategist. 20+ years in ministry. More than 1,000 women served.</p>
     </div>
   </section>
@@ -93,7 +115,7 @@ const proof = [
         <span class="mono" aria-hidden="true">NR</span>
         <p class="eyebrow">The 8-Day Purposeful Content Shift™</p>
         <h2>You’ve Been Showing Up. Now Show Up on Purpose.</h2>
-        <p class="lede">Eight days to know who you are, speak to the women God sent you to, and turn your content into an invitation.</p>
+        <p class="lede">Eight days to know who you are, speak to the women God sent you to, and leave with at least 20 pieces of purposeful content ready to post.</p>
         <div><a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a></div>
         <p class="when">{CHALLENGE.dates ? CHALLENGE.dates : 'New dates coming soon'} · {CHALLENGE.price}</p>
       </div>
@@ -117,6 +139,14 @@ const proof = [
   .shifts li { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 12px; align-content: start; }
   .num { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--pink-soft); color: var(--pink-deep); font-family: var(--display); font-size: 24px; font-weight: 700; }
   .shifts h3 { font-size: 26px; }
+  .for-you-title { font-size: 26px; margin-top: 12px; }
+  .for-you { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  .for-you li { background: var(--pink-faint); border-left: 0; border-radius: 12px; padding: 16px 18px; }
+  .walk { max-width: 760px; margin: 40px auto 0; background: var(--white); border-top: 4px solid var(--pink); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 14px; }
+  .walk h3 { font-size: 28px; }
+  .walk ul { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+  .bonus { color: var(--pink-deep); }
+  .need { font-size: 14px; color: var(--muted); }
   .led { margin-top: 32px; font-size: 15px; color: var(--muted); }
 
   .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }

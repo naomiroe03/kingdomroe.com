@@ -1,0 +1,288 @@
+---
+// Participants' portal for The 8-Day Purposeful Content Shift™.
+// Private: not linked anywhere on the website, hidden from search. Send the link in the Flodesk welcome email.
+// Each day unlocks after she turns in the day before. Progress is saved on her own phone or computer.
+import Base from '../layouts/Base.astro';
+import { CHALLENGE, QUIZ_UNLOCKED_URL, APPLY_URL } from '../site';
+
+const niche = `You are a Christian business coach who helps women of faith turn their gifts, expertise and life experience into a clear coaching niche.
+
+Here is my information:
+- What people already come to me for: [ANSWER]
+- My experience, career or ministry background: [ANSWER]
+- A pain or struggle I have personally overcome: [ANSWER]
+- The kind of person I love serving most: [ANSWER]
+- My Spiritual Daughter Archetype from the Which Daughter Are You? quiz: [Church Girl / Mystic Daughter / Called Daughter]
+
+Step 1: Based on my answers, give me 3 possible niches. For each one, name the exact person I would serve (her age range, season of life and what she is struggling with).
+
+Step 2: For each niche, write 2 purpose statements:
+A) Desire version: "I help [who] achieve [desire] by [how I help them / what I give them]."
+B) Pain point version: "I help [who] come out of [pain point] and step into [desire] by [how I help them / what I give them]."
+
+Step 3: Tell me which niche fits my story and gifts best, and why.
+
+Keep the language simple, warm and clear, the way I would say it out loud. Do not use the word "empower."`;
+
+const questions = `You are a content strategist for faith-based coaches.
+
+My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
+My ideal client: [DESCRIBE HER IN 2 OR 3 SENTENCES]
+
+Give me 25 real questions my ideal client is typing into Google, TikTok search and YouTube about her struggle. Write each question the way she would actually type it, in her own words.
+
+Group the 25 questions under 3 short content topics (my content pillars) that fit my purpose statement.
+
+For each question, give me:
+1. A scroll-stopping hook (one sentence, under 12 words)
+2. 3 short talking points I can cover in a 60-second video
+3. A simple closing line that invites her to follow me or message me
+
+Keep everything short, clear and easy to say on camera.`;
+
+type Day = { title: string; why: string; steps: string[]; prompt?: { name: string; text: string }; link?: { label: string; href: string }; homework: string[] };
+
+const days: Day[] = [
+  {
+    title: 'Who You Are',
+    why: 'Before you create one piece of content, you need to know who you are. Your identity shapes how you speak, who you are called to, and what you have to offer.',
+    steps: [
+      'Take the Which Daughter Are You? mini quiz. It is your free bonus.',
+      'Read your results slowly. Write down your Daughter, who you are called to serve, and the offer ideas that stood out to you.',
+      'Pray over your results. Ask the Lord what He wants you to see.',
+    ],
+    link: { label: 'Take My Mini Quiz', href: QUIZ_UNLOCKED_URL },
+    homework: ['A screenshot of your quiz results', 'In one or two sentences: what surprised you about your results?'],
+  },
+  {
+    title: 'Find Your Niche',
+    why: 'You are not called to everybody. When you know exactly who you are speaking to, the right woman recognizes herself in your content.',
+    steps: [
+      'Copy the prompt below into ChatGPT.',
+      'Replace every [ANSWER] with your own words. Use your Daughter from Day 1.',
+      'Read the 3 niches it gives you, and choose the one that fits your story and your gifts.',
+    ],
+    prompt: { name: 'Prompt 1: Find Your Niche and Write Your Purpose Statement', text: niche },
+    homework: ['The niche you chose', 'A short description of the woman you are called to serve'],
+  },
+  {
+    title: 'Write Your Purpose Statement',
+    why: 'Your purpose statement is the foundation for everything you post. It tells people who you help, what you help them do, and how.',
+    steps: [
+      'Look at the purpose statements from your Prompt 1 results.',
+      'Choose one way to say it. Desire way: “I help [who] achieve [desire] by [how].” Pain point way: “I help [who] come out of [pain point] and step into [desire] by [how].”',
+      'Make it sound like you. Say it out loud three times until it feels natural.',
+    ],
+    homework: ['Your final purpose statement: “I help…”'],
+  },
+  {
+    title: 'The 25 Questions She Is Asking',
+    why: 'Your ideal client is already asking questions. When your content answers them, she finds you, and she trusts you.',
+    steps: [
+      'Copy the prompt below into ChatGPT.',
+      'Paste in your purpose statement and a description of your ideal client.',
+      'Save your 25 questions and hooks in your phone’s notes app. These are your content ideas for the rest of the challenge.',
+      'Star the 10 questions that excite you most.',
+    ],
+    prompt: { name: 'Prompt 2: The 25 Questions Your Ideal Client Is Asking', text: questions },
+    homework: ['A screenshot of your 25 questions', 'Your 10 starred questions'],
+  },
+  {
+    title: 'Your 3 Mini Content Pillars',
+    why: 'Content pillars are the 3 short topics you talk about again and again. They keep you focused, and they teach your audience what you are known for.',
+    steps: [
+      'Look at how ChatGPT grouped your 25 questions.',
+      'Give each group a short topic name of 2 to 4 words.',
+      'Make sure each pillar connects back to your purpose statement.',
+    ],
+    homework: ['Your 3 content pillars'],
+  },
+  {
+    title: 'Set Up Your Phone and Make Talking Head Videos',
+    why: 'All you need is your phone. Today you set up your account and start speaking to the woman God sent you to.',
+    steps: [
+      'Download two apps: TikTok and TikTok Studio.',
+      'Set up your profile: a clear photo of you, your name, and a bio built from your purpose statement.',
+      'Talking head video: you speaking to the camera. Open with your hook in the first 2 seconds, share 3 short points, then close with an invitation to follow you or message you. Keep it to 60 seconds.',
+      'Use the questions and hooks from Day 4 for your videos.',
+      'Save your videos as drafts so you can schedule them in TikTok Studio.',
+    ],
+    homework: ['A screenshot of your TikTok profile', 'Record 3 talking head videos and screenshot your drafts'],
+  },
+  {
+    title: 'B-Roll Videos and Carousels',
+    why: 'Not every post needs you talking. B-roll and carousels let you show up with purpose, even on the days you don’t feel camera ready.',
+    steps: [
+      'B-roll video: short clips of your everyday life (your coffee, your Bible, your desk, a walk) with your hook and answer written on the screen.',
+      'Carousel: 5 to 7 photo slides that answer one question. Slide 1 is your hook. The last slide invites her to follow you or message you.',
+      'Batch day: make 10 pieces of content today, mixing all three styles.',
+    ],
+    homework: ['A screenshot of your 10 pieces of content'],
+  },
+  {
+    title: 'Schedule It and Show Up',
+    why: 'Consistency builds trust. Today you schedule your content so you show up three times a day, with purpose and with confidence.',
+    steps: [
+      'Open TikTok Studio and schedule your saved content: morning, midday and evening.',
+      'Count your content. You should have at least 20 pieces posted or scheduled.',
+      'Go live or post one video introducing yourself with your purpose statement.',
+      'Celebrate what God did in eight days. You are not just posting. You are inviting.',
+    ],
+    homework: ['A screenshot of your scheduled posts', 'Your biggest breakthrough from these eight days'],
+  },
+];
+---
+<Base
+  title="Your 8-Day Purposeful Content Shift™ | Kingdom Roe"
+  description="Participant portal for The 8-Day Purposeful Content Shift™."
+  noindex
+>
+  <section class="band portal-head">
+    <div class="wrap narrow">
+      <p class="eyebrow">Participant portal</p>
+      <h1>Welcome to The 8-Day Purposeful Content Shift™</h1>
+      <hr class="rule" />
+      <p class="lede">Blessings, woman of God. Each day unlocks after you finish the day before. Do the steps, turn in your homework with your screenshots, and then mark the day complete.</p>
+      <p class="tip">Use the same phone or computer each day. Your progress is saved on this device.</p>
+      <div class="progress" aria-live="polite"><div class="bar"><i id="bar"></i></div><p id="progress-text">Day 1 of 8</p></div>
+    </div>
+  </section>
+
+  <section class="band white">
+    <div class="wrap narrow days">
+      {days.map((d, i) => (
+        <article class="day locked" data-day={i + 1} id={`day-${i + 1}`}>
+          <header class="day-head">
+            <span class="num">{i + 1}</span>
+            <div>
+              <p class="eyebrow">Day {i + 1}</p>
+              <h2>{d.title}</h2>
+            </div>
+            <span class="status" aria-hidden="true"></span>
+          </header>
+          <p class="locked-note">Finish Day {i} to unlock this day.</p>
+          <div class="day-body">
+            <p class="why">{d.why}</p>
+            <h3>Today’s steps</h3>
+            <ol class="steps">{d.steps.map((s) => <li>{s}</li>)}</ol>
+            {d.link && <p><a class="btn" href={d.link.href} target="_blank" rel="noopener">{d.link.label}</a></p>}
+            {d.prompt && (
+              <div class="prompt">
+                <div class="prompt-head"><h3>{d.prompt.name}</h3><button class="copy" type="button">Copy prompt</button></div>
+                <pre>{d.prompt.text}</pre>
+              </div>
+            )}
+            <div class="homework">
+              <h3>Your homework</h3>
+              <ul>{d.homework.map((h) => <li>{h}</li>)}</ul>
+              {CHALLENGE.homeworkForm
+                ? <a class="btn brown" href={CHALLENGE.homeworkForm} target="_blank" rel="noopener">Turn In Day {i + 1} Homework</a>
+                : <span class="btn brown off" aria-disabled="true">Homework form coming soon</span>}
+              <label class="confirm"><input type="checkbox" class="done-check" /> I turned in my Day {i + 1} homework and screenshots.</label>
+              <button class="btn complete" type="button" disabled>{i === 7 ? 'Complete the Challenge' : `Complete Day ${i + 1} and Unlock Day ${i + 2}`}</button>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <div class="finish" id="finish" hidden>
+        <p class="eyebrow">You did it</p>
+        <h2>You’ve Shifted From Encouragement to Attraction</h2>
+        <p>You know who you are, who you are called to serve, and how to show up for her. If you’re ready to turn your content into a flagship offer that attracts clients and creates income, I’d love to walk with you.</p>
+        <div><a class="btn" href={APPLY_URL} target="_blank" rel="noopener">Apply to Work With Me</a></div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline>
+  (function () {
+    var KEY = 'kr-8day-done';
+    var done = [];
+    try { done = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { done = []; }
+    if (!Array.isArray(done)) done = [];
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
+    var days = Array.prototype.slice.call(document.querySelectorAll('.day'));
+    function render() {
+      var unlocked = 1;
+      while (done.indexOf(unlocked) !== -1 && unlocked < 9) unlocked++;
+      days.forEach(function (el) {
+        var n = +el.dataset.day;
+        var isDone = done.indexOf(n) !== -1;
+        el.classList.toggle('locked', n > unlocked);
+        el.classList.toggle('done', isDone);
+        el.querySelector('.status').textContent = isDone ? 'Complete' : (n > unlocked ? 'Locked' : 'Open');
+        var btn = el.querySelector('.complete');
+        var chk = el.querySelector('.done-check');
+        if (isDone) { chk.checked = true; chk.disabled = true; btn.disabled = true; }
+      });
+      var count = Math.min(done.length, 8);
+      document.getElementById('bar').style.width = (count / 8 * 100) + '%';
+      document.getElementById('progress-text').textContent = count >= 8 ? 'All 8 days complete' : 'Day ' + Math.min(unlocked, 8) + ' of 8 · ' + count + ' complete';
+      document.getElementById('finish').hidden = count < 8;
+    }
+    days.forEach(function (el) {
+      var n = +el.dataset.day;
+      var chk = el.querySelector('.done-check');
+      var btn = el.querySelector('.complete');
+      chk.addEventListener('change', function () { btn.disabled = !chk.checked; });
+      btn.addEventListener('click', function () {
+        if (!chk.checked || done.indexOf(n) !== -1) return;
+        done.push(n); save(); render();
+        var next = document.getElementById(n < 8 ? 'day-' + (n + 1) : 'finish');
+        if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      var copy = el.querySelector('.copy');
+      if (copy) copy.addEventListener('click', function () {
+        var text = el.querySelector('pre').textContent;
+        var ok = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy prompt'; }, 1800); };
+        if (navigator.clipboard) navigator.clipboard.writeText(text).then(ok, function () {});
+      });
+    });
+    render();
+  })();
+</script>
+
+<style>
+  .narrow { max-width: 780px; }
+  .portal-head .narrow { display: grid; gap: 16px; }
+  h1 { font-size: clamp(34px, 4.6vw, 50px); }
+  .tip { font-size: 14px; color: var(--muted); }
+  .progress { display: grid; gap: 8px; margin-top: 8px; }
+  .bar { height: 8px; background: var(--pink-soft); border-radius: 999px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--pink); transition: width .4s ease; }
+  #progress-text { font-size: 14px; font-weight: 600; color: var(--pink-deep); }
+
+  .days { display: grid; gap: 24px; }
+  .day { border: 1px solid var(--line); border-radius: var(--radius); background: var(--canvas); padding: 28px; display: grid; gap: 18px; }
+  .day.done { border-color: var(--pink-line); }
+  .day-head { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; }
+  .day-head h2 { font-size: clamp(24px, 3vw, 30px); }
+  .num { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--pink); color: #fff; font-family: var(--display); font-size: 24px; font-weight: 700; }
+  .status { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pink-deep); }
+  .locked-note { display: none; color: var(--muted); font-size: 15px; }
+  .day.locked { opacity: .6; }
+  .day.locked .num { background: var(--muted); }
+  .day.locked .day-body { display: none; }
+  .day.locked .locked-note { display: block; }
+  .day-body { display: grid; gap: 16px; }
+  .why { font-family: var(--display); font-style: italic; font-size: 21px; line-height: 1.45; color: var(--pink-deep); }
+  .day-body h3 { font-family: var(--sans); font-size: 15px; font-weight: 700; letter-spacing: .04em; color: var(--ink); }
+  .steps, .homework ul { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+  .prompt { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 12px; }
+  .prompt-head { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
+  .copy { appearance: none; border: 1px solid var(--pink); background: var(--pink-faint); color: var(--pink-deep); border-radius: 999px; padding: 10px 18px; min-height: 44px; font: 600 14px var(--sans); cursor: pointer; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 14px/1.6 var(--sans); color: var(--body); max-height: 320px; overflow: auto; }
+  .homework { background: var(--white); border-top: 4px solid var(--pink); border-radius: 12px; padding: 20px; display: grid; gap: 14px; justify-items: start; }
+  .confirm { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; cursor: pointer; }
+  .confirm input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--pink); flex: none; }
+  .complete[disabled] { opacity: .4; cursor: not-allowed; }
+  .finish { text-align: center; display: grid; gap: 16px; justify-items: center; padding: 48px 24px; border-top: 6px solid var(--pink); border-radius: var(--radius); background: var(--pink-faint); }
+  .finish h2 { font-size: clamp(28px, 4vw, 40px); }
+  @media (max-width: 600px) {
+    .day { padding: 22px 18px; }
+    .day-head { grid-template-columns: auto 1fr; }
+    .status { grid-column: 2; }
+    .homework .btn { white-space: normal; text-align: center; }
+  }
+</style>
