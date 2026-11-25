@@ -35,36 +35,62 @@ Give me 25 real questions the woman I serve is typing into Google, TikTok search
 
 Number them 1 to 25 so I can save them in my notes app.`;
 
-const contentPrompt = `You are a content writer for faith-based coaches. Turn my questions into 20 pieces of ready-to-post content that solve real problems for the woman I serve and draw her to me.
+const topicsPrompt = `You are a content strategist for faith-based coaches.
 
-My name and why she can trust me: [YOUR NAME, PLUS YEARS, ROLE OR A RESULT]
 My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
 The woman I serve: [DESCRIBE HER IN 2 OR 3 SENTENCES]
 My 25 questions: [PASTE YOUR 25 QUESTIONS]
 
-Write every piece in this order:
-1. Hook: one sentence for the first 3 seconds that calls out her or her problem.
+For each of my 25 questions, give me 2 content topics I could talk about that answer her question and help her.
+
+Write each topic as a short title, the way I would say it on camera. Number them so I can save them in my notes app.`;
+
+const storyPrompt = `Write a short, heartfelt social media post in my voice, sharing my calling story. Keep it under 150 words.
+
+My name: [YOUR NAME]
+The problem I had: [YOUR PROBLEM]
+The journey I went on, and how that problem was solved: [YOUR JOURNEY]
+Who I want to help now: [WHO YOU WANT TO HELP]
+Where I'm posting this: [TIKTOK, FACEBOOK OR INSTAGRAM]
+
+Follow this order:
+1. "Some time ago, I had…" (my problem)
+2. The journey I went on, and how that problem was solved
+3. Because of that, I want to help people get out of that same situation
+4. I'm going to start talking about it right here
+5. Ask for a little encouragement: "If you could like this post, it would mean so much, because I really feel led by God to do this."
+
+Make it warm, humble and real. Write it the way I would talk to a friend.`;
+
+const writePrompt = `You are a content writer for faith-based coaches. Help me write content from questions the woman I serve is asking.
+
+My name and why she can trust me: [YOUR NAME, PLUS YEARS, ROLE OR A RESULT]
+My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
+The woman I serve: [DESCRIBE HER IN 2 OR 3 SENTENCES]
+My 10 questions and content topics: [PASTE 10 QUESTIONS AND THE TOPIC YOU CHOSE FOR EACH]
+
+For each one, write a piece of content using this video formula:
+1. Hook: one sentence for the first 3 seconds that grabs her attention.
 2. Authority: one sentence with my name and why she can trust me.
-3. Body: help her. Mix three kinds across the 20 pieces: solve her problem, give her one tip in 2 or 3 simple steps, or share one surprising fact and what it means for her.
-4. Call to action: one step only, like "Follow me for more."
+3. Value: help her. Solve her problem, give her one tip in 2 or 3 simple steps, or share one surprising fact and what it means for her.
+4. Call to action: one simple step, like "Follow me for more."
 
-Create these 20 pieces, each from a different question:
-- 8 talking head video scripts, 30 to 60 seconds each, that I can say to the camera.
-- 6 B-roll videos: short lines of text to put on the screen over clips of my everyday life, plus a caption.
-- 6 carousel posts: 5 to 7 slides each (slide 1 grabs her attention, the last slide invites her to follow me), plus a caption.
+For each piece, give me:
+- A script I can say to the camera in 30 to 60 seconds
+- A caption that tells a short story and ends with the call to action
 
-Number them 1 to 20. Write the way I would talk to a friend: simple, warm and clear. Keep every caption under 100 words.`;
+Number them 1 to 10. Write the way I would talk to a friend: simple, warm and clear.`;
 
-type HowTo = { title: string; kind: 'talking' | 'broll' | 'carousel'; steps: string[] };
+type HowTo = { title: string; kind?: 'talking' | 'broll' | 'carousel'; steps: string[] };
 
 const talking: HowTo = {
   title: 'How to make a talking head video', kind: 'talking',
   steps: [
-    'Choose one of your talking head scripts and read it out loud two or three times.',
+    'Choose one of your scripts and read it out loud two or three times.',
     'Stand or sit facing a window so the light is on your face. Hold your phone at eye level, or lean it against something steady.',
-    'Open TikTok, tap the plus sign, and record yourself saying your script. Look at the camera like you are talking to one friend.',
-    'Tap Text and type your first line across the top of the screen, so she sees it even with the sound off.',
-    'Check your text for typos. Then tap Next, write your caption, and post it or save it to schedule.',
+    'Open TikTok or Instagram, tap the plus sign, and record yourself saying your script. Look at the camera like you are talking to one friend.',
+    'Add your hook as text across the top of the screen, so she sees it even with the sound off.',
+    'Check your text for typos. Add your caption, then post it.',
   ],
 };
 const broll: HowTo = {
@@ -72,123 +98,140 @@ const broll: HowTo = {
   steps: [
     'Record 3 to 5 short clips of your everyday life, 3 to 5 seconds each: your coffee, your Bible, your desk, your hands writing, a walk outside.',
     'Open TikTok, tap the plus sign, then tap Upload and choose your clips.',
-    'Tap Text and add the lines from your B-roll script, one at a time, so each line shows for a few seconds.',
+    'Tap Text and add the lines from your script, one at a time, so each line shows for a few seconds.',
     'Add soft music from TikTok’s sounds. Check your text for typos.',
-    'Write your caption, and post it or save it to schedule.',
+    'Write a caption that tells a short story and ends with your call to action, then post it.',
   ],
 };
 const carousel: HowTo = {
   title: 'How to make a carousel post', kind: 'carousel',
   steps: [
-    'Choose one of your carousel scripts.',
-    'Make one simple slide for each line, using the free Canva app or the photos and text tools in TikTok. Use the same colors and font on every slide.',
-    'Make slide 1 bold and easy to read. That is the slide that stops her scroll.',
+    'Choose one of your scripts and break it into 5 to 7 short slides.',
+    'Make your slides in the free Canva app, or with the photo and text tools in TikTok. Use the same colors and font on every slide.',
+    'Make slide 1 bold and easy to read. That is the slide that stops her scroll. Make the last slide your call to action.',
     'Open TikTok, tap the plus sign, tap Upload, choose Photos, and select your slides in order.',
-    'Write your caption, and post it or save it to schedule.',
+    'Write a caption that tells a short story and ends with your call to action, then post it.',
+  ],
+};
+const studio: HowTo = {
+  title: 'How to schedule in TikTok Studio',
+  steps: [
+    'Download the TikTok Studio app from the App Store or Google Play, and sign in with your TikTok account.',
+    'Tap to upload a new post, and choose the video or photos you made.',
+    'Add your caption.',
+    'Choose to schedule it, then pick the day and time you want it to post.',
+    'Repeat until your content is spread across the week, so you show up every day.',
   ],
 };
 
-type Day = { title: string; date: string; kind: 'class' | 'homework' | 'final'; why: string; steps: string[]; prompt?: { name: string; text: string; note?: string }; link?: { label: string; href: string; unlockAt?: string; unlockLabel?: string }; howto?: HowTo[]; homework: string[] };
+type Prompt = { name: string; text: string; note?: string };
+type Day = { title: string; date: string; kind: 'class' | 'fpa' | 'final'; why: string; steps: string[]; prompts?: Prompt[]; link?: { label: string; href: string; unlockAt?: string; unlockLabel?: string }; howto?: HowTo[]; styles?: boolean; homework: string[] };
 
 const days: Day[] = [
   {
-    title: 'Welcome Home: Discover Who You Are',
+    title: 'It Starts With Identity',
     date: 'Wednesday, December 2', kind: 'class',
     why: 'Woman of God, you are exactly where you are supposed to be. You did not stumble in here. God has placed something in you, and over these eight days we are going to bring it out. It all starts with knowing who you are.',
     steps: [
-      'Join tonight’s class at 5:00 PM Central. We will meet each other, and I will walk you through what these eight days hold.',
-      'In class, we will take the Which Daughter Are You? mini quiz together. It is your free bonus, and it unlocks below at 5:15 PM Central.',
-      'Read your results slowly. Write down your Daughter, who you are called to serve, and the offer ideas that stood out to you. Pray over them.',
-      'Download two apps on your phone: TikTok and TikTok Studio. Add a clear photo of you to your TikTok profile.',
+      'Join tonight’s class at 5:00 PM Central.',
+      'In class, we will take the Which Daughter Are You? mini quiz together. It unlocks below at 5:15 PM Central.',
+      'After class, read your results slowly. Write down your Daughter, who you are called to serve, and the offer ideas that stood out to you. Pray over them.',
     ],
     link: { label: 'Take My Mini Quiz', href: QUIZ_UNLOCKED_URL, unlockAt: '2026-12-02T17:15:00-06:00', unlockLabel: 'Opens Wednesday, Dec 2 at 5:15 PM Central' },
     homework: ['A screenshot of your quiz results'],
   },
   {
-    title: 'Who You’re Called to Serve',
+    title: 'Who God Sent You To',
     date: 'Thursday, December 3', kind: 'class',
-    why: 'You are not called to everybody. When you know exactly who you are speaking to, the right woman recognizes herself in your content.',
+    why: 'You are not called to everybody. Tonight, you center your niche, and you discover the questions the woman God sent you to is already asking.',
     steps: [
       'Join tonight’s class at 5:00 PM Central.',
-      'Copy the prompt below into ChatGPT. Replace every [ANSWER] with your own words, and use your Daughter from Day 1.',
-      'Choose the niche that fits your story and your gifts, and write a short description of the woman you serve.',
-      'Choose the purpose statement that sounds most like you, and say it out loud until it feels natural.',
+      'In class, use Prompt 1 to center your niche and write your purpose statement.',
+      'After class, use Prompt 2 to find the 25 questions she is asking. Save them in your phone’s notes app.',
+      'Save Prompt 3 for tomorrow. You will use it to turn your 25 questions into content topics.',
     ],
-    prompt: { name: 'Prompt 1: Find Your Niche and Your Purpose Statement', text: nichePrompt },
-    homework: ['Your niche and a short description of the woman you serve', 'Your purpose statement: “I help…”'],
+    prompts: [
+      { name: 'Prompt 1: Find Your Niche and Your Purpose Statement', text: nichePrompt },
+      { name: 'Prompt 2: The 25 Questions She Is Asking', text: questionsPrompt },
+      { name: 'Prompt 3: Turn Your Questions Into Content Topics (for tomorrow)', text: topicsPrompt },
+    ],
+    homework: ['Your niche and your purpose statement: “I help…”', 'A screenshot of your 25 questions'],
   },
   {
-    title: 'Share Your Story and Hear Her Questions',
-    date: 'Friday, December 4', kind: 'homework',
-    why: 'Today you introduce yourself to the women God is sending you, and you discover the questions she is already asking.',
+    title: 'Step Out in Faith',
+    date: 'Friday, December 4', kind: 'fpa',
+    why: 'Today you take your first step in front of everyone. You tell your story, and you let the people around you know what God has placed on your heart.',
     steps: [
-      'Put your purpose statement in your TikTok bio.',
-      'Make your first piece of content: a short video telling your story. Share who you are, a little of your journey, and who you help. Keep it under 60 seconds, and end by inviting her to follow you.',
-      'Copy Prompt 2 below into ChatGPT with your purpose statement and your description of the woman you serve.',
-      'Save your 25 questions in your phone’s notes app. They become your content tomorrow.',
+      'Write your calling story post. Use the prompt below, or fill in this short version: “Some time ago, I had [your problem]. I went on a journey, and that problem was solved. Because of that, I want to help people get out of that situation, so I’m going to start talking about it right here. I’d love a little encouragement. If you could like this post, it would mean so much, because I really feel led by God to do this.”',
+      'Post it on TikTok, Facebook or Instagram.',
+      'Screenshot your post and submit it below.',
+      'Use Prompt 3 from yesterday to turn your 25 questions into content topics. Save them in your notes app, and bring them to tomorrow’s class.',
     ],
-    prompt: { name: 'Prompt 2: The 25 Questions She Is Asking', text: questionsPrompt },
-    howto: [talking],
-    homework: ['A screenshot of your story video', 'A screenshot of your 25 questions'],
+    prompts: [{ name: 'My Calling Story Post', text: storyPrompt }],
+    homework: ['A screenshot of your calling story post', 'A screenshot of your content topics'],
   },
   {
-    title: 'Create Your 20 Pieces of Content',
+    title: 'Say It With Purpose',
     date: 'Saturday, December 5', kind: 'class',
-    why: 'Today is the big one. Together, we turn her questions into 20 pieces of content that solve her problems and draw her to you.',
+    why: 'Tonight you learn the video formula that turns your questions into content that draws her to you, and you write your first 10 pieces.',
     steps: [
-      'Join tonight’s class at 5:00 PM Central. Bring your 25 questions.',
-      'Copy the prompt below into ChatGPT. Fill in your name, your purpose statement, the woman you serve, and paste in your 25 questions.',
-      'ChatGPT will write 20 pieces for you: talking head video scripts, B-roll videos and carousel posts.',
-      'Copy all 20 into your notes app, and change any words so they sound like you.',
+      'Join tonight’s class at 5:00 PM Central. Bring your 25 questions and your content topics.',
+      'Learn the video formula: Hook, Authority, Value, Call to Action.',
+      'Choose 10 of your questions, and use Prompt 4 to write 10 pieces of content.',
+      'Practice your videos in class.',
+      'Tonight, post one video on TikTok, an Instagram video, or a 60-second Facebook reel. Then submit your link below.',
     ],
-    prompt: { name: 'Prompt 3: Create My 20 Pieces of Content', text: contentPrompt, note: 'If ChatGPT stops before it reaches number 20, type “continue” and it will finish.' },
-    homework: ['A screenshot of your 20 pieces of content'],
+    prompts: [{ name: 'Prompt 4: Write My Content', text: writePrompt, note: 'Use this prompt again tomorrow for your next 10 pieces.' }],
+    howto: [talking],
+    homework: ['A screenshot of your 10 pieces of content', 'The link to the video you posted tonight'],
   },
   {
-    title: 'Lights, Camera, You',
-    date: 'Sunday, December 6', kind: 'homework',
-    why: 'A talking head video is you speaking to the camera. It is the fastest way for her to see you, hear you, and trust you.',
+    title: 'Twenty Pieces Strong',
+    date: 'Sunday, December 6', kind: 'fpa',
+    why: 'Today you write 10 more pieces of content, so you have 20 ready. You also get to see the three kinds of videos you can make with them.',
     steps: [
-      'Use the talking head scripts from your 20 pieces.',
-      'Follow the steps below and make as many as you can today. Three is a wonderful start.',
-      'Post them, or save them and schedule them in TikTok Studio.',
+      'Choose 10 more of your questions, and use Prompt 4 from yesterday to write 10 more pieces of content. That makes 20.',
+      'Look at the three kinds of videos below: talking head videos, B-roll videos and carousel posts. Think about which of your 20 pieces fits each one.',
     ],
-    howto: [talking],
-    homework: ['Screenshots of the talking head videos you made'],
+    styles: true,
+    homework: ['A screenshot of your 20 pieces of content'],
   },
   {
     title: 'Show Up Without Saying a Word',
     date: 'Monday, December 7', kind: 'class',
-    why: 'Not every post needs you talking. B-roll videos and carousels let you show up with purpose, even on the days you don’t feel camera ready.',
+    why: 'Not every post needs you talking. Tonight you learn B-roll videos and carousel posts, so you can show up with purpose even on the days you don’t feel camera ready.',
     steps: [
-      'Join tonight’s class at 5:00 PM Central. Bring your talking head videos so we can celebrate them.',
-      'Use the B-roll and carousel scripts from your 20 pieces.',
-      'Follow the steps below and make at least one of each.',
+      'Before class, download the TikTok Studio app.',
+      'Join tonight’s class at 5:00 PM Central. We will start with TikTok Studio, then B-roll and carousels.',
+      'Learn to write captions that tell a short story and end with a call to action.',
+      'Tonight, make B-roll videos and carousel posts from your 20 pieces, and post them. Post 3 times today.',
     ],
-    howto: [broll, carousel],
-    homework: ['Screenshots of your B-roll video and carousel'],
+    howto: [studio, broll, carousel],
+    homework: ['Screenshots or links of your 3 posts today'],
   },
   {
-    title: 'Set It and Show Up',
-    date: 'Tuesday, December 8', kind: 'homework',
-    why: 'Consistency builds trust. Today you schedule your content, so you keep showing up long after these eight days.',
+    title: 'Faith in Motion',
+    date: 'Tuesday, December 8', kind: 'fpa',
+    why: 'Faith moves. Today you make your talking head video, schedule your content, and keep showing up.',
     steps: [
-      'Make as many B-roll videos and carousels as you can from your 20 pieces.',
-      'Open TikTok Studio. Find the videos and posts you saved, and choose a day and time for each one to post. Spread them out so you show up every day.',
-      'Count your content. Bring your number to tomorrow’s final class.',
+      'Make a talking head video from one of your 20 pieces, and submit it below.',
+      'Save or schedule at least 5 pieces of content in TikTok Studio. Screenshot them and submit them below.',
+      'Post 3 times today.',
+      'Keep scheduling. You need at least 10 posts scheduled by tomorrow’s final class.',
     ],
-    homework: ['A screenshot of your scheduled posts in TikTok Studio'],
+    howto: [talking, studio],
+    homework: ['Your talking head video', 'A screenshot of at least 5 saved or scheduled posts', 'Screenshots or links of your 3 posts today'],
   },
   {
-    title: 'Post With Confidence: Celebration Night',
+    title: 'You Shifted: Celebration Night',
     date: 'Wednesday, December 9', kind: 'final',
-    why: 'You came in posting to encourage. You leave knowing who you are, who you serve, and what to say to her, with 20 pieces of content ready. Tonight, we celebrate what God has done.',
+    why: 'You came in posting to encourage. You leave knowing who you are, who God sent you to, and what to say to her. Tonight, we celebrate what God has done, we thank Him, and we let Him lead us.',
     steps: [
-      'Join our final class at 5:00 PM Central. Come ready to share your wins.',
-      'Make one last video tonight sharing what God did for you in these eight days.',
-      'Keep your 20 pieces close. Whatever you have not filmed yet is ready for next week.',
+      'Have at least 10 posts scheduled in TikTok Studio, and submit a screenshot below before class.',
+      'Post 3 times today.',
+      'Join our final class at 5:00 PM Central. Come ready to share your wins. We will celebrate, thank God, and pray together.',
     ],
-    homework: ['Your biggest breakthrough from these eight days'],
+    homework: ['A screenshot of your 10 scheduled posts', 'Screenshots or links of your 3 posts today'],
   },
 ];
 ---
@@ -203,16 +246,16 @@ const days: Day[] = [
       <h1>Welcome to The 8-Day Purposeful Content Shift™</h1>
       <hr class="rule" />
       <p class="lede">Blessings, woman of God. In eight days, you will know who you are, who you are called to serve, and what to say to her, and you will leave with 20 or more pieces of content created.</p>
-      <p>Each day unlocks after you finish the day before. Follow the steps, turn in your homework with your screenshots, then mark the day complete.</p>
+      <p>Each day unlocks after you finish the day before. Follow the steps, submit your faith-performing actions (FPA) with your screenshots, then mark the day complete.</p>
       <p class="tip">All you need is your phone. Use the same phone or computer each day, because your progress is saved on this device.</p>
       <div class="schedule">
         <h2>Your 8-Day Schedule</h2>
-        <p class="tip">All classes are live on Zoom at {CHALLENGE.time}. On homework days, there is no class: complete that day’s steps in your portal.</p>
+        <p class="tip">All classes are live on Zoom at {CHALLENGE.time}. On FPA Days (Faith-Performing Action Days), there is no class: take that day’s faith-performing actions in your portal.</p>
         <ol class="sched">{days.map((d, i) => (
-          <li class={d.kind === 'homework' ? 'hw' : ''}>
+          <li class={d.kind === 'fpa' ? 'hw' : ''}>
             <span class="sd">Day {i + 1} · {d.date.replace(/^(\w+), December/, (m, w) => w.slice(0, 3) + ', Dec')}</span>
             <b>{d.title}</b>
-            <span class="sk">{d.kind === 'homework' ? 'Homework day' : d.kind === 'final' ? 'Final class · 5 PM Central' : 'Class · 5 PM Central'}</span>
+            <span class="sk">{d.kind === 'fpa' ? 'No class · FPA Day' : d.kind === 'final' ? 'Final class · 5 PM Central' : 'Class · 5 PM Central'}</span>
           </li>
         ))}</ol>
       </div>
@@ -234,7 +277,7 @@ const days: Day[] = [
             <div>
               <p class="eyebrow">Day {i + 1} · {d.date}</p>
               <h2>{d.title}</h2>
-              <p class="kind">{d.kind === 'homework' ? 'Homework day: no class today' : d.kind === 'final' ? 'Final class at 5:00 PM Central' : 'Class at 5:00 PM Central'}</p>
+              <p class="kind">{d.kind === 'fpa' ? 'No class · Faith-Performing Action Day (FPA Day)' : d.kind === 'final' ? 'Final class at 5:00 PM Central' : 'Class at 5:00 PM Central'}</p>
             </div>
             <span class="status" aria-hidden="true"></span>
           </header>
@@ -250,16 +293,30 @@ const days: Day[] = [
                 <p class="timed-note">Locked until class. {d.link.unlockLabel}. We take it together in class.</p>
               </div>
             )}
-            {d.prompt && (
+            {d.prompts && d.prompts.map((pr) => (
               <div class="prompt">
-                <div class="prompt-head"><h3>{d.prompt.name}</h3><button class="copy" type="button">Copy prompt</button></div>
-                <pre>{d.prompt.text}</pre>
-                {d.prompt.note && <p class="note">{d.prompt.note}</p>}
+                <div class="prompt-head"><h3>{pr.name}</h3><button class="copy" type="button">Copy prompt</button></div>
+                <pre>{pr.text}</pre>
+                {pr.note && <p class="note">{pr.note}</p>}
+              </div>
+            ))}
+            {d.styles && (
+              <div class="styles">
+                <div class="formats">
+                  <Mockup kind="talking" />
+                  <Mockup kind="broll" />
+                  <Mockup kind="carousel" />
+                </div>
+                <ul>
+                  <li><b>Talking head video:</b> you speaking to the camera. The fastest way for her to see you, hear you and trust you.</li>
+                  <li><b>B-roll video:</b> short clips of your everyday life with your words on the screen.</li>
+                  <li><b>Carousel post:</b> 5 to 7 photo slides she swipes through.</li>
+                </ul>
               </div>
             )}
             {d.howto && d.howto.map((h) => (
-              <div class="howto">
-                <Mockup kind={h.kind} />
+              <div class={h.kind ? 'howto' : 'howto plain'}>
+                {h.kind && <Mockup kind={h.kind} />}
                 <div>
                   <h3>{h.title}</h3>
                   <ol>{h.steps.map((s) => <li>{s}</li>)}</ol>
@@ -267,12 +324,12 @@ const days: Day[] = [
               </div>
             ))}
             <div class="homework">
-              <h3>Your homework</h3>
+              <h3>Your faith-performing actions (FPA) to submit</h3>
               <ul>{d.homework.map((h) => <li>{h}</li>)}</ul>
               {CHALLENGE.homeworkForm
-                ? <a class="btn brown" href={CHALLENGE.homeworkForm} target="_blank" rel="noopener">Turn In Day {i + 1} Homework</a>
-                : <span class="btn brown off" aria-disabled="true">Homework form coming soon</span>}
-              <label class="confirm"><input type="checkbox" class="done-check" /> I turned in my Day {i + 1} homework and screenshots.</label>
+                ? <a class="btn brown" href={CHALLENGE.homeworkForm} target="_blank" rel="noopener">Submit My Day {i + 1} FPA</a>
+                : <span class="btn brown off" aria-disabled="true">Submission form coming soon</span>}
+              <label class="confirm"><input type="checkbox" class="done-check" /> I submitted my Day {i + 1} FPA and screenshots.</label>
               <button class="btn complete" type="button" disabled>{i === 7 ? 'Complete the Challenge' : `Complete Day ${i + 1} and Unlock Day ${i + 2}`}</button>
             </div>
           </div>
@@ -398,10 +455,13 @@ const days: Day[] = [
   .copy { appearance: none; border: 1px solid var(--pink); background: var(--pink-faint); color: var(--pink-deep); border-radius: 999px; padding: 10px 18px; min-height: 44px; font: 600 14px var(--sans); cursor: pointer; }
   pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 14px/1.6 var(--sans); color: var(--body); max-height: 320px; overflow: auto; }
   .note { font-size: 14px; color: var(--pink-deep); }
+  .styles { display: grid; gap: 12px; }
+  .styles ul { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
   .timed { display: grid; gap: 8px; justify-items: start; }
   .timed-note { font-size: 14px; color: var(--muted); }
   .howto { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; grid-template-columns: 160px 1fr; gap: 20px; align-items: start; }
   .howto h3 { margin-bottom: 10px; }
+  .howto.plain { grid-template-columns: 1fr; }
   .homework { background: var(--white); border-top: 4px solid var(--pink); border-radius: 12px; padding: 20px; display: grid; gap: 14px; justify-items: start; }
   .confirm { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; cursor: pointer; }
   .confirm input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--pink); flex: none; }
