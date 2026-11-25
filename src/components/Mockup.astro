@@ -1,0 +1,70 @@
+---
+// Simple drawn phone mock-ups for the 8-Day portal: a talking head video, a B-roll video and a carousel.
+interface Props { kind: 'talking' | 'broll' | 'carousel' }
+const { kind } = Astro.props;
+---
+<figure class="mockup">
+  {kind === 'talking' && (
+    <svg viewBox="0 0 220 400" role="img" aria-label="A phone showing a woman speaking to the camera, with her opening line written across the top of the screen">
+      <rect x="10" y="6" width="200" height="388" rx="30" fill="#280f0a" />
+      <rect x="20" y="18" width="180" height="364" rx="22" fill="#f3decd" />
+      <rect x="80" y="26" width="60" height="10" rx="5" fill="#280f0a" />
+      <circle cx="110" cy="190" r="44" fill="#6b3a2e" />
+      <path d="M66 182c0-34 20-58 44-58s44 24 44 58c0 10-4 20-8 26l-6-30c-8-14-50-14-60 0l-6 30c-4-6-8-16-8-26z" fill="#2b1a15" />
+      <path d="M40 382c4-58 32-92 70-92s66 34 70 92z" fill="#d64492" />
+      <rect x="34" y="56" width="152" height="40" rx="10" fill="#ffffff" />
+      <rect x="46" y="66" width="128" height="7" rx="3.5" fill="#280f0a" />
+      <rect x="62" y="79" width="96" height="7" rx="3.5" fill="#280f0a" />
+      <circle cx="182" cy="250" r="8" fill="#ffffff" opacity=".85" />
+      <circle cx="182" cy="276" r="8" fill="#ffffff" opacity=".85" />
+      <circle cx="182" cy="302" r="8" fill="#ffffff" opacity=".85" />
+    </svg>
+  )}
+  {kind === 'broll' && (
+    <svg viewBox="0 0 220 400" role="img" aria-label="A phone showing a coffee cup and an open Bible on a table, with short lines of text on the screen">
+      <rect x="10" y="6" width="200" height="388" rx="30" fill="#280f0a" />
+      <rect x="20" y="18" width="180" height="364" rx="22" fill="#e9d8cc" />
+      <rect x="80" y="26" width="60" height="10" rx="5" fill="#280f0a" />
+      <rect x="20" y="250" width="180" height="132" fill="#c9a78f" />
+      <path d="M44 268h70l-4 40c-1 10-9 16-19 16H67c-10 0-18-6-19-16z" fill="#ffffff" />
+      <path d="M114 278c14 0 16 22 0 22" fill="none" stroke="#ffffff" stroke-width="5" />
+      <path d="M58 258c4-8-4-12 0-20M74 258c4-8-4-12 0-20M90 258c4-8-4-12 0-20" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".8" />
+      <path d="M124 300l34-10 34 10v34l-34-10-34 10z" fill="#f9dfed" />
+      <path d="M158 290v34" stroke="#d64492" stroke-width="2" />
+      <rect x="34" y="78" width="152" height="30" rx="8" fill="#ffffff" opacity=".95" />
+      <rect x="46" y="89" width="128" height="8" rx="4" fill="#d64492" />
+      <rect x="44" y="120" width="132" height="22" rx="6" fill="#ffffff" opacity=".9" />
+      <rect x="56" y="128" width="108" height="6" rx="3" fill="#280f0a" />
+      <rect x="54" y="150" width="112" height="22" rx="6" fill="#ffffff" opacity=".9" />
+      <rect x="66" y="158" width="88" height="6" rx="3" fill="#280f0a" />
+    </svg>
+  )}
+  {kind === 'carousel' && (
+    <svg viewBox="0 0 300 400" role="img" aria-label="Three photo slides fanned out, the first with a bold title, with dots showing you swipe to see more">
+      <g transform="rotate(-8 90 210)">
+        <rect x="20" y="70" width="150" height="190" rx="14" fill="#f9dfed" stroke="#f2bad8" stroke-width="2" />
+      </g>
+      <g transform="rotate(8 210 210)">
+        <rect x="130" y="70" width="150" height="190" rx="14" fill="#f3decd" stroke="#e7e1e3" stroke-width="2" />
+      </g>
+      <rect x="75" y="60" width="150" height="200" rx="14" fill="#ffffff" stroke="#d64492" stroke-width="3" />
+      <rect x="93" y="92" width="114" height="12" rx="6" fill="#280f0a" />
+      <rect x="93" y="112" width="90" height="12" rx="6" fill="#280f0a" />
+      <rect x="93" y="142" width="114" height="6" rx="3" fill="#6b5a55" />
+      <rect x="93" y="156" width="104" height="6" rx="3" fill="#6b5a55" />
+      <rect x="93" y="170" width="110" height="6" rx="3" fill="#6b5a55" />
+      <rect x="93" y="206" width="64" height="22" rx="11" fill="#d64492" />
+      <circle cx="132" cy="290" r="6" fill="#d64492" />
+      <circle cx="150" cy="290" r="6" fill="#f2bad8" />
+      <circle cx="168" cy="290" r="6" fill="#f2bad8" />
+      <path d="M232 330h-60M220 318l12 12-12 12" fill="none" stroke="#b8337a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )}
+  <figcaption>{kind === 'talking' ? 'Talking head video' : kind === 'broll' ? 'B-roll video' : 'Carousel post'}</figcaption>
+</figure>
+
+<style>
+  .mockup { margin: 0; display: grid; gap: 8px; justify-items: center; }
+  .mockup svg { width: 100%; max-width: 180px; height: auto; }
+  .mockup figcaption { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pink-deep); }
+</style>
