@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+import { CHALLENGE, EMAIL } from '../site';
+
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+// Until the Flodesk link is set, the button opens an email to Naomi so no one hits a dead end.
+const joinHref = CHALLENGE.url || `mailto:${EMAIL}?subject=${encodeURIComponent('Sign me up for The 8-Day Purposeful Content Shift')}`;
+const joinLabel = CHALLENGE.url ? `Join the Shift for ${CHALLENGE.price}` : 'Save My Seat';
+
+const shifts = [
+  ['Discover who you are', 'Your supernatural identity, and what God has already placed in your hand.'],
+  ['Create content from your grace', 'Posts built around your expertise and your gifts, not trends or guesswork.'],
+  ['Turn every post into an invitation', 'A clear path from your post to your offer, so the right people know how to work with you.'],
+];
+
+const proof = [
+  ['My purpose is what I use to profit in business and in ministry. It’s in me, not on me!', 'J.J.', 'Purpose found by day 2, business launched by day 5'],
+  ['It was finally time to publicize our offers… I made my post. FINALLY! Not even 12 hrs later I received my first inquiry. Then 24 hrs later, that inquiry turned into a paid booking!', 'L.', 'First paid booking within 36 hours of posting'],
+  ['Within that same week, I was blessed to have two inquiries for my business.', 'J.', 'Two inquiries the same week'],
+  ['I created an offer in a few days, received positive response.', 'C.', 'Offer created in a few days'],
+  ['I didn’t think my thoughts would accelerate so quickly in just day 4 of this challenge.', 'L.W.', 'Clarity by day 4'],
+  ['I am more confident, excited, and ready to do what God has called me to do.', 'Z.B.', 'Confidence to show up'],
+];
+---
+<Base
+  title="The 8-Day Purposeful Content Shift™ | Kingdom Roe Coaching & Consulting"
+  description="Stop posting just to encourage. In 8 days, learn to create content that leads the people God has called you to straight to your offer."
+>
+  <section class="hero">
+    <div class="wrap center hero-inner">
+      <p class="eyebrow">The 8-Day Purposeful Content Shift™</p>
+      <h1>Stop Posting Just to Encourage. Start Attracting the People God Has Called You To.</h1>
+      <hr class="rule" />
+      <p class="lede">An 8-day shift for the called woman of God who is ready to show up online with purpose, know who she is, and create content that leads the right people to her offer.</p>
+      <div class="join">
+        <a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a>
+        <p class="when">{CHALLENGE.dates ? CHALLENGE.dates : 'New dates coming soon'} · {CHALLENGE.price}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band white">
+    <div class="wrap narrow">
+      <p class="eyebrow">Where you are right now</p>
+      <h2>You Show Up. You Post. You Encourage. And Nobody Asks How to Work With You.</h2>
+      <hr class="rule" />
+      <p>People love your posts. They comment “Amen.” They tell you it was exactly what they needed. But no one has asked, “How do I join?”</p>
+      <p>You know God put more in you than encouragement. You have a gift, an offer, an assignment. You just don’t know what to say to lead people from your post to it. So you keep posting, and you keep hoping the right people find you.</p>
+      <p class="callout">You don’t need to post more. You need to post with purpose.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">In eight days</p>
+        <h2>Shift Your Content From Encouragement to Attraction</h2>
+        <hr class="rule" />
+      </div>
+      <ol class="shifts">
+        {shifts.map(([t, d], i) => (
+          <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>
+        ))}
+      </ol>
+      <p class="led center">Led by Naomi Shaffer, Prophet and Marketplace Strategist. 20+ years in ministry. More than 1,000 women served.</p>
+    </div>
+  </section>
+
+  <section class="band white">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">In their own words</p>
+        <h2>Women Who Moved From Purpose to Profit</h2>
+        <hr class="rule" />
+      </div>
+      <div class="quotes">
+        {proof.map(([q, n, r]) => (
+          <figure class="quote">
+            <p class="result">{r}</p>
+            <blockquote>“{q}”</blockquote>
+            <figcaption>{n}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="fine center">Results vary based on each woman’s effort and season. These are the experiences of women I’ve coached and mentored.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="closing">
+        <span class="mono" aria-hidden="true">NR</span>
+        <p class="eyebrow">The 8-Day Purposeful Content Shift™</p>
+        <h2>You’ve Been Showing Up. Now Show Up on Purpose.</h2>
+        <p class="lede">Eight days to know who you are, speak to the women God sent you to, and turn your content into an invitation.</p>
+        <div><a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a></div>
+        <p class="when">{CHALLENGE.dates ? CHALLENGE.dates : 'New dates coming soon'} · {CHALLENGE.price}</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: 96px 104px; }
+  .hero-inner { max-width: 900px; display: grid; gap: 20px; justify-items: center; }
+  .hero h1 { font-size: clamp(38px, 5.8vw, 62px); }
+  .hero .lede { max-width: 680px; }
+  .join { display: grid; gap: 12px; justify-items: center; margin-top: 12px; }
+  .when { font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pink-deep); }
+
+  .narrow { max-width: 760px; display: grid; gap: 18px; }
+  .narrow h2 { font-size: clamp(30px, 3.8vw, 40px); }
+  .callout { font-family: var(--display); font-style: italic; font-size: clamp(24px, 3vw, 30px); line-height: 1.35; color: var(--pink-deep); padding: 20px 0; border-block: 1px solid var(--pink-line); }
+
+  .shifts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .shifts li { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 12px; align-content: start; }
+  .num { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--pink-soft); color: var(--pink-deep); font-family: var(--display); font-size: 24px; font-weight: 700; }
+  .shifts h3 { font-size: 26px; }
+  .led { margin-top: 32px; font-size: 15px; color: var(--muted); }
+
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+  .quote { margin: 0; background: var(--pink-faint); border-top: 4px solid var(--pink); border-radius: var(--radius); padding: 28px 26px; display: grid; gap: 14px; }
+  .result { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pink-deep); }
+  .quote blockquote { margin: 0; font-family: var(--display); font-size: 21px; line-height: 1.45; color: var(--ink); }
+  .quote figcaption { font-weight: 600; color: var(--pink-deep); }
+  .fine { margin-top: 28px; font-size: 12px; color: var(--muted); }
+
+  .closing { position: relative; overflow: hidden; background: var(--white); border-radius: var(--radius); border-top: 6px solid var(--pink); box-shadow: 0 10px 40px rgba(40, 15, 10, .06); padding: 64px 28px; text-align: center; display: grid; gap: 20px; justify-items: center; }
+  .closing > *:not(.mono) { position: relative; }
+  .closing h2 { font-size: clamp(30px, 4vw, 44px); max-width: 760px; }
+  .closing .lede { max-width: 600px; }
+  .mono { position: absolute; left: 50%; bottom: -60px; transform: translateX(-50%); font-family: var(--display); font-size: 300px; font-weight: 600; color: var(--pink-faint); line-height: 1; pointer-events: none; }
+
+  @media (max-width: 900px) {
+    .shifts, .quotes { grid-template-columns: 1fr; }
+    .hero { padding-block: 72px 80px; }
+    .mono { font-size: 220px; }
+  }
+</style>

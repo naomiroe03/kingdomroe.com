@@ -33,9 +33,10 @@ export const NAV = [
   { label: 'FAQ', href: '/#faq' },
 ];
 
-// The 8-Day Purposeful Content Shift™ pop-up. It runs only in season.
-// To turn it on: set `on` to true, and fill in the dates and the Flodesk link.
-// The pop-up never shows unless `on` is true AND `url` has a link.
+// The 8-Day Purposeful Content Shift™. Its page is kingdomroe.com/8-day-shift (not in the menu).
+// `on`: true shows the seasonal pop-up on the website, which opens the 8-Day page.
+// `url`: the Flodesk checkout or sign-up link for the Join buttons on the 8-Day page.
+// While `url` is empty, the Join buttons say "Save My Seat" and open an email to Naomi.
 export const CHALLENGE = {
   on: false,
   name: 'The 8-Day Purposeful Content Shift™',

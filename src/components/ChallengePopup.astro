@@ -1,6 +1,8 @@
 ---
 import { CHALLENGE } from '../site';
-const show = CHALLENGE.on && CHALLENGE.url;
+// The pop-up opens the 8-Day page. It never shows on the 8-Day page itself.
+const onPage = Astro.url.pathname.startsWith('/8-day-shift');
+const show = CHALLENGE.on && !onPage;
 ---
 {show && (
   <dialog class="popup" id="challenge-popup" aria-labelledby="popup-title">
@@ -13,7 +15,7 @@ const show = CHALLENGE.on && CHALLENGE.url;
     <p class="popup-tag">{CHALLENGE.tagline}</p>
     <p>Stop posting just for encouragement and start attracting the people God has called you to. In eight days, you’ll learn how to turn every post into an invitation, so the women who already love what you share know exactly how to work with you.</p>
     <div class="popup-actions">
-      <a class="btn" href={CHALLENGE.url}>Join for {CHALLENGE.price}</a>
+      <a class="btn" href="/8-day-shift/">Learn More and Join</a>
       <button class="text-link popup-later" type="button" data-close>Maybe later</button>
     </div>
   </dialog>
