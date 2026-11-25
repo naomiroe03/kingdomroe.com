@@ -89,6 +89,17 @@ const carousel: HowTo = {
   ],
 };
 
+const schedule = [
+  ['Wed, Dec 2', 'Class: Day 1'],
+  ['Thu, Dec 3', 'Class: Day 2'],
+  ['Fri, Dec 4', 'Homework day'],
+  ['Sat, Dec 5', 'Class: Day 4'],
+  ['Sun, Dec 6', 'Homework day'],
+  ['Mon, Dec 7', 'Class: Day 6'],
+  ['Tue, Dec 8', 'Homework day'],
+  ['Wed, Dec 9', 'Final class'],
+];
+
 const days: Day[] = [
   {
     title: 'Discover Who You Are',
@@ -195,6 +206,11 @@ const days: Day[] = [
       <p class="lede">Blessings, woman of God. In eight days, you will know who you are, who you are called to serve, and what to say to her, and you will leave with 20 or more pieces of content created.</p>
       <p>Each day unlocks after you finish the day before. Follow the steps, turn in your homework with your screenshots, then mark the day complete.</p>
       <p class="tip">All you need is your phone. Use the same phone or computer each day, because your progress is saved on this device.</p>
+      <div class="schedule">
+        <h2>Your Class Schedule</h2>
+        <p class="tip">All classes are live on Zoom at {CHALLENGE.time}. On homework days, there is no class: complete that day’s steps in your portal.</p>
+        <ul>{schedule.map(([d, w]) => <li class={w.startsWith('Homework') ? 'hw' : ''}><b>{d}</b><span>{w}</span></li>)}</ul>
+      </div>
       <div class="formats">
         <Mockup kind="talking" />
         <Mockup kind="broll" />
@@ -314,6 +330,13 @@ const days: Day[] = [
   .portal-head .narrow { display: grid; gap: 16px; }
   h1 { font-size: clamp(34px, 4.6vw, 50px); }
   .tip { font-size: 14px; color: var(--muted); }
+  .schedule { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: grid; gap: 10px; }
+  .schedule h2 { font-size: clamp(22px, 3vw, 28px); }
+  .schedule ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .schedule li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 12px; border-radius: 8px; background: var(--pink-faint); font-size: 15px; }
+  .schedule li span { color: var(--pink-deep); font-weight: 600; }
+  .schedule li.hw { background: var(--canvas); }
+  .schedule li.hw span { color: var(--muted); font-weight: 500; }
   .formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: end; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 16px; }
   .progress { display: grid; gap: 8px; margin-top: 8px; }
   .bar { height: 8px; background: var(--pink-soft); border-radius: 999px; overflow: hidden; }

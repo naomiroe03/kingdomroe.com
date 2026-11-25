@@ -41,7 +41,8 @@ export const CHALLENGE = {
   on: false,
   name: 'The 8-Day Purposeful Content Shift™',
   tagline: 'Shift Your Content From Encouragement to Attraction.',
-  dates: '', // for example: 'March 2 to March 9, 2027'
+  dates: 'December 2 to 9, 2026', // shown on the 8-Day page and the pop-up
+  time: '5:00 PM Central',
   price: '$8',
   url: '', // the Flodesk sales or checkout link
   // The participants' portal: private, not linked on the website. Send it in the Flodesk welcome email.

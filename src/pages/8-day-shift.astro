@@ -29,7 +29,8 @@ const proof = [
       <p class="lede">In just 8 days, discover who you are, create 20+ pieces of content that solve real problems for the people God sent you to, and post with the confidence to draw them to you.</p>
       <div class="join">
         <a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a>
-        <p class="when">Only 8 days · Only {CHALLENGE.price}{CHALLENGE.dates ? ` · ${CHALLENGE.dates}` : ''}</p>
+        <p class="when">Only 8 days · Only {CHALLENGE.price}</p>
+        {CHALLENGE.dates && <p class="date">{CHALLENGE.dates} · Live on Zoom at {CHALLENGE.time}</p>}
       </div>
     </div>
   </section>
@@ -99,6 +100,7 @@ const proof = [
   .hero h1 { font-size: clamp(38px, 5.8vw, 62px); }
   .hero .lede { max-width: 680px; }
   .join { display: grid; gap: 12px; justify-items: center; margin-top: 12px; }
+  .date { font-size: 15px; color: var(--muted); }
   .when { font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pink-deep); }
 
   .narrow { max-width: 760px; display: grid; gap: 18px; }
