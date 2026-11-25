@@ -44,7 +44,7 @@ export const CHALLENGE = {
   dates: 'December 2 to 9, 2026', // shown on the 8-Day page and the pop-up
   time: '5:00 PM Central',
   price: '$8',
-  url: '', // the Flodesk sales or checkout link
+  url: 'https://kingdomroe.myflodesk.com/h3bhoq5dfp', // the Flodesk checkout link
   // The participants' portal: private, not linked on the website. Send it in the Flodesk welcome email.
   portal: '/8-day-shift-portal-fok2mhs2/',
   // The Google Form where participants turn in homework and screenshots. Empty: the button says "coming soon".
