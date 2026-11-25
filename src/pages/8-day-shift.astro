@@ -8,26 +8,6 @@ const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 const joinHref = CHALLENGE.url || `mailto:${EMAIL}?subject=${encodeURIComponent('Sign me up for The 8-Day Purposeful Content Shift')}`;
 const joinLabel = CHALLENGE.url ? `Join the Shift for ${CHALLENGE.price}` : 'Save My Seat';
 
-const shifts = [
-  ['Know who you are and who you serve', 'Discover your Spiritual Daughter Archetype, find your niche and write your purpose statement: “I help…”'],
-  ['Know what to say', 'Use my ChatGPT prompts to uncover the 25 questions your ideal client is already asking, and turn each one into posts she will stop and read.'],
-  ['Show up and post with confidence', 'Set up TikTok and TikTok Studio on your phone, write with my Amen to Opt-In™ formula, and create talking head videos, B-roll videos and carousels that you post and schedule.'],
-];
-
-const forYou = [
-  'You have been helping women offline with your expertise and experience, but online you end up ministering and motivating instead of inviting people into what you offer.',
-  'You are already coaching online, but you are giving too much away for free, and your content is not leading people to buy.',
-];
-
-const walkAway = [
-  '20+ pieces of purposeful content, posted or scheduled',
-  'Your niche and your purpose statement',
-  '25 questions your ideal client is asking, with hooks for each one',
-  'My ChatGPT prompts for turning her questions into posts',
-  'Your TikTok and TikTok Studio set up to post on a schedule',
-  'The confidence to show up and invite',
-];
-
 const proof = [
   ['My purpose is what I use to profit in business and in ministry. It’s in me, not on me!', 'J.J.', 'Purpose found by day 2, business launched by day 5'],
   ['It was finally time to publicize our offers… I made my post. FINALLY! Not even 12 hrs later I received my first inquiry. Then 24 hrs later, that inquiry turned into a paid booking!', 'L.', 'First paid booking within 36 hours of posting'],
@@ -39,14 +19,14 @@ const proof = [
 ---
 <Base
   title="The 8-Day Purposeful Content Shift™ | Kingdom Roe Coaching & Consulting"
-  description="Stop posting just to encourage. In 8 days, learn to create content that leads the people God has called you to straight to your offer."
+  description="In as little as 8 days, know who you are, create 20+ pieces of purposeful content, and post with the confidence to attract the right audience."
 >
   <section class="hero">
     <div class="wrap center hero-inner">
       <p class="eyebrow">The 8-Day Purposeful Content Shift™</p>
       <h1>Stop Posting Just to Encourage. Start Attracting the People God Has Called You To.</h1>
       <hr class="rule" />
-      <p class="lede">In eight days, you’ll create 20+ pieces of purposeful content that lead the right people to your offer, using only your phone.</p>
+      <p class="lede">In as little as 8 days, know who you are, create 20+ pieces of purposeful content, and post with the confidence to attract the right audience.</p>
       <div class="join">
         <a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a>
         <p class="when">{CHALLENGE.dates ? CHALLENGE.dates : 'New dates coming soon'} · {CHALLENGE.price}</p>
@@ -59,33 +39,22 @@ const proof = [
       <p class="eyebrow">Where you are right now</p>
       <h2>You Show Up. You Post. You Encourage. And Nobody Asks How to Work With You.</h2>
       <hr class="rule" />
-      <p>People love your posts. They comment “Amen.” They tell you it was exactly what they needed. But no one has asked, “How do I join?”</p>
-      <p>You know God put more in you than encouragement. You have a gift, an offer, an assignment. You just don’t know what to say to lead people from your post to it. So you keep posting, and you keep hoping the right people find you.</p>
+      <p>People love your posts. They comment “Amen.” They tell you it was exactly what they needed. But no one asks, “How do I join?”</p>
+      <p>You know God placed more in you than encouragement. You just don’t know what to say to lead the right people to you.</p>
       <p class="callout">You don’t need to post more. You need to post with purpose.</p>
-      <h3 class="for-you-title">This Is for You If</h3>
-      <ul class="for-you">{forYou.map((f) => <li>{f}</li>)}</ul>
     </div>
   </section>
 
   <section class="band">
     <div class="wrap">
-      <div class="section-head center">
-        <p class="eyebrow">In eight days</p>
-        <h2>Shift Your Content From Encouragement to Attraction</h2>
+      <div class="promise">
+        <p class="eyebrow">The promise</p>
+        <h2>Imagine Opening Your Phone and Knowing Exactly What to Say</h2>
         <hr class="rule" />
+        <p class="lede">In as little as 8 days, you’ll know who you are and who you’re called to serve. You’ll create 20 or more pieces of purposeful content. And you’ll post with confidence, knowing every post is drawing the right audience to you.</p>
+        <p class="small">All you need is your phone. <b>Bonus:</b> the Which Daughter Are You? mini quiz, free when you join.</p>
+        <div><a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a></div>
       </div>
-      <ol class="shifts">
-        {shifts.map(([t, d], i) => (
-          <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>
-        ))}
-      </ol>
-      <div class="walk">
-        <h3>You’ll Walk Away With</h3>
-        <ul>{walkAway.map((w) => <li>{w}</li>)}</ul>
-        <p class="bonus"><b>Bonus:</b> the Which Daughter Are You? mini quiz, free when you join.</p>
-        <p class="need">All you need is your phone.</p>
-      </div>
-      <p class="led center">Led by Naomi Shaffer, Prophet and Marketplace Strategist. 20+ years in ministry. More than 1,000 women served.</p>
     </div>
   </section>
 
@@ -115,9 +84,10 @@ const proof = [
         <span class="mono" aria-hidden="true">NR</span>
         <p class="eyebrow">The 8-Day Purposeful Content Shift™</p>
         <h2>You’ve Been Showing Up. Now Show Up on Purpose.</h2>
-        <p class="lede">Eight days to know who you are, speak to the women God sent you to, and leave with 20+ pieces of purposeful content ready to post.</p>
+        <p class="lede">Eight days from now, you can be posting with purpose and confidence, and attracting the women God sent you to.</p>
         <div><a class="btn" href={joinHref}>{joinLabel} <Fragment set:html={arrow} /></a></div>
         <p class="when">{CHALLENGE.dates ? CHALLENGE.dates : 'New dates coming soon'} · {CHALLENGE.price}</p>
+        <p class="led">Led by Naomi Shaffer, Prophet and Marketplace Strategist. 20+ years in ministry. More than 1,000 women served.</p>
       </div>
     </div>
   </section>
@@ -135,19 +105,11 @@ const proof = [
   .narrow h2 { font-size: clamp(30px, 3.8vw, 40px); }
   .callout { font-family: var(--display); font-style: italic; font-size: clamp(24px, 3vw, 30px); line-height: 1.35; color: var(--pink-deep); padding: 20px 0; border-block: 1px solid var(--pink-line); }
 
-  .shifts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .shifts li { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 12px; align-content: start; }
-  .num { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--pink-soft); color: var(--pink-deep); font-family: var(--display); font-size: 24px; font-weight: 700; }
-  .shifts h3 { font-size: 26px; }
-  .for-you-title { font-size: 26px; margin-top: 12px; }
-  .for-you { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-  .for-you li { background: var(--pink-faint); border-left: 0; border-radius: 12px; padding: 16px 18px; }
-  .walk { max-width: 760px; margin: 40px auto 0; background: var(--white); border-top: 4px solid var(--pink); border-radius: var(--radius); padding: 32px 28px; display: grid; gap: 14px; }
-  .walk h3 { font-size: 28px; }
-  .walk ul { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
-  .bonus { color: var(--pink-deep); }
-  .need { font-size: 14px; color: var(--muted); }
-  .led { margin-top: 32px; font-size: 15px; color: var(--muted); }
+  .promise { max-width: 820px; margin: 0 auto; text-align: center; display: grid; gap: 18px; justify-items: center; }
+  .promise h2 { font-size: clamp(32px, 4.2vw, 46px); }
+  .promise .lede { max-width: 680px; }
+  .small { font-size: 15px; color: var(--muted); }
+  .small b { color: var(--pink-deep); }
 
   .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
   .quote { margin: 0; background: var(--pink-faint); border-top: 4px solid var(--pink); border-radius: var(--radius); padding: 28px 26px; display: grid; gap: 14px; }
@@ -160,10 +122,11 @@ const proof = [
   .closing > *:not(.mono) { position: relative; }
   .closing h2 { font-size: clamp(30px, 4vw, 44px); max-width: 760px; }
   .closing .lede { max-width: 600px; }
+  .led { font-size: 14px; color: var(--muted); }
   .mono { position: absolute; left: 50%; bottom: -60px; transform: translateX(-50%); font-family: var(--display); font-size: 300px; font-weight: 600; color: var(--pink-faint); line-height: 1; pointer-events: none; }
 
   @media (max-width: 900px) {
-    .shifts, .quotes { grid-template-columns: 1fr; }
+    .quotes { grid-template-columns: 1fr; }
     .hero { padding-block: 72px 80px; }
     .mono { font-size: 220px; }
   }
