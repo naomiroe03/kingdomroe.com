@@ -24,14 +24,27 @@ Step 3: Tell me which niche fits my story and gifts best, and why.
 
 Keep the language simple, warm and clear, the way I would say it out loud. Do not use the word "empower."`;
 
+const post = `You are a content writer for faith-based coaches. Turn one question my ideal client is asking into ready-to-post content.
+
+My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
+The question: [PASTE ONE QUESTION FROM YOUR LIST]
+
+Write all three of these for the same question:
+
+1. Talking head video (60 seconds): a hook for the first 2 seconds, 3 short talking points, and a closing line inviting her to follow me or message me.
+
+2. B-roll video: a hook and 3 short lines of text to put on the screen over clips of my everyday life, plus a caption.
+
+3. Carousel: 6 slides. Slide 1 is the hook. Slides 2 to 5 each give one short answer. Slide 6 invites her to follow me or message me. Then write a caption.
+
+Write the way I would talk to a friend: simple, warm and clear. Keep every caption under 100 words and end each one with a question for my audience.`;
+
 const questions = `You are a content strategist for faith-based coaches.
 
 My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
 My ideal client: [DESCRIBE HER IN 2 OR 3 SENTENCES]
 
 Give me 25 real questions my ideal client is typing into Google, TikTok search and YouTube about her struggle. Write each question the way she would actually type it, in her own words.
-
-Group the 25 questions under 3 short content topics (my content pillars) that fit my purpose statement.
 
 For each question, give me:
 1. A scroll-stopping hook (one sentence, under 12 words)
@@ -88,14 +101,16 @@ const days: Day[] = [
     homework: ['A screenshot of your 25 questions', 'Your 10 starred questions'],
   },
   {
-    title: 'Your 3 Mini Content Pillars',
-    why: 'Content pillars are the 3 short topics you talk about again and again. They keep you focused, and they teach your audience what you are known for.',
+    title: 'Turn Your Questions Into Posts',
+    why: 'Every question she is asking is a post waiting to be made. Today you turn your questions into content you can film, design and post.',
     steps: [
-      'Look at how ChatGPT grouped your 25 questions.',
-      'Give each group a short topic name of 2 to 4 words.',
-      'Make sure each pillar connects back to your purpose statement.',
+      'Choose one of your 10 starred questions.',
+      'Copy the prompt below into ChatGPT, then paste in your purpose statement and that question.',
+      'ChatGPT will write it three ways: a talking head video, a B-roll video and a carousel.',
+      'Repeat with more of your starred questions. Save everything in your notes app. These are the posts you will create on Days 6, 7 and 8.',
     ],
-    homework: ['Your 3 content pillars'],
+    prompt: { name: 'Prompt 3: Turn a Question Into a Post', text: post },
+    homework: ['A screenshot of your post ideas for at least 5 questions'],
   },
   {
     title: 'Set Up Your Phone and Make Talking Head Videos',
@@ -124,7 +139,7 @@ const days: Day[] = [
     why: 'Consistency builds trust. Today you schedule your content so you show up three times a day, with purpose and with confidence.',
     steps: [
       'Open TikTok Studio and schedule your saved content: morning, midday and evening.',
-      'Count your content. You should have at least 20 pieces posted or scheduled.',
+      'Count your content. You should have 20 or more pieces posted or scheduled.',
       'Go live or post one video introducing yourself with your purpose statement.',
       'Celebrate what God did in eight days. You are not just posting. You are inviting.',
     ],
