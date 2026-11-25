@@ -24,7 +24,7 @@ Step 3: Tell me which niche fits my story and gifts best, and why.
 
 Keep the language simple, warm and clear, the way I would say it out loud. Do not use the word "empower."`;
 
-const post = `You are a content writer for faith-based coaches. Use my Amen to Opt-In™ content formula to turn one question my ideal client is asking into ready-to-post content.
+const post = `You are a content writer for faith-based coaches. Use my Amen to Opt-In™ formula to turn one question my ideal client is asking into ready-to-post content.
 
 My details:
 - My ideal client: [WHO SHE IS]
@@ -32,38 +32,24 @@ My details:
 - What's in her way: [HER PROBLEM]
 - My name and credential: [YOUR NAME, PLUS YEARS, ROLE OR A RESULT]
 - My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
+- What I'm pointing her to: [MY PAGE'S CONTENT, A FREEBIE, OR MY OFFER, BY NAME]
+- My one call to action: [TODAY'S CALL TO ACTION FROM THE PORTAL]
 - The question: [PASTE ONE QUESTION FROM YOUR LIST]
 
-The rules:
-- The hook is the first 3 to 5 seconds, and it calls out her or her problem, in her words.
-- Each video runs 7 to 60 seconds.
-- Each video has one call to action: follow me, or meet me live.
+The Amen to Opt-In™ formula has 5 parts, in this order:
+1. Hook: one bold sentence that challenges what she believes about her problem. It lands in the first 3 seconds. Use one of these styles: Bold Claim ("[What she's doing] will always get you [the result she has]. It won't get you [the result she wants]."), Contrarian ("[Common advice] is the wrong advice for [her]."), Call-Out ("If you [describe her], your [content or habit] may be working against you."), Nobody Tells You ("Nobody tells [her] that [truth]."), or Transformation ("I [did the thing] and [nothing happened]. Then I changed one thing.").
+2. Authority: my name, my credential, and who I help do what.
+3. The person OR the problem: choose one, never both. Either describe the one person this is for, or say what she wants and what's in her way.
+4. The solution by name: name what I'm pointing her to, plus two results she'll get and one thing she can keep or reuse.
+5. Call to action: one step only, plus her desired outcome.
 
-Write 3 videos for this question:
+Using that formula, write all three of these for the same question:
 
-1. Problem video
-- Hook: call out one core problem in her words.
-- Body: name what it costs her, then give one reframe: the lie she believes, then my truth.
-- Call to action: follow me, or meet me live.
+1. Talking head video script (60 to 90 seconds), labeled by part.
+2. B-roll video: short on-screen text for each of the 5 parts, to put over clips of my everyday life, plus a caption.
+3. Carousel: 7 slides. Slide 1 is the hook. Slide 2 is my authority. Slide 3 is the person or the problem. Slides 4 and 5 are the solution and its two results. Slide 6 is what she can keep. Slide 7 is the call to action. Then write a caption.
 
-2. Desire video
-- Hook: say what she secretly wants (for example, "You want to show up online without feeling like a fraud").
-- Body: paint the picture of that outcome, then show her it's possible.
-- Call to action: follow me, or meet me live.
-
-3. Tip video
-- Hook: promise one quick win (for example, "One thing to change in your bio today").
-- Body: give the tip in 2 to 3 steps.
-- Call to action: follow me, or meet me live.
-
-For each video, give me:
-- The spoken script for a talking head video, labeled Hook, Body and Call to Action
-- Short on-screen text lines I can put over B-roll clips of my everyday life
-- A caption under 100 words
-
-Then turn the Tip video into a carousel of 5 to 7 slides: slide 1 is the hook, the middle slides are the steps, and the last slide is the call to action.
-
-Make my on-screen hook text match my spoken hook. Write the way I would talk to a friend: simple, warm and clear.`;
+Make my on-screen hook text match the spoken hook. Write the way I would talk to a friend: simple, warm and clear. Keep each caption under 100 words.`;
 
 const questions = `You are a content strategist for faith-based coaches.
 
@@ -72,106 +58,131 @@ My ideal client: [DESCRIBE HER IN 2 OR 3 SENTENCES]
 
 Give me 25 real questions my ideal client is typing into Google, TikTok search and YouTube about her struggle. Write each question the way she would actually type it, in her own words.
 
-For each question:
-1. Write one hook (3 to 5 seconds when spoken) that calls out her or her problem, in her words.
-2. Tell me which video type fits it best: Problem video, Desire video or Tip video.
+For each question, write one bold hook (one sentence) that challenges what she believes about her problem. Mix these hook styles: Bold Claim, Contrarian, Call-Out, Nobody Tells You and Transformation.
 
 Number the questions 1 to 25 so I can save them in my notes app.`;
 
-type Day = { title: string; why: string; formula?: boolean; steps: string[]; prompt?: { name: string; text: string }; link?: { label: string; href: string }; homework: string[] };
+type Day = { title: string; why: string; posts: string; cta?: string; formula?: boolean; steps: string[]; prompt?: { name: string; text: string }; link?: { label: string; href: string }; homework: string[] };
+
+const plan = [
+  ['1', 'Who you are, and set up your phone', '0', '0'],
+  ['2', 'Find your niche', '1', '1'],
+  ['3', 'Write your purpose statement', '1', '2'],
+  ['4', 'The Amen to Opt-In™ formula and the 25 questions', '2', '4'],
+  ['5', 'Write, practice and post', '3', '7'],
+  ['6', 'New content style: B-roll videos', '3', '10'],
+  ['7', 'New content style: carousels', '3', '13'],
+  ['8', 'Audit, then batch and schedule', '1 posted + 6 or more scheduled', '20+'],
+];
 
 const days: Day[] = [
   {
-    title: 'Who You Are',
+    title: 'Who You Are, and Set Up Your Phone',
     why: 'Before you create one piece of content, you need to know who you are. Your identity shapes how you speak, who you are called to, and what you have to offer.',
+    posts: 'No posts today. Today you prepare.',
     steps: [
       'Take the Which Daughter Are You? mini quiz. It is your free bonus.',
-      'Read your results slowly. Write down your Daughter, who you are called to serve, and the offer ideas that stood out to you.',
-      'Pray over your results. Ask the Lord what He wants you to see.',
+      'Read your results slowly. Write down your Daughter, who you are called to serve, and the offer ideas that stood out to you. Pray over them.',
+      'Download two apps on your phone: TikTok and TikTok Studio.',
+      'Set up your profile: a clear photo of you and your name. You will write your bio on Day 3.',
     ],
     link: { label: 'Take My Mini Quiz', href: QUIZ_UNLOCKED_URL },
-    homework: ['A screenshot of your quiz results', 'In one or two sentences: what surprised you about your results?'],
+    homework: ['A screenshot of your quiz results', 'A screenshot of your TikTok profile'],
   },
   {
     title: 'Find Your Niche',
     why: 'You are not called to everybody. When you know exactly who you are speaking to, the right woman recognizes herself in your content.',
+    posts: '1 post today (1 total)',
+    cta: 'Follow me.',
     steps: [
-      'Copy the prompt below into ChatGPT.',
-      'Replace every [ANSWER] with your own words. Use your Daughter from Day 1.',
+      'Copy the prompt below into ChatGPT. Replace every [ANSWER] with your own words, and use your Daughter from Day 1.',
       'Read the 3 niches it gives you, and choose the one that fits your story and your gifts.',
+      'Your first post: a 30-to-60-second video introducing yourself. Say your name, what people already come to you for, and who you love serving. End with: “Follow me.”',
     ],
     prompt: { name: 'Prompt 1: Find Your Niche and Write Your Purpose Statement', text: niche },
-    homework: ['The niche you chose', 'A short description of the woman you are called to serve'],
+    homework: ['The niche you chose', 'A screenshot of your first post'],
   },
   {
     title: 'Write Your Purpose Statement',
     why: 'Your purpose statement is the foundation for everything you post. It tells people who you help, what you help them do, and how.',
+    posts: '1 post today (2 total)',
+    cta: 'Follow me.',
     steps: [
       'Look at the purpose statements from your Prompt 1 results.',
       'Choose one way to say it. Desire way: “I help [who] achieve [desire] by [how].” Pain point way: “I help [who] come out of [pain point] and step into [desire] by [how].”',
-      'Make it sound like you. Say it out loud three times until it feels natural.',
+      'Make it sound like you. Say it out loud three times until it feels natural. Then put it in your TikTok bio.',
+      'Your post: a short video sharing your purpose statement and why it matters to you. End with: “Follow me.”',
     ],
-    homework: ['Your final purpose statement: “I help…”'],
+    homework: ['Your final purpose statement: “I help…”', 'A screenshot of today’s post'],
   },
   {
-    title: 'The 25 Questions She Is Asking',
-    why: 'Your ideal client is already asking questions. When your content answers them, she finds you, and she trusts you.',
-    steps: [
-      'Copy the prompt below into ChatGPT.',
-      'Paste in your purpose statement and a description of your ideal client.',
-      'Save your 25 questions and hooks in your phone’s notes app. These are your content ideas for the rest of the challenge.',
-      'Star the 10 questions that excite you most.',
-    ],
-    prompt: { name: 'Prompt 2: The 25 Questions Your Ideal Client Is Asking', text: questions },
-    homework: ['A screenshot of your 25 questions', 'Your 10 starred questions'],
-  },
-  {
-    title: 'Turn Your Questions Into Posts',
-    why: 'Every question she is asking is a post waiting to be made. Today you learn my Amen to Opt-In™ formula, the formula that turns an audience that says “amen” into women who ask, “How do I join?”',
+    title: 'The Formula and the 25 Questions',
+    why: 'My Amen to Opt-In™ formula turns an audience that says “amen” into women who ask, “How do I join?” Today you learn it, and you find the questions your content will answer.',
+    posts: '2 posts today (4 total)',
+    cta: 'Follow me.',
     formula: true,
     steps: [
-      'Read the Amen to Opt-In™ formula above. Every video and carousel you make follows it, and each one is a Problem, Desire or Tip video.',
-      'Choose one of your 10 starred questions.',
-      'Copy the prompt below into ChatGPT. Fill in your details and paste in that question.',
-      'ChatGPT will write a Problem video, a Desire video and a Tip video for that question, each with a talking head script, B-roll text and a caption, plus a carousel.',
-      'Repeat with more of your starred questions. Save everything in your notes app. These are the posts you will create on Days 6, 7 and 8.',
+      'Read the Amen to Opt-In™ formula above. Every video and carousel you make from now on follows these 5 parts.',
+      'Copy Prompt 2 below into ChatGPT, with your purpose statement and a description of your ideal client.',
+      'Save your 25 questions and hooks in your phone’s notes app, and star the 10 that excite you most.',
+      'Your 2 posts: choose 2 starred questions and record a talking head video for each one, following the 5 parts. Keep each one 60 to 90 seconds.',
+    ],
+    prompt: { name: 'Prompt 2: The 25 Questions Your Ideal Client Is Asking', text: questions },
+    homework: ['A screenshot of your 25 questions', 'Screenshots of today’s 2 posts'],
+  },
+  {
+    title: 'Write, Practice and Post',
+    why: 'Every question she is asking is a post waiting to be made. Today you write with the formula, practice out loud, and post three times.',
+    posts: '3 posts today (7 total)',
+    cta: 'Follow me.',
+    formula: true,
+    steps: [
+      'Choose one of your starred questions. Copy Prompt 3 below into ChatGPT, fill in your details and paste in that question.',
+      'ChatGPT writes it three ways, all following the formula: a talking head script, B-roll on-screen text and a carousel. Save all three in your notes app.',
+      'Repeat with more starred questions until you have at least 10 scripts saved. These are your posts for Days 5 to 8.',
+      'Practice each script out loud before you record. Then post 3 talking head videos today: morning, midday and evening.',
     ],
     prompt: { name: 'Prompt 3: Turn a Question Into a Post', text: post },
-    homework: ['A screenshot of your post ideas for at least 5 questions'],
+    homework: ['A screenshot of your 10 saved scripts', 'Screenshots of today’s 3 posts'],
   },
   {
-    title: 'Set Up Your Phone and Make Talking Head Videos',
-    why: 'All you need is your phone. Today you set up your account and start speaking to the woman God sent you to.',
+    title: 'New Content Style: B-Roll Videos',
+    why: 'Not every post needs you talking. B-roll lets you show up with purpose, even on the days you don’t feel camera ready.',
+    posts: '3 posts today (10 total)',
+    cta: 'Start testing. Use 2 or 3 different calls to action today, such as “Follow me,” “Comment PURPOSE below” or “Message me the word READY.” Note which one people answer.',
     steps: [
-      'Download two apps: TikTok and TikTok Studio.',
-      'Set up your profile: a clear photo of you, your name, and a bio built from your purpose statement.',
-      'Talking head video: you speaking to the camera. Your hook calls out her or her problem in the first 3 to 5 seconds, then your body, then one call to action: follow me, or meet me live. Keep it between 7 and 60 seconds.',
-      'Use the scripts you wrote with Prompt 3 on Day 5. Put your hook on the screen as text too, matching what you say.',
+      'B-roll video: short clips of your everyday life (your coffee, your Bible, your desk, a walk) with the 5 parts of the formula written on the screen. Use the B-roll text from your Prompt 3 scripts.',
       'Check your on-screen text for typos before you save.',
-      'Save your videos as drafts so you can schedule them in TikTok Studio.',
+      'Open TikTok Studio and learn to schedule: save your video, then set the day and time you want it to post.',
+      'Post 3 times today: at least 1 B-roll video, plus talking head videos.',
     ],
-    homework: ['A screenshot of your TikTok profile', 'Record 3 talking head videos and screenshot your drafts'],
+    homework: ['Screenshots of today’s 3 posts', 'Which call to action got the most response?'],
   },
   {
-    title: 'B-Roll Videos and Carousels',
-    why: 'Not every post needs you talking. B-roll and carousels let you show up with purpose, even on the days you don’t feel camera ready.',
+    title: 'New Content Style: Carousels',
+    why: 'Carousels teach in slides. She can save them and come back, and they show her you know your message.',
+    posts: '3 posts today (13 total)',
+    cta: 'Keep testing your 2 or 3 calls to action.',
     steps: [
-      'B-roll video: short clips of your everyday life (your coffee, your Bible, your desk, a walk) with your hook, body and call to action written on the screen. Use the B-roll text ChatGPT wrote for you on Day 5.',
-      'Carousel: 5 to 7 photo slides. Slide 1 is your hook, the middle slides give the steps, and the last slide is your one call to action. Use the carousel ChatGPT wrote for you on Day 5.',
-      'Batch day: make 10 pieces of content today, mixing all three styles.',
+      'Carousel: 7 photo slides following the formula. Slide 1 is your hook, and the last slide is your one call to action. Use the carousel from your Prompt 3 scripts.',
+      'Create your slides in the TikTok app with photos and text, or in a free design app.',
+      'Post 3 times today: at least 1 carousel, plus a talking head or B-roll video.',
     ],
-    homework: ['A screenshot of your 10 pieces of content'],
+    homework: ['Screenshots of today’s 3 posts', 'Which call to action is working best so far?'],
   },
   {
-    title: 'Schedule It and Show Up',
-    why: 'Consistency builds trust. Today you schedule your content so you show up three times a day, with purpose and with confidence.',
+    title: 'Audit, Batch and Schedule',
+    why: 'Consistency builds trust. Today you look at what is working, choose your call to action, and schedule your content so you keep showing up after the challenge ends.',
+    posts: '1 post tonight + 6 or more scheduled (20+ total)',
+    cta: 'Use the one call to action you are sure of now, on every post.',
     steps: [
-      'Open TikTok Studio and schedule your saved content: morning, midday and evening.',
-      'Count your content. You should have 20 or more pieces posted or scheduled.',
-      'Go live or post one video introducing yourself with your purpose statement.',
-      'Celebrate what God did in eight days. You are not just posting. You are inviting.',
+      'Audit your 13 posts: which hooks got the most views, and which call to action got the most response?',
+      'Choose your one call to action. Use it on everything you schedule.',
+      'Batch day: record or design at least 6 more pieces from your saved scripts, mixing talking head videos, B-roll videos and carousels.',
+      'Schedule them in TikTok Studio, up to 3 a day. Then post one last video tonight sharing what God did for you in these eight days.',
+      'Count your content: 14 posted plus 6 or more scheduled is 20+ pieces of purposeful content.',
     ],
-    homework: ['A screenshot of your scheduled posts', 'Your biggest breakthrough from these eight days'],
+    homework: ['A screenshot of your scheduled posts in TikTok Studio', 'Your biggest breakthrough from these eight days'],
   },
 ];
 ---
@@ -187,6 +198,14 @@ const days: Day[] = [
       <hr class="rule" />
       <p class="lede">Blessings, woman of God. Each day unlocks after you finish the day before. Do the steps, turn in your homework with your screenshots, and then mark the day complete.</p>
       <p class="tip">Use the same phone or computer each day. Your progress is saved on this device.</p>
+      <div class="plan">
+        <h2>Your 8-Day Plan: 20+ Pieces of Content</h2>
+        <table>
+          <thead><tr><th>Day</th><th>Focus</th><th>Posts</th><th>Total</th></tr></thead>
+          <tbody>{plan.map(([d, f, n, t]) => <tr><td>{d}</td><td>{f}</td><td>{n}</td><td>{t}</td></tr>)}</tbody>
+        </table>
+        <p class="tip">All you need is your phone, with TikTok and TikTok Studio downloaded.</p>
+      </div>
       <div class="progress" aria-live="polite"><div class="bar"><i id="bar"></i></div><p id="progress-text">Day 1 of 8</p></div>
     </div>
   </section>
@@ -206,34 +225,22 @@ const days: Day[] = [
           <p class="locked-note">Finish Day {i} to unlock this day.</p>
           <div class="day-body">
             <p class="why">{d.why}</p>
+            <div class="today">
+              <p><b>Posts:</b> {d.posts}</p>
+              {d.cta && <p><b>Call to action:</b> {d.cta}</p>}
+            </div>
             {d.formula && (
               <div class="formula">
                 <h3>The Amen to <span class="nw">Opt-In™</span> Formula</h3>
-                <p class="flow">Hook · Problem · Solution · Authority · Call to Action</p>
-                <ul>
-                  <li>The <b>hook</b> is the first 3 to 5 seconds. It calls out her or her problem.</li>
-                  <li>Videos run <b>7 to 60 seconds</b>, with <b>one call to action</b>: follow me, or meet me live.</li>
-                </ul>
-                <div class="types">
-                  <div class="type">
-                    <h4>Problem video</h4>
-                    <p><b>Hook:</b> call out one core problem in her words.</p>
-                    <p><b>Body:</b> name what it costs her, then give one reframe: the lie she believes, then your truth.</p>
-                    <p><b>Call to action:</b> follow me, or meet me live.</p>
-                  </div>
-                  <div class="type">
-                    <h4>Desire video</h4>
-                    <p><b>Hook:</b> say what she secretly wants. “You want to show up online without feeling like a fraud.”</p>
-                    <p><b>Body:</b> paint the picture of that outcome, then show her it’s possible.</p>
-                    <p><b>Call to action:</b> follow me, or meet me live.</p>
-                  </div>
-                  <div class="type">
-                    <h4>Tip video</h4>
-                    <p><b>Hook:</b> promise one quick win. “One thing to change in your bio today.”</p>
-                    <p><b>Body:</b> give the tip in 2 to 3 steps.</p>
-                    <p><b>Call to action:</b> follow me, or meet me live.</p>
-                  </div>
-                </div>
+                <ol>
+                  <li><b>Hook:</b> one bold sentence that challenges what she believes about her problem. It lands in the first 3 seconds.</li>
+                  <li><b>Authority:</b> your name, your credential, and who you help do what.</li>
+                  <li><b>The person OR the problem:</b> choose one, never both.</li>
+                  <li><b>The solution by name:</b> your page’s content, your freebie or your offer, plus two results and one thing she can keep.</li>
+                  <li><b>Call to action:</b> one step only, plus her desired outcome.</li>
+                </ol>
+                <p class="hooks"><b>Hook styles:</b> Bold Claim · Contrarian · Call-Out · Nobody Tells You · Transformation</p>
+                <p class="hooks"><b>Your call to action in 8 days:</b> Days 2 to 5, “Follow me.” Days 6 and 7, test 2 or 3. Day 8, use the one you’re sure of.</p>
               </div>
             )}
             <h3>Today’s steps</h3>
@@ -342,6 +349,13 @@ const days: Day[] = [
   .why { font-family: var(--display); font-style: italic; font-size: 21px; line-height: 1.45; color: var(--pink-deep); }
   .day-body h3 { font-family: var(--sans); font-size: 15px; font-weight: 700; letter-spacing: .04em; color: var(--ink); }
   .steps, .homework ul { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+  .today { background: var(--white); border-left: 4px solid var(--pink); border-radius: 8px; padding: 12px 16px; display: grid; gap: 6px; font-size: 15px; }
+  .plan { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: grid; gap: 12px; }
+  .plan h2 { font-size: clamp(22px, 3vw, 28px); }
+  .plan table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .plan th, .plan td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .plan th { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--pink-deep); }
+  .plan td:first-child, .plan td:last-child { font-weight: 600; white-space: nowrap; }
   .formula { background: var(--pink-faint); border: 1px solid var(--pink-line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; }
   .formula h3 { font-family: var(--display); font-size: 24px; letter-spacing: 0; }
   .formula ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
