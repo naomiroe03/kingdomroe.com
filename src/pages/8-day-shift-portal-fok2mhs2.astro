@@ -24,20 +24,32 @@ Step 3: Tell me which niche fits my story and gifts best, and why.
 
 Keep the language simple, warm and clear, the way I would say it out loud. Do not use the word "empower."`;
 
-const post = `You are a content writer for faith-based coaches. Turn one question my ideal client is asking into ready-to-post content.
+const post = `You are a content writer for faith-based coaches. Use my Amen to Opt-In™ formula to turn one question my ideal client is asking into ready-to-post content.
 
-My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
-The question: [PASTE ONE QUESTION FROM YOUR LIST]
+My details:
+- My ideal client: [WHO SHE IS]
+- What she wants: [HER DESIRED OUTCOME]
+- What's in her way: [HER PROBLEM]
+- My name and credential: [YOUR NAME, PLUS YEARS, ROLE OR A RESULT]
+- My purpose statement: [PASTE YOUR PURPOSE STATEMENT]
+- What I'm pointing her to: [MY PAGE'S CONTENT, A FREEBIE, OR MY OFFER, BY NAME]
+- My one call to action: [FOLLOW ME, CLICK THE LINK IN MY BIO, JOIN THE WAITLIST, OR JOIN ME LIVE]
+- The question: [PASTE ONE QUESTION FROM YOUR LIST]
 
-Write all three of these for the same question:
+The Amen to Opt-In™ formula has 5 parts, in this order:
+1. Hook: one bold sentence that challenges what she believes about her problem. Use one of these styles: Bold Claim ("[What she's doing] will always get you [the result she has]. It won't get you [the result she wants]."), Contrarian ("[Common advice] is the wrong advice for [her]."), Call-Out ("If you [describe her], your [content/habit] may be working against you."), Nobody Tells You ("Nobody tells [her] that [truth]."), or Transformation ("I [did the thing] and [nothing happened]. Then I changed one thing.").
+2. Authority: my name, my credential, and who I help do what.
+3. The person OR the problem: choose one, never both. Either describe the one person this is for, or say what she wants and what's in her way.
+4. The solution by name: name what I'm pointing her to, plus two results she'll get and one thing she can keep or reuse.
+5. Call to action: one step only, plus her desired outcome.
 
-1. Talking head video (60 seconds): a hook for the first 2 seconds, 3 short talking points, and a closing line inviting her to follow me or message me.
+Using that formula, write all three of these for the same question:
 
-2. B-roll video: a hook and 3 short lines of text to put on the screen over clips of my everyday life, plus a caption.
+1. Talking head video script (60 to 90 seconds), labeled by part, with the hook landing in the first 3 seconds.
+2. B-roll video: the on-screen text for each of the 5 parts (short lines I can put over clips of my everyday life), plus a caption.
+3. Carousel: 7 slides. Slide 1 is the hook. Slide 2 is my authority. Slide 3 is the person or the problem. Slides 4 and 5 are the solution and its results. Slide 6 is what she can keep. Slide 7 is the call to action. Then write a caption.
 
-3. Carousel: 6 slides. Slide 1 is the hook. Slides 2 to 5 each give one short answer. Slide 6 invites her to follow me or message me. Then write a caption.
-
-Write the way I would talk to a friend: simple, warm and clear. Keep every caption under 100 words and end each one with a question for my audience.`;
+Make my on-screen hook text match the spoken hook. Write the way I would talk to a friend: simple, warm and clear. Keep each caption under 100 words.`;
 
 const questions = `You are a content strategist for faith-based coaches.
 
@@ -46,14 +58,11 @@ My ideal client: [DESCRIBE HER IN 2 OR 3 SENTENCES]
 
 Give me 25 real questions my ideal client is typing into Google, TikTok search and YouTube about her struggle. Write each question the way she would actually type it, in her own words.
 
-For each question, give me:
-1. A scroll-stopping hook (one sentence, under 12 words)
-2. 3 short talking points I can cover in a 60-second video
-3. A simple closing line that invites her to follow me or message me
+For each question, write one bold hook (one sentence) that challenges what she believes about her problem. Mix these hook styles: Bold Claim, Contrarian, Call-Out, Nobody Tells You and Transformation.
 
-Keep everything short, clear and easy to say on camera.`;
+Number the questions 1 to 25 so I can save them in my notes app.`;
 
-type Day = { title: string; why: string; steps: string[]; prompt?: { name: string; text: string }; link?: { label: string; href: string }; homework: string[] };
+type Day = { title: string; why: string; formula?: boolean; steps: string[]; prompt?: { name: string; text: string }; link?: { label: string; href: string }; homework: string[] };
 
 const days: Day[] = [
   {
@@ -102,11 +111,13 @@ const days: Day[] = [
   },
   {
     title: 'Turn Your Questions Into Posts',
-    why: 'Every question she is asking is a post waiting to be made. Today you turn your questions into content you can film, design and post.',
+    why: 'Every question she is asking is a post waiting to be made. Today you learn my Amen to Opt-In™ formula, the formula that turns an audience that says “amen” into women who ask, “How do I join?”',
+    formula: true,
     steps: [
+      'Read the Amen to Opt-In™ formula above. Every post you make follows these 5 parts.',
       'Choose one of your 10 starred questions.',
-      'Copy the prompt below into ChatGPT, then paste in your purpose statement and that question.',
-      'ChatGPT will write it three ways: a talking head video, a B-roll video and a carousel.',
+      'Copy the prompt below into ChatGPT. Fill in your details and paste in that question.',
+      'ChatGPT will write it three ways, all following the formula: a talking head video script, a B-roll video and a carousel.',
       'Repeat with more of your starred questions. Save everything in your notes app. These are the posts you will create on Days 6, 7 and 8.',
     ],
     prompt: { name: 'Prompt 3: Turn a Question Into a Post', text: post },
@@ -118,8 +129,9 @@ const days: Day[] = [
     steps: [
       'Download two apps: TikTok and TikTok Studio.',
       'Set up your profile: a clear photo of you, your name, and a bio built from your purpose statement.',
-      'Talking head video: you speaking to the camera. Open with your hook in the first 2 seconds, share 3 short points, then close with an invitation to follow you or message you. Keep it to 60 seconds.',
-      'Use the questions and hooks from Day 4 for your videos.',
+      'Talking head video: you speaking to the camera, following the Amen to Opt-In™ formula. Your hook lands in the first 3 seconds, then your authority, the person or the problem, your solution by name, and one call to action. Keep it between 60 and 90 seconds.',
+      'Use the scripts you wrote with Prompt 3 on Day 5. Put your hook on the screen as text too, matching what you say.',
+      'Check your on-screen text for typos before you save.',
       'Save your videos as drafts so you can schedule them in TikTok Studio.',
     ],
     homework: ['A screenshot of your TikTok profile', 'Record 3 talking head videos and screenshot your drafts'],
@@ -128,8 +140,8 @@ const days: Day[] = [
     title: 'B-Roll Videos and Carousels',
     why: 'Not every post needs you talking. B-roll and carousels let you show up with purpose, even on the days you don’t feel camera ready.',
     steps: [
-      'B-roll video: short clips of your everyday life (your coffee, your Bible, your desk, a walk) with your hook and answer written on the screen.',
-      'Carousel: 5 to 7 photo slides that answer one question. Slide 1 is your hook. The last slide invites her to follow you or message you.',
+      'B-roll video: short clips of your everyday life (your coffee, your Bible, your desk, a walk) with the 5 parts of the Amen to Opt-In™ formula written on the screen.',
+      'Carousel: 7 photo slides that follow the formula. Slide 1 is your hook, and the last slide is your one call to action. Use the carousel ChatGPT wrote for you on Day 5.',
       'Batch day: make 10 pieces of content today, mixing all three styles.',
     ],
     homework: ['A screenshot of your 10 pieces of content'],
@@ -178,6 +190,19 @@ const days: Day[] = [
           <p class="locked-note">Finish Day {i} to unlock this day.</p>
           <div class="day-body">
             <p class="why">{d.why}</p>
+            {d.formula && (
+              <div class="formula">
+                <h3>The Amen to <span class="nw">Opt-In™</span> Formula</h3>
+                <ol>
+                  <li><b>Hook:</b> one bold sentence that challenges what she believes about her problem. It lands in the first 3 seconds.</li>
+                  <li><b>Authority:</b> your name, your credential, and who you help do what.</li>
+                  <li><b>The person OR the problem:</b> choose one, never both.</li>
+                  <li><b>The solution by name:</b> your page’s content, your freebie or your offer, plus two results and one thing she can keep.</li>
+                  <li><b>Call to action:</b> one step only, plus her desired outcome.</li>
+                </ol>
+                <p class="hooks"><b>Hook styles:</b> Bold Claim · Contrarian · Call-Out · Nobody Tells You · Transformation</p>
+              </div>
+            )}
             <h3>Today’s steps</h3>
             <ol class="steps">{d.steps.map((s) => <li>{s}</li>)}</ol>
             {d.link && <p><a class="btn" href={d.link.href} target="_blank" rel="noopener">{d.link.label}</a></p>}
@@ -284,6 +309,11 @@ const days: Day[] = [
   .why { font-family: var(--display); font-style: italic; font-size: 21px; line-height: 1.45; color: var(--pink-deep); }
   .day-body h3 { font-family: var(--sans); font-size: 15px; font-weight: 700; letter-spacing: .04em; color: var(--ink); }
   .steps, .homework ul { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+  .formula { background: var(--pink-faint); border: 1px solid var(--pink-line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; }
+  .formula h3 { font-family: var(--display); font-size: 24px; letter-spacing: 0; }
+  .formula ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+  .nw { white-space: nowrap; }
+  .hooks { font-size: 14px; color: var(--pink-deep); }
   .prompt { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 12px; }
   .prompt-head { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
   .copy { appearance: none; border: 1px solid var(--pink); background: var(--pink-faint); color: var(--pink-deep); border-radius: 999px; padding: 10px 18px; min-height: 44px; font: 600 14px var(--sans); cursor: pointer; }
